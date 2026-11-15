@@ -943,6 +943,46 @@ body::after{content:"";position:fixed;right:-15vw;bottom:-25vh;width:60vw;height
 .sduo{display:flex;align-items:center;gap:18px;margin:14px 0 18px}.sduo .duoav{width:clamp(72px,22cqw,110px)}.sduo .duoheart{margin:0;font-size:38px}
 @media(max-width:699px){.tcrow{grid-template-columns:36px 1fr auto auto}.tcrow small{display:none}.gmir em{min-width:74px}}
 .wemo{font-size:clamp(44px,13cqw,72px);line-height:1;margin-bottom:6px}
+.stabs{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 16px;width:auto;position:sticky;top:-2px;z-index:5;background:var(--panel);box-shadow:0 8px 16px -8px #0009}
+.stabs button{flex:1 1 auto;white-space:nowrap}
+#settingsBody fieldset[hidden]{display:none}
+.savebar{position:sticky;bottom:-2px;display:flex;gap:10px;justify-content:flex-end;padding:12px 0 2px;margin-top:6px;background:linear-gradient(transparent,var(--panel) 30%)}
+.thgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.thm{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:10px;border-radius:16px;border:2px solid #ffffff12;transition:transform .2s,border-color .2s}
+.thm:hover{transform:translateY(-2px)}.thm.on{border-color:var(--acc)}
+.thp{display:flex;gap:6px;align-items:flex-end;height:58px;border-radius:10px;padding:10px;margin-bottom:4px}.thp i{width:16px;border-radius:5px}
+.thp i:nth-child(1){height:70%}.thp i:nth-child(2){height:45%}.thp i:nth-child(3){height:25%}
+.thm b{font-size:14px;color:#F1F5FA}.thm small{font-size:11px;color:#A3ADBD;line-height:1.3}
+.amp{color:#FF7AB6;font-weight:800}
+.avh .avs .duoav{width:52px}
+.greets #greetBox{display:flex;flex-direction:column;gap:8px}
+.greet{padding:10px 12px;border-radius:14px;background:color-mix(in srgb,var(--violet) 12%,transparent)}.greet b{display:block;font-size:15px}.greet small{font-size:11px;color:var(--muted);font-weight:700}
+.greet.new{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--violet) 60%,transparent);animation:gpop .6s cubic-bezier(.3,1.6,.5,1)}
+@keyframes gpop{from{transform:scale(.94);opacity:0}}
+.gbtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gbtns .chip{font-size:12px;padding:7px 10px}
+.foldh{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}.fchev{margin-left:auto;font-size:18px;color:var(--muted);transition:transform .3s;line-height:1}
+.fold.shut .fchev{transform:rotate(-90deg)}.fold.shut .fbody{display:none}.fold.shut h3{margin-bottom:0}
+@media(min-width:700px){.fchev{display:none}.foldh{cursor:default}}
+.nrow2{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid #ffffff0a}.nrow2:first-child{border-top:0}
+.nic{font-size:22px;text-align:center}.nrow2 b{display:block;font-size:14px;font-weight:600}.nrow2 b span{font-weight:900}.nrow2 small{font-size:11px;color:var(--muted);font-weight:700}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:4px 22px}
+.brow{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center;padding:8px 0;border-top:1px solid #ffffff0a;cursor:pointer}.brow .poster{border-radius:7px}
+.bt{display:flex;align-items:baseline;gap:8px;justify-content:space-between}.bt b{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bb{flex:none;font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}.bb.me{color:var(--acc)}.bb.pa{color:var(--violet)}
+.splitbar{display:flex;height:8px;border-radius:99px;overflow:hidden;margin:6px 0 3px;background:var(--violet)}.splitbar i{height:100%}.splitbar i.me{background:var(--acc)}.splitbar i.pa{flex:1}
+.bv{display:flex;justify-content:space-between;font-size:11px;font-weight:800}
+@media(max-width:699px){.bgrid{grid-template-columns:1fr}}
+.ghist{display:flex;align-items:flex-end;gap:3px;height:96px;margin:6px 0 2px;padding-bottom:16px;position:relative}
+.gh{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative}
+.gh i{display:block;width:100%;max-width:18px;border-radius:4px 4px 2px 2px;background:var(--acc);transition:height .9s cubic-bezier(.2,.8,.2,1);min-height:0}
+.gh small{position:absolute;bottom:-16px;font-size:9px;color:var(--muted);font-weight:700;white-space:nowrap}
+.gh:hover i{filter:brightness(1.25)}
+.avh .avs span:has(.duoav){margin-left:8px}
+.duomatch .gmir,.duomatch .secttl{align-self:stretch;width:100%}
+.duomatch .secttl{text-align:center}
+.foldh{position:relative;display:block}.fchev{position:absolute;right:0;top:-4px;margin:0}
+.brow .poster{width:40px}
+.stabs button{flex:0 1 auto}
 </style>
 </head>
 <body>
@@ -1094,6 +1134,45 @@ const store = {
   del(k){ try { localStorage.removeItem(k); sessionStorage.removeItem(k); } catch(e){} },
 };
 const pass = () => store.get("gr_pass", null);
+/* ================= Farbwelten ================= */
+// Basisfarben des Standard-Designs → werden im Stylesheet ersetzt (Alpha-Endungen bleiben erhalten)
+const THEME_BASE = {acc:"#33C3FF", violet:"#A97BFF", cyan:"#14F0C8", pink:"#7C8CFF", ink2:"#0A1C2A", bg:"#101216", panel:"#181B21", panel2:"#1F232A", glow:"#242B37", deep:"#13111a", deep2:"#15171C"};
+const THEMES = [
+  ["nacht","Nacht","Das Original – Eisblau und Violett", {}],
+  ["synthwave","Synthwave","Neon-Pink trifft Lila", {acc:"#FF4FA3", violet:"#8B6CFF", cyan:"#FFD166", pink:"#FF8A5C", ink2:"#2A0A1C", bg:"#120E19", panel:"#1C1625", panel2:"#251D31", glow:"#3A2350", deep:"#160f1f", deep2:"#1a1422"}],
+  ["wald","Wald","Mintgrün und Gold", {acc:"#3DDC97", violet:"#E9C46A", cyan:"#9BE7FF", pink:"#74C69D", ink2:"#06231A", bg:"#0E1412", panel:"#161E1B", panel2:"#1D2723", glow:"#1F3A30", deep:"#101814", deep2:"#121a17"}],
+  ["glut","Glut","Warmes Orange und Rot", {acc:"#FF8A3D", violet:"#FF4D6D", cyan:"#FFD166", pink:"#FFB4A2", ink2:"#2A1206", bg:"#140F0E", panel:"#1E1716", panel2:"#271E1C", glow:"#3A2420", deep:"#1a1110", deep2:"#1b1514"}],
+  ["ozean","Ozean","Tiefblau und Türkis", {acc:"#4CC9F0", violet:"#4D6BFF", cyan:"#72EFDD", pink:"#7B8CFF", ink2:"#05202B", bg:"#0B1220", panel:"#121B2D", panel2:"#18233A", glow:"#1B2D4F", deep:"#0d1526", deep2:"#101929"}],
+  ["kirsch","Kirschblüte","Zartes Rosa und Flieder", {acc:"#FF8FB8", violet:"#B794F6", cyan:"#7FDBCA", pink:"#F6A6C9", ink2:"#2B0A18", bg:"#151015", panel:"#1F171E", panel2:"#281E27", glow:"#3A2436", deep:"#191118", deep2:"#1c151b"}],
+  ["mono","Mono","Schlicht in Weiß und Grau", {acc:"#E8ECF2", violet:"#8E99AB", cyan:"#C9D3E0", pink:"#AEB8C6", ink2:"#0B0C0E", bg:"#0E0F11", panel:"#17181B", panel2:"#1E2024", glow:"#26282D", deep:"#121315", deep2:"#141518"}],
+];
+const THEME = {base: null, cur: "nacht"};
+function applyTheme(id){
+  const t = THEMES.find(x=>x[0]===id) || THEMES[0], el = document.querySelector("style");
+  if (!el) return;
+  if (THEME.base === null) THEME.base = el.textContent;
+  const map = {};
+  for (const [k, v] of Object.entries(t[3])) map[THEME_BASE[k].toLowerCase()] = v;
+  const keys = Object.keys(map);
+  el.textContent = keys.length ? THEME.base.replace(new RegExp(keys.map(k=>k.replace("#","#")).join("|"), "gi"), m => map[m.toLowerCase()]) : THEME.base;
+  const meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.content = t[3].bg || THEME_BASE.bg;
+  THEME.cur = t[0];
+}
+window.setTheme = async id => {
+  applyTheme(id); store.set("gr_theme", id);
+  document.querySelectorAll(".thm").forEach(b=>b.classList.toggle("on", b.dataset.t === id));
+  try { await saveKv("ui", {...((S.data||{}).ui||{}), theme:id}); } catch(e){}
+};
+function syncTheme(){ const t = ((S.data||{}).ui||{}).theme; if (t && t !== THEME.cur){ applyTheme(t); store.set("gr_theme", t); } }
+function themePicker(){
+  return `<div class="thgrid">${THEMES.map(([id,name,sub,c])=>{ const v = {...THEME_BASE, ...c};
+    return `<button type="button" class="thm ${THEME.cur===id?"on":""}" data-t="${id}" onclick="setTheme('${id}')" style="background:${v.panel}">
+      <span class="thp" style="background:linear-gradient(135deg,${v.glow},${v.bg})"><i style="background:${v.acc}"></i><i style="background:${v.violet}"></i><i style="background:${v.cyan}"></i></span>
+      <b>${name}</b><small>${sub}</small></button>`; }).join("")}</div>
+    <p class="help">Gilt für PC und Handy-App. Die Wrapped-Storys behalten ihre eigenen Farben.</p>`;
+}
+try { const t0 = JSON.parse(localStorage.getItem("gr_theme")||"null"); if (t0 && t0 !== "nacht") applyTheme(t0); } catch(e){}
+
 const edits = () => store.get("gr_edits", []);
 
 /* ================= Daten laden ================= */
@@ -1105,7 +1184,7 @@ async function load(quiet){
   // Während des Abgleichs nicht ständig neu zeichnen: erst wenn er fertig ist (oder beim ersten Laden)
   if (quiet && d.syncing){ setTimeout(()=>load(true), 3000); return; }
   if (quiet && $("dialog[open]")) { setTimeout(()=>load(true), 3000); return; }
-  S.data = d; S.yearPM = undefined; S.pcache = {};
+  S.data = d; S.yearPM = undefined; S.pcache = {}; syncTheme();
   applyEstimate(); buildGroups(); header(); quiet ? quietRoute() : route(); setTimeout(saveYearArchive, 1500);
   if (!quiet && d.can_edit && !d.configured && !store.get("gr_wizard", 0) && !WZ.shown){ WZ.shown = true; setTimeout(()=>openWizard(0), 600); }
   if (S.data.syncing) setTimeout(()=>load(true), 3000);
@@ -1139,11 +1218,11 @@ async function loadCloud(force){
   S.data = {last_sync:snap.last_sync, sources:snap.sources||{}, games:snap.games||[], meta, hltb:snap.hltb||{},
     sessions:snap.sessions||[], csessions:snap.csessions||[], status_log:snap.status_log||[], goals, steam:snap.steam||{}, prefs:snap.prefs||{},
     year_overrides: kvs.year_overrides, wrapped_archive: kvs.wrapped, notpc: kvs.notpc, snotes: kvs.snotes, covers: kvs.covers, paid: kvs.paid, notify: kvs.notify, critic: kvs.critic, push_ready: !!snap.push_ready, wl_deals: snap.wl_deals || {}, metacritic: snap.metacritic || {},
-    values: snap.values || {}, values_at: snap.values_at, xcovers: snap.xcovers || {}, partner: snap.partner || null, me_name: snap.me_name || "", me_duo: snap.me_duo || null,
+    values: snap.values || {}, values_at: snap.values_at, xcovers: snap.xcovers || {}, partner_url: snap.partner_url || null, partner: snap.partner || null, me_name: snap.me_name || "", me_duo: snap.me_duo || null, greets: snap.greets || [], push_topic: snap.push_topic || null, ui: snap.ui || {}, ghist: snap.ghist || null,
     tracking_since: snap.tracking_since, health: snap.health || [],
     trophies: snap.trophies || [], free_games: snap.free_games || [],
     playing:[], can_edit:false, period: p ? p.info : {period:"all"}, period_minutes: p ? p.pm : null};
-  S.pcache = {}; S.yearPM = undefined; S.yearInfo = undefined;
+  S.pcache = {}; S.yearPM = undefined; S.yearInfo = undefined; syncTheme();
   applyEstimate(); buildGroups(); header(); route(); flushEdits(); setTimeout(saveYearArchive, 1500);
 }
 const pick = (o, ks) => Object.fromEntries(ks.filter(k=>k in o).map(k=>[k,o[k]]));
@@ -2698,7 +2777,8 @@ function myDuoRows(){
 }
 function duoLive(d){ // nur frische Daten zählen (sonst ist der PC aus)
   if (!d || !d.at) return [];
-  return Date.now() - Date.parse(d.at) < 25*60e3 ? (d.playing||[]) : [];
+  const tools = /^(wallpaper engine|soundpad|steamvr|lossless scaling|obs studio|fpsvr|ovr .*|virtual desktop|voicemeeter|steam link)$/i;
+  return Date.now() - Date.parse(d.at) < 25*60e3 ? (d.playing||[]).filter(x=>!tools.test(String(x.t||"").trim())) : [];
 }
 function duoWeeks(a, b){ // [[montag, ich, partner], ...] nur Wochen, die beide kennen
   const B = new Map((b||[]).map(w=>[w[0], w[1]]));
@@ -2728,7 +2808,7 @@ const matchText = p => p >= 80 ? "Gaming-Seelenverwandte" : p >= 60 ? "Starkes T
 function duoAv(url, name, cls){ return `<span class="duoav ${cls}">${url ? `<img src="${esc(url)}" alt="" onerror="this.remove()">` : ""}<i>${esc((name||"?").slice(0,1).toUpperCase())}</i></span>`; }
 function duoData(){
   const p = S.data.partner, me = S.data.me_duo || {}, meName = S.data.me_name || "Du";
-  const mine = myDuoRows(), theirs = new Map((p.games||[]).map(r=>[r[0], {k:r[0], t:r[1], m:r[2], y:r[3], mo:r[4], own:!!r[5], c:r[6], mp:!!r[7], d:r[8]||[]}]));
+  const mine = myDuoRows(), theirs = new Map((p.games||[]).map(r=>[r[0], {k:r[0], t:r[1], m:r[2], y:r[3], mo:r[4], own:!!r[5], c:r[6], mp:!!r[7], d:r[8]||[], a:r[9]||null}]));
   const weeks = duoWeeks(me.weeks, p.weeks), cur = weeks[weeks.length-1];
   const monday = (()=>{ const d = new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate() - ((d.getDay()+6)%7)); return d.toLocaleDateString("sv-SE"); })();
   const wk = cur && cur[0] === monday ? [cur[1], cur[2]] : [0, 0];
@@ -2738,15 +2818,78 @@ function duoData(){
   const match = duoMatch(me, p, both.length, [...mine.values()].filter(x=>x.m>0).length, [...theirs.values()].filter(x=>x.m>0).length);
   return {p, me, meName, mine, theirs, weeks, tot, both, match, yr, streak: duoStreak(weeks)};
 }
+function duoHead(){
+  const p = S.data.partner, meName = S.data.me_name || "Du", me = S.data.me_duo || {};
+  const myAv = me.avatar || ((S.data.steam||{}).me||{}).avatar;
+  return `<div class="khead avh reveal"><div><div class="eyebrow">Wir zwei</div><div class="h1">${p ? `${esc(meName)} <span class="amp">&</span> ${esc(p.name)}` : "Wir zwei"}</div>
+    <p>${p ? "Eure Spiele, eure Duelle, eure Abende" : "Verbinde zwei Gaming-Recap-Installationen"}</p></div>
+    ${p ? `<div class="avs" aria-hidden="true"><span style="--i:0">${duoAv(myAv, meName, "me")}</span><span style="--i:1">${duoAv(p.avatar, p.name, "pa")}</span></div>` : ""}</div>`;
+}
+// Gemeinsame Abende: beide gleichzeitig im selben Spiel (mind. 15 Min Überschneidung)
+function duoEvenings(p){
+  const mine = S.data.sessions || [], theirs = p.sess || [];
+  if (!theirs.length || !mine.length) return null;
+  const by = new Map(); theirs.forEach(x=>{ if (!by.has(x[0])) by.set(x[0], []); by.get(x[0]).push(x); });
+  const days = new Map();
+  for (const [k, s, sec] of mine){
+    for (const [, s2, sec2] of by.get(k) || []){
+      const a = Math.max(s, s2), b = Math.min(s + sec, s2 + sec2);
+      if (b - a < 900) continue;
+      const d = new Date((a - 5*3600) * 1000), key = d.toLocaleDateString("sv-SE");   // nach Mitternacht zählt zum Vorabend
+      const e = days.get(key) || {day:key, min:0, games:{}};
+      e.min += (b - a) / 60; e.games[k] = (e.games[k]||0) + (b - a) / 60; days.set(key, e);
+    }
+  }
+  const list = [...days.values()].sort((x,y)=>x.day < y.day ? 1 : -1);
+  const games = {}; list.forEach(e=>Object.entries(e.games).forEach(([k,m])=>games[k]=(games[k]||0)+m));
+  const top = Object.entries(games).sort((a,b)=>b[1]-a[1])[0];
+  return {list, n:list.length, min:list.reduce((s,e)=>s+e.min,0), best:[...list].sort((a,b)=>b.min-a.min)[0], top};
+}
+const GREETS = [["💪","Ich feuer dich an!"],["💞","Hab dich lieb"],["🎮","Lust, zusammen zu zocken?"],["👏","Glückwunsch!"],["🍕","Pause? Essen ist fertig"],["😴","Gute Nacht, Player 2"]];
+window.sendGreet = async (text, btn) => {
+  const p = S.data.partner; if (!p || !p.topic) return;
+  if (btn){ btn.disabled = true; setTimeout(()=>btn.disabled = false, 8000); }
+  try {
+    const r = await fetch("https://ntfy.sh/", {method:"POST", body: JSON.stringify({topic:p.topic, title:`💞 ${S.data.me_name || "Dein Player 2"}`, message:text, tags:["gr-greet"], click: S.data.partner_url ? S.data.partner_url.replace(/\/?$/, "/#/freunde") : undefined})});
+    if (!r.ok) throw new Error(r.status);
+    const sent = store.get("gr_greets_sent", []); sent.push({at:Date.now()/1000|0, msg:text}); store.set("gr_greets_sent", sent.slice(-10));
+    toast(`An ${p.name} geschickt 💌`); duoGreetBox();
+  } catch(e){ toast("Senden hat nicht geklappt – Internet?"); if (btn) btn.disabled = false; }
+};
+async function pollGreets(){ // eigene Grüße frisch von ntfy holen (zusätzlich zu dem, was der PC gespeichert hat)
+  const t = S.data.push_topic; if (!t || Date.now() - (S._gpoll||0) < 45e3) return; S._gpoll = Date.now();
+  try {
+    const txt = await (await fetch(`https://ntfy.sh/${encodeURIComponent(t)}/json?poll=1&since=12h`)).text();
+    const live = txt.split("\n").filter(Boolean).map(l=>{ try { return JSON.parse(l); } catch(e){ return null; } })
+      .filter(m=>m && m.event==="message" && (m.tags||[]).includes("gr-greet")).map(m=>({id:m.id, at:m.time, title:m.title||"", msg:m.message||""}));
+    const have = new Set((S.data.greets||[]).map(g=>g.id)), add = live.filter(g=>!have.has(g.id));
+    if (add.length){ S.data.greets = [...(S.data.greets||[]), ...add].slice(-30); duoGreetBox(); }
+  } catch(e){}
+}
+const relT = sec => { const m = Math.round((Date.now()/1000 - sec)/60); return m < 1 ? "gerade eben" : m < 60 ? `vor ${m} Min` : m < 1440 ? `vor ${Math.round(m/60)} Std` : new Date(sec*1000).toLocaleDateString("de-DE",{day:"numeric",month:"short"}); };
+function duoGreetBox(){
+  const el = $("#greetBox"), p = S.data.partner; if (!el || !p) return;
+  const got = [...(S.data.greets||[])].sort((a,b)=>b.at-a.at).slice(0,4), sent = store.get("gr_greets_sent", []).slice(-1)[0];
+  el.innerHTML = `${got.length ? got.map((g,i)=>`<div class="greet ${i===0 && Date.now()/1000 - g.at < 3600 ? "new" : ""}"><b>${esc(g.msg)}</b><small>${esc((g.title||"").replace(/^💞\s*/,""))} · ${relT(g.at)}</small></div>`).join("")
+      : `<p class="help" style="margin:0 0 10px">Noch keine Grüße bekommen. Mach den Anfang 💌</p>`}
+    ${p.topic ? `<div class="gbtns">${GREETS.map(([e,t])=>`<button class="chip" onclick="sendGreet('${e} ${t}', this)">${e} ${t}</button>`).join("")}</div>
+      ${sent ? `<p class="help" style="margin:8px 0 0">Zuletzt gesendet: ${esc(sent.msg)} · ${relT(sent.at)}</p>` : ""}`
+      : `<p class="help" style="margin:8px 0 0">Grüße schicken geht, sobald ${esc(p.name)} Push aufs Handy eingerichtet und die neueste Version hat.</p>`}`;
+}
+const NEWS_ICON = {done:["🎉","hat %t durchgespielt"], full:["🏆","hat %t zu 100 % geschafft"], new:["🛍️","hat %t neu"], tierS:["⭐","hat %t ins S-Tier gepackt"], tierA:["✨","hat %t ins A-Tier gepackt"]};
+window.duoFold = k => { S.duoFold[k] = !duoShut(k); const el = document.querySelector(`[data-f="${k}"]`); if (el) el.classList.toggle("shut", duoShut(k)); };
+const duoShut = k => S.duoFold && k in S.duoFold ? S.duoFold[k] : matchMedia("(max-width:699px)").matches && ["both","coop","tips","tier","news"].includes(k);
+const foldH = (k, title, extra="") => `<h3 class="foldh" onclick="duoFold('${k}')">${title}${extra}<span class="fchev">⌄</span></h3>`;
 function renderDuo(head){
   const p = S.data.partner;
+  S.duoFold = S.duoFold || {};
   if (!p){
     setView(head + `<div class="card" style="max-width:760px"><h3>💞 Wir zwei ${qi("duo")}</h3>
       <div class="mid" style="margin:4px 0 10px">Verbinde dich mit jemandem</div>
       <p>Wenn zwei Leute Gaming Recap nutzen, könnt ihr eure Apps verbinden: Wer spielt mehr, welche Spiele habt ihr beide, was könntet ihr zusammen spielen.</p>
-      <ol class="help"><li>Beide richten die Handy-App ein (GitHub).</li><li>Einer erzeugt unter <b>Einstellungen › Profil & Wir zwei</b> einen Partner-Code und schickt ihn dem anderen.</li>
+      <ol class="help"><li>Beide richten die Handy-App ein (GitHub).</li><li>Einer erzeugt unter <b>Einstellungen › Wir zwei</b> einen Partner-Code und schickt ihn dem anderen.</li>
         <li>Jeder trägt dort die Handy-App-Adresse des anderen und denselben Code ein.</li></ol>
-      ${S.data.can_edit?`<button class="btn limeb" onclick="openSettings()">Einstellungen öffnen</button>`:`<p class="help">Das Einrichten geht am PC.</p>`}</div>`);
+      ${S.data.can_edit?`<button class="btn limeb" onclick="S.setTab='duo';openSettings()">Einstellungen öffnen</button>`:`<p class="help">Das Einrichten geht am PC.</p>`}</div>`);
     return;
   }
   if (!S.yearPM && !S._duoYear){ S._duoYear = 1; ensurePeriod("year").then(()=>{ if (S.fr === "duo" && cur() === "freunde") quietRoute(); }).catch(()=>{}); }
@@ -2756,7 +2899,7 @@ function renderDuo(head){
   const lead = !sum ? "Noch keiner hat gespielt – wer fängt an?" : diff < 30 ? "Fast Gleichstand – ihr seid ein eingespieltes Team." : `<b>${esc(a > b ? meName : p.name)}</b> liegt ${hrs(diff)} vorn.`;
   const crown = (tot.month[0] || tot.month[1]) ? (tot.month[0] >= tot.month[1] ? 0 : 1) : -1;
   const myAv = me.avatar || ((S.data.steam||{}).me||{}).avatar;
-  const liveMe = (S.data.playing||[]).map(x=>({t:x.title, s:x.since})), livePa = duoLive(p);
+  const liveMe = (S.data.playing||[]).map(x=>({t:x.title, s:x.since, k:x.key})), livePa = duoLive(p);
   const ago = s => { const m = Math.max(1, Math.round((Date.now()/1000 - Number(s||0))/60)); return m < 60 ? `${m} Min` : hrs(m); };
   const liveRow = (who, cls, x) => { const own = [...mine.values()].find(g=>g.k===x.k || g.t===x.t), both2 = own && own.own && theirs.has(own.k) && theirs.get(own.k).own;
     return `<div class="duolive ${cls}"><span class="ldot"></span><span><b>${esc(who)}</b> spielt gerade <b>${esc(x.t||"")}</b> · seit ${ago(x.s)}${both2 && own.mp ? " · ihr habt es beide – mitspielen? 🎮" : ""}</span></div>`; };
@@ -2778,10 +2921,20 @@ function renderDuo(head){
       <p class="help duolead">${lead}${crown>=0?` · 👑 Monatskrone: ${esc(crown?p.name:meName)}`:""}</p>
       <button class="btn duostory" onclick="startDuoStory()">${season?"🎁":"✨"} Unser Jahr ${yrStr} ansehen</button>
     </section>
-    <section class="card s12 x4 reveal duomatch"><h3>🧩 Gaming-Match ${qi("match")}</h3>
-      <div class="mring" style="--p:${match.pct}"><div><b data-count="${match.pct}">${match.pct}</b><small>%</small></div></div>
-      <div class="mtxt">${matchText(match.pct)}</div>
-      <p class="help" style="text-align:center;margin:4px 0 0">${both.length} gemeinsam gespielte Spiele${both[0]?` · Liebling: <b>${esc(both[0][0].t)}</b>`:""}</p></section>`;
+    <section class="card s12 x4 reveal greets"><h3>💌 Grüße</h3><div id="greetBox"></div></section>`;
+  // Gemeinsame Abende
+  const ev = duoEvenings(p);
+  if (ev) h += `<section class="card s12 x5 reveal"><h3>🛋️ Gemeinsame Abende ${qi("evenings")}</h3>
+    ${ev.n ? `<div class="stat3" style="grid-template-columns:1fr 1fr"><div class="tile"><small>Abende</small><b data-count="${ev.n}">${ev.n}</b><span>zusammen gezockt</span></div>
+      <div class="tile"><small>Zusammen</small><b>${hrs(ev.min)}</b><span>gleichzeitig im Spiel</span></div></div>
+      <p style="margin:12px 0 0">${ev.top ? `Am liebsten zusammen: <b>${esc((mine.get(ev.top[0])||theirs.get(ev.top[0])||{}).t || ev.top[0])}</b>. ` : ""}Zuletzt am ${new Date(ev.list[0].day+"T12:00").toLocaleDateString("de-DE",{weekday:"long", day:"numeric", month:"long"})}${ev.best && ev.best.min >= 60 ? `, euer längster Abend: ${hrs(ev.best.min)}` : ""}.</p>`
+    : `<p class="help" style="margin:0">Sobald ihr gleichzeitig dasselbe Spiel spielt, zählt es hier als gemeinsamer Abend – automatisch, ab mindestens 15 Minuten.</p>`}</section>`;
+  // Neuigkeiten
+  const news = (p.news||[]).filter(n=>NEWS_ICON[n[0]]).slice(0,6);
+  if (news.length) h += `<section class="card s12 ${ev?"x7":""} reveal fold ${duoShut("news")?"shut":""}" data-f="news">${foldH("news", `📰 Neues von ${esc(p.name)}`)}
+    <div class="fbody">${news.map(n=>{ const [ic, tx] = NEWS_ICON[n[0]], g = (mine.get(n[1])||{}).g;
+      return `<div class="nrow2"><span class="nic">${ic}</span><div><b>${tx.replace("%t", `<span>${esc(n[2])}</span>`)}</b><small>${relT(Date.parse(n[3])/1000)}</small></div>
+        ${p.topic && ["done","full","tierS"].includes(n[0]) ? `<button class="chip" onclick="sendGreet('👏 Glückwunsch zu ${esc(n[2]).replace(/'/g,"")}!', this)">👏</button>` : ""}</div>`; }).join("")}</div></section>`;
   // Wochen-Duell
   if (weeks.length){
     const last8 = weeks.slice(-8), mx = Math.max(1, ...last8.flatMap(w=>[w[1],w[2]]));
@@ -2792,36 +2945,51 @@ function renderDuo(head){
       <div class="wchart">${last8.map((w,i)=>`<div class="wc${i===last8.length-1?" now":""}"><div class="wcb"><i class="me" style="height:0" data-h="${w[1]/mx*100}%" title="${esc(meName)}: ${hrs(w[1])}"></i><i class="pa" style="height:0" data-h="${w[2]/mx*100}%" title="${esc(p.name)}: ${hrs(w[2])}"></i></div><small>${i===last8.length-1?"jetzt":kw(new Date(w[0]+"T12:00:00"))}</small></div>`).join("")}</div>
       <p class="help" style="margin-bottom:0"><span class="lg me"></span>${esc(meName)} <span class="lg pa"></span>${esc(p.name)}</p></section>`;
   }
-  // Geschmack: Genres im Spiegel
-  if (match.gen.length && Object.keys(p.genres||{}).length){
-    const gm = Math.max(...match.gen.flatMap(g=>[g[1],g[2]]), .01);
-    h += `<section class="card s12 x5 reveal"><h3>🧬 Eure Gamer-DNA</h3>
-      ${match.gen.map(([n,x,y])=>`<div class="gmir"><span class="l"><i class="me" style="width:0" data-w="${x/gm*100}%"></i></span><em>${esc(n)}</em><span class="r"><i class="pa" style="width:0" data-w="${y/gm*100}%"></i></span></div>`).join("")}
-      <p class="help" style="margin-bottom:0;text-align:center">Anteil an der Spielzeit · <span class="lg me"></span>${esc(meName)} <span class="lg pa"></span>${esc(p.name)}</p></section>`;
-  }
-  // Tier-Listen im Vergleich
+  // Match + DNA
+  h += `<section class="card s12 x5 reveal duomatch"><h3>🧩 Gaming-Match ${qi("match")}</h3>
+      <div class="mring" style="--p:${match.pct}"><div><b>${match.pct}</b><small>%</small></div></div>
+      <div class="mtxt">${matchText(match.pct)}</div>
+      <p class="help" style="text-align:center;margin:4px 0 0">${both.length} gemeinsam gespielte Spiele${both[0]?` · Liebling: <b>${esc(both[0][0].t)}</b>`:""}</p>
+      ${match.gen.length && Object.keys(p.genres||{}).length ? (()=>{ const gm = Math.max(...match.gen.flatMap(g=>[g[1],g[2]]), .01);
+        return `<div class="secttl" style="margin-top:16px">🧬 Eure Gamer-DNA</div>${match.gen.slice(0,6).map(([n,x,y])=>`<div class="gmir"><span class="l"><i class="me" style="width:0" data-w="${x/gm*100}%"></i></span><em>${esc(n)}</em><span class="r"><i class="pa" style="width:0" data-w="${y/gm*100}%"></i></span></div>`).join("")}`; })() : ""}</section>`;
+  // Tier-Listen
   const tm = me.tiers || {}, tp = p.tiers || {}, tk = Object.keys(tm).filter(k=>/^[SABCDF]$/.test(tm[k]) && /^[SABCDF]$/.test(tp[k]||""));
   if (tk.length){
     const ord = "SABCDF", rows = tk.map(k=>({k, a:tm[k], b:tp[k], d:Math.abs(ord.indexOf(tm[k])-ord.indexOf(tp[k])), g:(mine.get(k)||{}).g, t:(mine.get(k)||{}).t || (theirs.get(k)||{}).t})).sort((x,y)=>x.d-y.d || ord.indexOf(x.a)-ord.indexOf(y.a));
     const agree = rows.filter(r=>r.d===0).length;
-    h += `<section class="card reveal"><h3>🏆 Tier-Listen <span class="h3s">einig bei ${agree} von ${rows.length}</span></h3><div class="tcmp">
+    h += `<section class="card reveal fold ${duoShut("tier")?"shut":""}" data-f="tier">${foldH("tier", "🏆 Tier-Listen", ` <span class="h3s">einig bei ${agree} von ${rows.length}</span>`)}<div class="fbody"><div class="tcmp">
       ${rows.slice(0,10).map(r=>`<div class="tcrow" ${r.g?`onclick="openGame('${esc(r.k)}')"`:""}><div class="poster">${r.g?img(r.g.covers,r.t):ph(r.t||"")}</div><b>${esc(r.t||r.k)}</b>
         <span class="tier t${r.a}">${r.a}</span><span class="tier t${r.b} pa">${r.b}</span><small>${r.d===0?"💞 einig":r.d>=2?"🔥 Diskussionsstoff":"fast einig"}</small></div>`).join("")}</div>
-      <p class="help" style="margin-bottom:0"><span class="lg me"></span>${esc(meName)} <span class="lg pa"></span>${esc(p.name)}</p></section>`;
+      <p class="help" style="margin-bottom:0"><span class="lg me"></span>${esc(meName)} <span class="lg pa"></span>${esc(p.name)}</p></div></section>`;
+  }
+  // Beide gespielt – ein geteilter Balken pro Spiel
+  if (both.length){
+    const so = S.duoSort || "sum", all = S.duoAll;
+    const sorted = [...both].sort((u,v)=> so==="me" ? (v[0].m-v[1].m)-(u[0].m-u[1].m) : so==="pa" ? (v[1].m-v[0].m)-(u[1].m-u[0].m)
+      : so==="close" ? Math.abs(u[0].m-u[1].m)/(u[0].m+u[1].m) - Math.abs(v[0].m-v[1].m)/(v[0].m+v[1].m) : (v[0].m+v[1].m)-(u[0].m+u[1].m));
+    const list = all ? sorted.slice(0,40) : sorted.slice(0,6);
+    const sorts = [["sum","Zusammen am meisten"],["me",`${meName} führt`],["pa",`${p.name} führt`],["close","Knappste Duelle"]];
+    h += `<section class="card reveal fold ${duoShut("both")?"shut":""}" data-f="both">${foldH("both", "🤝 Beide gespielt", ` <span class="h3s">${both.length} Spiele</span>`)}<div class="fbody">
+      <div class="chips" style="margin:0 0 10px;flex-wrap:wrap">${sorts.map(([k,l])=>`<button class="chip ${so===k?"on":""}" onclick="S.duoSort='${k}';quietRoute()">${esc(l)}</button>`).join("")}</div>
+      <div class="bgrid">${list.map(([x,y])=>{ const t = x.m + y.m || 1, sh = x.m / t * 100, close = Math.abs(x.m - y.m) / t < .1;
+        return `<div class="brow" onclick="openGame('${esc(x.k)}')"><div class="poster">${img(x.g.covers,x.t)}</div><div class="bm">
+          <div class="bt"><b>${esc(x.t)}</b><span class="bb ${close?"":x.m>y.m?"me":"pa"}">${close?"gleichauf":"👑 "+esc(x.m>y.m?meName:p.name)}</span></div>
+          <div class="splitbar"><i class="me" style="width:${sh}%"></i><i class="pa"></i></div>
+          <div class="bv"><span class="cme">${hrs(x.m)}</span><span class="cpa">${hrs(y.m)}</span></div></div></div>`; }).join("")}</div>
+      ${both.length > 6 ? `<button class="btn ghost small" style="margin-top:12px" onclick="S.duoAll=!S.duoAll;quietRoute()">${all?"Weniger anzeigen":`Alle ${Math.min(both.length,40)} anzeigen`}</button>` : ""}</div></section>`;
   }
   const coop = [...mine.values()].filter(x=>x.own && theirs.has(x.k) && theirs.get(x.k).own && (x.mp || theirs.get(x.k).mp))
-    .map(x=>[x, theirs.get(x.k)]).sort((a,b)=>((b[0].g.critic||70) - (a[0].g.critic||70)) || ((a[0].m+a[1].m)-(b[0].m+b[1].m))).slice(0,8);
-  const tips = [...theirs.values()].filter(x=>x.m>=600 && !(mine.get(x.k)||{}).m).sort((a,b)=>b.m-a.m).slice(0,8);
+    .map(x=>[x, theirs.get(x.k)]).sort((u,v)=>((v[0].g.critic||70) - (u[0].g.critic||70)) || ((u[0].m+u[1].m)-(v[0].m+v[1].m))).slice(0,8);
+  const tips = [...theirs.values()].filter(x=>x.m>=600 && !(mine.get(x.k)||{}).m).sort((u,v)=>v.m-u.m).slice(0,8);
   const cov = c => c ? `<img loading="lazy" src="${esc(c)}" alt="" onerror="this.remove()">` : "";
-  if (both.length) h += `<section class="card reveal"><h3>🤝 Beide gespielt <span class="h3s">${both.length} Spiele</span></h3>${both.slice(0,12).map(([x,y])=>{ const mx = Math.max(x.m,y.m,1);
-      return `<div class="duorow" onclick="openGame('${esc(x.k)}')"><div class="poster">${img(x.g.covers,x.t)}</div><div class="dm"><b>${esc(x.t)}</b>
-        <div class="dl"><span class="dbar me"><i style="width:${x.m/mx*100}%"></i></span><em>${hrs(x.m)}</em></div><div class="dl"><span class="dbar pa"><i style="width:${y.m/mx*100}%"></i></span><em>${hrs(y.m)}</em></div></div></div>`; }).join("")}
-      <p class="help"><span class="lg me"></span>${esc(meName)} <span class="lg pa"></span>${esc(p.name)}</p></section>`;
-  if (coop.length) h += `<section class="card s12 x6 reveal"><h3>🎮 Zusammen spielen? ${qi("coop")}</h3><p class="help" style="margin-top:0">Ihr habt beide – und es hat Mehrspieler oder Koop:</p>
-      ${coop.map(([x,y])=>gRow(x.g, x.g.critic?mcBadge(x.g.critic):"", `${esc(meName)} ${hrs(x.m)} · ${esc(p.name)} ${hrs(y.m)}`)).join("")}</section>`;
-  if (tips.length) h += `<section class="card s12 x6 reveal"><h3>💡 Tipps von ${esc(p.name)}</h3><p class="help" style="margin-top:0">Spielt ${esc(p.name)} viel – du noch gar nicht:</p>
-      ${tips.map(x=>`<div class="xrow" style="cursor:default"><div class="poster">${x.c?cov(x.c):ph(x.t)}</div><div><b>${esc(x.t)}</b><span>${esc(p.name)}: ${hrs(x.m)}${(mine.get(x.k)||{}).own?" · hast du schon":""}</span></div><em></em></div>`).join("")}</section>`;
-  setView(h + `</div><p class="help" style="text-align:center;margin-top:14px">Stand ${esc(p.name)}: ${p.at?new Date(p.at).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"–"} · aktualisiert sich etwa alle 5–10 Minuten</p>`);
+  if (coop.length) h += `<section class="card s12 x6 reveal fold ${duoShut("coop")?"shut":""}" data-f="coop">${foldH("coop", `🎮 Zusammen spielen? ${qi("coop")}`)}<div class="fbody"><p class="help" style="margin-top:0">Ihr habt beide – und es hat Mehrspieler oder Koop:</p>
+      ${coop.map(([x,y])=>gRow(x.g, x.g.critic?mcBadge(x.g.critic):"", `${esc(meName)} ${hrs(x.m)} · ${esc(p.name)} ${hrs(y.m)}`)).join("")}</div></section>`;
+  if (tips.length) h += `<section class="card s12 x6 reveal fold ${duoShut("tips")?"shut":""}" data-f="tips">${foldH("tips", `💡 Tipps von ${esc(p.name)}`)}<div class="fbody"><p class="help" style="margin-top:0">Spielt ${esc(p.name)} viel – du noch gar nicht:</p>
+      ${tips.map(x=>{ const own = (mine.get(x.k)||{}).own, g = (mine.get(x.k)||{}).g;
+        return `<div class="xrow" ${g?`onclick="openGame('${esc(x.k)}')"`:`style="cursor:default"`}><div class="poster">${g?img(g.covers,x.t):x.c?cov(x.c)+ph(x.t):ph(x.t)}</div><div><b>${esc(x.t)}</b><span>${esc(p.name)}: ${hrs(x.m)}${own?" · hast du schon":""}</span></div>
+          <em>${!own && x.a ? `<a class="chip" href="https://store.steampowered.com/app/${esc(x.a)}/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Steam ↗</a>` : ""}</em></div>`; }).join("")}</div></section>`;
+  setView(h + `</div><p class="help" style="text-align:center;margin-top:14px">Stand ${esc(p.name)}: ${p.at?new Date(p.at).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"–"} · Spielstand alle 5–10 Min, Grüße sofort</p>`);
+  duoGreetBox(); pollGreets();
 }
 
 /* ================= Paar-Wrapped („Unser Jahr“) ================= */
@@ -2850,11 +3018,18 @@ window.startDuoStory = () => {
       <div class="h w-in d1" style="font-size:clamp(34px,11cqw,66px)">${esc(fav[0].t)}</div>
       <p class="w-in d2">${esc(meName)} ${hrs(fav[0].y||fav[0].m)} · ${esc(p.name)} ${hrs(fav[1].y||fav[1].m)}</p>
       <div class="wfan2">${D.both.slice(0,5).map((x,i,arr)=>`<div class="poster" style="--i:${i-(arr.length-1)/2};--d:${.9+i*.12}s">${x[0].g?img(x[0].g.covers,x[0].t):ph(x[0].t)}</div>`).join("")}</div>`}); }
+  const ev = duoEvenings(p);
+  if (ev && ev.n){ const evY = ev.list.filter(e=>e.day.startsWith(String(yr)));
+    if (evY.length) L.push({bg:"#1a1220", html:`${blobs("#FF7AB644","#A97BFF55")}<div class="k w-in">Gemeinsame Abende</div>
+      <div class="xl w-in d1" data-count="${evY.length}">0</div><div class="h w-in d2 split">Abende zusammen gezockt.</div>
+      <p class="w-in d3">Zusammen ${hrs(evY.reduce((s,e)=>s+e.min,0))} gleichzeitig im Spiel${ev.top?` – am liebsten <b>${esc((mine.get(ev.top[0])||theirs.get(ev.top[0])||{}).t||"")}</b>`:""}. 🛋️</p>`}); }
+  const mm = D.me.months || {}, pmo = p.months || {}, crowns = [0,0], curM = new Date().toISOString().slice(0,7);
+  Object.keys(mm).filter(k=>k.startsWith(String(yr)) && k < curM && k in pmo && (mm[k] || pmo[k])).forEach(k=>crowns[mm[k] >= pmo[k] ? 0 : 1]++);
   const ys = weeks.filter(w=>w[0].startsWith(String(yr)));
   if (ys.length >= 2){ const [w0,w1] = streak.wins;
     L.push({bg:"#1a1220", html:`${blobs("#FF7AB633","#7C8CFF55")}<div class="k w-in">Wochen-Duelle ${yr}</div>
       <div class="wbig w-in d1" style="font-size:clamp(56px,20cqw,120px)">${w0}:${w1}</div>
-      <p class="w-in d2"><b class="cme">${esc(meName)}</b> gegen <b class="cpa">${esc(p.name)}</b>${streak.n>1?` · aktuell ${streak.n} Siege in Folge für ${esc(streak.who?p.name:meName)}`:""}.</p>`}); }
+      <p class="w-in d2"><b class="cme">${esc(meName)}</b> gegen <b class="cpa">${esc(p.name)}</b>${streak.n>1?` · aktuell ${streak.n} Siege in Folge für ${esc(streak.who?p.name:meName)}`:""}.${crowns[0]+crowns[1] ? ` Monatskronen: 👑 ${crowns[0]} : ${crowns[1]}.` : ""}</p>`}); }
   L.push({bg:"#0e1b1d", html:`${blobs("#14F0C855","#A97BFF44")}<div class="k w-in">Euer Gaming-Match</div>
     <div class="xl w-in d1" data-count="${match.pct}" data-pre="">0</div><div class="h w-in d2" style="font-size:clamp(30px,9.5cqw,58px);overflow-wrap:anywhere">${matchText(match.pct)}.</div>
     <p class="w-in d3">${match.gen.length?`Ihr trefft euch am ehesten bei <b>${esc(match.gen[0][0])}</b>.`:""} ${D.both.length} Spiele habt ihr beide gespielt.</p>`});
@@ -2875,6 +3050,7 @@ const EXPLAIN = {
   pcvs: ["PC vs. Konsole", "Anteil deiner Spielzeit am PC im Vergleich zu PlayStation und Xbox im gewählten Zeitraum."],
   backlog: ["PC-Backlog", "Alle PC-Spiele, die du besitzt (Stores wählbar in den Einstellungen). „Geschafft“ = durchgespielt oder komplett. Der Status wird automatisch erkannt (z. B. nie gestartet, angefangen) – du kannst ihn im Spiel-Detail ändern. Story-Dauern kommen von IGDB."],
   duo: ["Wir zwei", "Zwei Gaming-Recap-Installationen teilen verschlüsselt Spielliste, Spielzeiten, Genres, Tier-Liste und was gerade läuft (keine Keys, keine Notizen). Aktualisiert sich etwa alle 5–10 Minuten, solange beide PCs laufen."],
+  evenings: ["Gemeinsame Abende", "Wenn ihr beide gleichzeitig dasselbe Spiel am PC spielt (mindestens 15 Minuten überlappend), zählt das als gemeinsamer Abend. Grundlage sind die Sessions, die Gaming Recap auf beiden PCs misst. Nach Mitternacht zählt noch zum Vorabend."],
   match: ["Gaming-Match", "Wie ähnlich ihr spielt: zu 60 % eure Genres (Anteil an der Spielzeit) und zu 40 %, wie viele Spiele ihr beide gespielt habt. Die Monatskrone 👑 bekommt, wer im laufenden Monat mehr gespielt hat; das Wochen-Duell zählt die Kalenderwochen (Mo–So)."],
   coop: ["Zusammen spielen", "Spiele, die ihr beide besitzt und die laut Playnite Mehrspieler oder Koop haben – sortiert nach Wertung."],
   wish: ["Kaufberater", "Vergleicht den heutigen Preis mit dem tiefsten Preis aller Zeiten (IsThereAnyDeal). 🔥 = so günstig wie nie, 👍 = höchstens 15 % über dem Tiefstpreis, ⏳ = war schon deutlich günstiger."],
@@ -2888,8 +3064,8 @@ window.explain = k => { const e = EXPLAIN[k]; if (!e) return;
 function renderFriends(){
   const list = friendList(), fr = (S.data.steam||{}).friends || [];
   const frc = [...new Set(((S.data.steam||{}).friends||[]).flatMap(f=>(f.tops||[]).slice(0,2).map(t=>t[2])).filter(Boolean))].slice(0,18);
+  if (S.fr === "duo") return renderDuo(duoHead() + friendSeg());
   let h = avatarHead(friendList().filter(f=>!f.me), `${((S.data.steam||{}).friends||[]).length} mit öffentlichem Profil`) + friendSeg();
-  if (S.fr === "duo") return renderDuo(h);
   if (!fr.length){ setView(h + `<div class="card hero" style="min-height:240px"><div class="mid">Noch keine Freunde geladen.</div>
     <div class="sub">Dafür brauchst du den Steam-API-Key und den Haken „Steam-Erfolge, Wunschliste, Preise und Freunde laden“ in den Einstellungen. Freunde mit privatem Profil bleiben unsichtbar.</div></div>`); return; }
   const rank = list.findIndex(f=>f.me)+1, me = list[rank-1], others = list.filter(f=>!f.me);
@@ -3388,6 +3564,27 @@ async function shareWrapped(){
 }
 
 /* ================= Detailansicht ================= */
+// Spielverlauf: Spielzeit pro Woche (bzw. Monat) aus den täglichen Ständen
+function historyBlock(g){
+  const H = S.data.ghist; if (!H || !H.weeks || H.weeks.length < 2) return "";
+  const rows = (H.g||{})[g.key] || [], since = new Date(H.weeks[0]+"T12:00");
+  if (!rows.length) return g.minutes ? `<div class="secttl">Verlauf</div><p class="help">Seit Beginn der Aufzeichnung (${fdate(since)}) nicht gespielt.</p>` : "";
+  const W = H.weeks.length, val = new Array(W).fill(0); rows.forEach(([i,m])=>{ if (i < W) val[i] = m; });
+  let bars, unit;
+  if (W > 26){ // Monate
+    const mon = new Map(); H.weeks.forEach((w,i)=>{ const k = w.slice(0,7); mon.set(k, (mon.get(k)||0) + val[i]); });
+    bars = [...mon.entries()].slice(-12).map(([k,v])=>[new Date(k+"-15").toLocaleDateString("de-DE",{month:"short"}).replace(".",""), v, new Date(k+"-15").toLocaleDateString("de-DE",{month:"long", year:"numeric"})]);
+    unit = "Monat";
+  } else {
+    bars = H.weeks.map((w,i)=>[String(kw(new Date(w+"T12:00"))), val[i], `KW ${kw(new Date(w+"T12:00"))}`]).slice(-26);
+    unit = "Woche";
+  }
+  const mx = Math.max(1, ...bars.map(b=>b[1])), best = bars.reduce((a,b)=>b[1]>a[1]?b:a, bars[0]), active = val.filter(v=>v>0).length;
+  const step = Math.ceil(bars.length / 8);
+  return `<div class="secttl">Verlauf <span style="text-transform:none;letter-spacing:0">(pro ${unit})</span></div>
+    <div class="ghist">${bars.map((b,i)=>`<div class="gh" title="${esc(b[2])}: ${b[1]?hrs(b[1]):"nicht gespielt"}"><i style="height:0" data-h="${b[1] ? Math.max(4, b[1]/mx*100) : 0}%"></i><small>${i % step === 0 || i === bars.length-1 ? esc(b[0]) : ""}</small></div>`).join("")}</div>
+    <p class="help">Am meisten: <b>${esc(best[2])}</b> mit ${hrs(best[1])} · gespielt in ${active} von ${W} Wochen seit ${fdate(since)}.</p>`;
+}
 function yearBlock(g){
   const y = new Date().getFullYear(), pm = S.yearPM, info = S.yearInfo || {};
   if (!pm || !info.estimated) return "";
@@ -3432,7 +3629,7 @@ window.openGame = key => {
       ${g.year?`<div><small>Erschienen</small><b>${g.year}</b></div>`:""}
       ${g.devsList.length?`<div><small>Studio</small><b>${esc(g.devsList.slice(0,2).join(", "))}</b></div>`:""}</div>
     <div class="secttl">Plattformen</div><div class="tagrow">${g.recs.map(r=>`<span class="tag"><i style="background:${pcolor(platLabel(r))}"></i>${esc(platLabel(r))} · ${r.minutes?hrs(r.minutes):"nie gespielt"}${r.family?" · geliehen":""}</span>`).join("")}</div>
-    ${yearBlock(g)}${trophyLine(g)}${diaryBlock(g)}
+    ${historyBlock(g)}${yearBlock(g)}${trophyLine(g)}${diaryBlock(g)}
     ${g.genres.length?`<div class="secttl">Genres</div><div class="tagrow">${g.genres.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div>`:""}
     ${hltbBlock}
     ${g.ach && g.ach.t ? `<div class="secttl">Steam-Erfolge</div><div class="goal"><div class="gtop"><span>${g.ach.d} von ${g.ach.t}</span><span>${num(g.ach.d/g.ach.t*100)} %</span></div>
@@ -3471,6 +3668,7 @@ window.openGame = key => {
     <div class="dbody"><div class="dgrid"><div>${left}</div><div>${right}</div></div></div>`;
   $("#note").onchange = e => saveMeta(g.key, {note:e.target.value});
   if (!$("#detail").open) $("#detail").showModal();
+  setTimeout(()=>$("#detailBody").querySelectorAll(".ghist [data-h]").forEach(el=>el.style.height = el.dataset.h), 60);
 };
 async function saveMeta(key, patch){
   if (CLOUD){
@@ -3697,6 +3895,7 @@ function cloudMenu(){
       <div><small>Letzter Abgleich am PC</small><b>${S.data.last_sync?new Date(S.data.last_sync).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"–"}</b></div>
       <div><small>Deine Änderungen</small><b>${!q.length ? "✓ alle beim PC angekommen" : `${waiting ? waiting + " noch nicht gesendet · " : ""}${sent ? sent + " beim PC ausstehend" : ""}`}</b></div></div>
     <p class="help">Deine Änderungen gehen sofort verschlüsselt an GitHub. Ist dein PC an, holt er sie innerhalb von 2 Minuten ab und lädt den neuen Stand hoch. Bis dahin siehst du sie hier schon. Ist der PC aus, warten sie dort sicher.</p>
+    <div class="secttl" style="margin-top:14px">🎨 Farbwelt</div>${themePicker()}
     <div class="secttl" style="margin-top:14px">🔔 Benachrichtigungen</div><div id="notifyBox">${notifyBlock()}</div>
     <div class="secttl" style="margin-top:14px">Systemcheck am PC</div>${healthBlock()}
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
@@ -3793,7 +3992,7 @@ const NCATS = [["lows","🔥","Tiefstpreis auf der Wunschliste","so günstig wie
   ["yearly","🏆","Jahres-Wrapped","Anfang Dezember und am 1. Januar"],
   ["pause","☕","Pausen-Erinnerung","nach langem Spielen am Stück"],["health","🩺","Probleme & Ablauf-Warnungen","wenn etwas nicht läuft oder ein Zugang bald abläuft"],
   ["offline","📴","PC meldet sich nicht","nach 2 Tagen ohne Upload – kommt auch, wenn der PC aus ist"],
-  ["duo","💞","Partner spielt gerade","wenn dein Wir-zwei-Partner ein Spiel startet"]];
+  ["duo","💞","Wir zwei","wenn dein Partner ein Spiel startet, etwas durchspielt, und die Monatskrone"]];
 function notifyBlock(){
   const P = S.data.notify || {cats:{}, win:true, phone:true}, C = P.cats || {};
   const sw = (on, js) => `<input type="checkbox" class="sw" ${on?"checked":""} onchange="${js}">`;
@@ -3849,7 +4048,11 @@ window.openSettings = async () => {
   $("#settingsBody").innerHTML = `<button class="ibtn dclose" onclick="$('#settings').close()">✕</button>
     <div class="h1" style="font-size:32px">Einstellungen</div>
     <p class="help" style="margin-top:-8px">Alles bleibt auf diesem PC (Ordner <code>daten</code>). Die Handy-App bekommt nur eine verschlüsselte Kopie.</p>
-    <fieldset><legend>🖥️ System</legend>
+    <div class="seg stabs">${SET_TABS.map(([k,l])=>`<button type="button" data-k="${k}" onclick="setTab('${k}')">${l}</button>`).join("")}</div>
+    <fieldset data-tab="allg"><legend>🎨 Farbwelt</legend>${themePicker()}</fieldset>
+    <fieldset data-tab="allg"><legend>👤 Profil</legend>
+      <label>Dein Name (für „Wir zwei“ und das Wrapped)</label><input type="text" id="user_name" value="${esc(c.user_name||"")}" placeholder="Dein Vorname" maxlength="40"></fieldset>
+    <fieldset data-tab="sys"><legend>🖥️ System</legend>
       <p class="help" style="margin-top:0">Gaming Recap läuft unsichtbar im Hintergrund – ohne Fenster in der Taskleiste. Hier startest du es neu oder beendest es.</p>
       <div class="inl" style="flex-wrap:wrap;gap:8px"><button class="btn ghost small" type="button" onclick="sysAction('restart')">🔄 Neu starten</button>
         <button class="btn ghost small" type="button" onclick="sysAction('quit')">⏻ Beenden</button>
@@ -3858,9 +4061,8 @@ window.openSettings = async () => {
         <button class="btn ghost small" type="button" onclick="$('#settings').close();openWizard(0)">🧭 Einrichtung</button></div>
       <p class="help">Laufende Spiel-Sessions gehen beim Neustart nicht verloren. Nach „Beenden“ startest du es wieder über <b>Start</b> im Ordner GamingRecap (oder es startet beim nächsten Windows-Start von selbst).</p>
     </fieldset>
-    <fieldset><legend>🔄 Updates</legend><div id="updBox"><p class="help">Lade …</p></div></fieldset>
-    <fieldset><legend>👤 Profil & 💞 Wir zwei</legend>
-      <label>Dein Name (für „Wir zwei“ und das Wrapped)</label><input type="text" id="user_name" value="${esc(c.user_name||"")}" placeholder="Dein Vorname" maxlength="40">
+    <fieldset data-tab="sys"><legend>🔄 Updates</legend><div id="updBox"><p class="help">Lade …</p></div></fieldset>
+    <fieldset data-tab="duo"><legend>💞 Wir zwei</legend>
       <p class="help">„Wir zwei“ verbindet zwei Gaming-Recap-Installationen: gemeinsame Spiele, wer mehr spielt, Koop-Ideen. Beide brauchen die Handy-App (GitHub) und denselben Partner-Code.</p>
       ${cl.url ? `<p class="help" style="margin:4px 0">Deine Adresse für den Partner: <code>${esc(cl.url)}</code></p>` : ""}
       <label>Adresse des Partners (seine Handy-App-Adresse)</label><input type="text" id="partner_url" value="${esc(c.partner_url||"")}" placeholder="https://name.github.io/gaming-recap-xyz/">
@@ -3869,10 +4071,10 @@ window.openSettings = async () => {
         <button class="btn ghost small" type="button" onclick="const v='wz-'+crypto.getRandomValues(new Uint32Array(3)).join('').slice(0,18);$('#partner_code').type='text';$('#partner_code').value=v">Erzeugen</button></div>
       <p class="help">Einer erzeugt den Code und schickt ihn dem anderen. Die geteilten Daten (Spiele und Spielzeiten) sind damit verschlüsselt.</p>
     </fieldset>
-    <fieldset><legend>⬇️ Hintergrund-Downloads</legend><div id="dlBox"><p class="help">Lade Status …</p></div></fieldset>
-    <fieldset><legend>🩺 Systemcheck</legend>${healthBlock() || `<p class="help">Wird beim nächsten Abgleich erstellt.</p>`}</fieldset>
+    <fieldset data-tab="sys"><legend>⬇️ Hintergrund-Downloads</legend><div id="dlBox"><p class="help">Lade Status …</p></div></fieldset>
+    <fieldset data-tab="sys"><legend>🩺 Systemcheck</legend>${healthBlock() || `<p class="help">Wird beim nächsten Abgleich erstellt.</p>`}</fieldset>
 
-    <fieldset><legend>📱 Handy-App (auch wenn der PC aus ist)</legend>
+    <fieldset data-tab="handy"><legend>📱 Handy-App (auch wenn der PC aus ist)</legend>
       <label class="check"><input type="checkbox" id="cloud_enabled" ${c.cloud_enabled?"checked":""}> Verschlüsselte Kopie auf GitHub Pages ablegen</label>
       ${cl.url && c.cloud_enabled ? `<div class="urlbox">${esc(cl.url)}</div><p class="help">Diese Adresse auf dem Handy öffnen und „Zum Home-Bildschirm hinzufügen“.</p>`:""}
       ${cl.error ? `<p class="bad" style="font-weight:700">${esc(cl.error)}</p>` : cl.last_push ? `<p class="help">Zuletzt hochgeladen: ${esc(cl.last_push.replace("T"," ").slice(0,16))} UTC</p>`:""}
@@ -3891,15 +4093,14 @@ window.openSettings = async () => {
         <p class="help">Einmal am Tag wird ein verschlüsseltes Backup (Status, Tier-Liste, Ziele, Korrekturen, Sessions, Verlauf) ins Repository gelegt${cl.backup_day?` – zuletzt am ${esc(cl.backup_day)}`:""}. Wiederherstellen ergänzt nur Fehlendes, es wird nichts überschrieben.</p>`:""}
     </fieldset>
 
-    <details class="adv"><summary>⚙️ Zugänge & Erweitert <span class="help">(Playnite, IGDB, Preise &amp; Cover, Steam, PlayStation, Xbox, Sonstiges)</span></summary>
-    <fieldset><legend>🖥️ Playnite (alle PC-Launcher)</legend>
+    <fieldset data-tab="quellen"><legend>🖥️ Playnite (alle PC-Launcher)</legend>
       <div class="src">${c.playnite_found?`<span class="ok">●</span> Playnite gefunden`:`<span class="bad">✕</span> Playnite nicht gefunden – <a href="https://playnite.link" target="_blank" rel="noopener">playnite.link</a>`}</div>
       <div class="src">${c.extension_installed?`<span class="ok">●</span> Erweiterung installiert`:`<span class="bad">✕</span> Erweiterung fehlt`}</div>
       <button class="btn ghost small" type="button" id="instBtn" style="margin-top:8px" ${c.playnite_found?"":"disabled"}>${c.extension_installed?"Erweiterung neu installieren":"Erweiterung installieren"}</button>
       <div class="help">Danach Playnite einmal neu starten. In Playnite unter <i>Bibliothek › Bibliotheken konfigurieren</i> Steam, Epic, Ubisoft, EA, GOG und Xbox verbinden.</div>
       <label>Pfad zum Export</label><input type="text" id="playnite_export" value="${esc(c.playnite_export)}">
     </fieldset>
-    <fieldset><legend>⏱️ Session-Tracker & Spieldauern</legend>
+    <fieldset data-tab="quellen"><legend>⏱️ Session-Tracker & Spieldauern</legend>
       <label class="check"><input type="checkbox" id="tracker" ${c.tracker?"checked":""}> Laufende PC-Spiele erkennen und Sessions speichern</label>
       <div class="help">${c.tracker_supported?"Funktioniert, solange Gaming Recap läuft.":"Nur unter Windows verfügbar."} Änderung wirkt nach einem Neustart.</div>
       <label class="check" style="margin-top:12px"><input type="checkbox" id="hltb" ${c.hltb?"checked":""}> Spieldauern („Time to Beat“) und Cover von IGDB laden</label>
@@ -3910,7 +4111,7 @@ window.openSettings = async () => {
         <li>Client-ID kopieren, „New Secret“ klicken, Secret kopieren, beides hier eintragen.</li></ol>
         Offizielle, kostenlose Schnittstelle. Ohne Zugang kannst du Spieldauern pro Spiel selbst eintragen.</div>
     </fieldset>
-    <fieldset><legend>💰 Preise & 🖼️ Cover</legend>
+    <fieldset data-tab="dienste"><legend>💰 Preise & 🖼️ Cover</legend>
       <label class="check"><input type="checkbox" id="prices_steam_only" ${c.prices_steam_only!==false?"checked":""}> Nur Steam-Preise (sonst: günstigster offizieller Store)</label>
       <label>IsThereAnyDeal-API-Key (Bibliothekswert, Tiefstpreise)</label><input type="password" id="itad_key" placeholder="${ph2(c.itad_key_set)}" autocomplete="off">
       <div class="help"><ol><li>Auf <a href="https://isthereanydeal.com" target="_blank" rel="noopener">isthereanydeal.com</a> ein kostenloses Konto anlegen.</li>
@@ -3928,35 +4129,34 @@ window.openSettings = async () => {
         <button class="btn ghost small" type="button" onclick="importKeys()">📥 Keys-Datei importieren</button></div>
       <p class="help">Exportiert IGDB, IsThereAnyDeal, SteamGridDB und RAWG verschlüsselt mit einem Passwort deiner Wahl – keine persönlichen Zugänge.</p>
     </fieldset>
-    <fieldset><legend>Steam</legend>
+    <fieldset data-tab="quellen"><legend>🎮 Steam</legend>
       <label>Steam Web-API-Key</label><input type="password" id="steam_api_key" placeholder="${ph2(c.steam_api_key_set)}" autocomplete="off">
       <label>Steam-Profil (Link, ID oder Name)</label><input type="text" id="steam_id" value="${esc(c.steam_id)}" placeholder="https://steamcommunity.com/id/deinname">
       <div class="help">Key: <a href="https://steamcommunity.com/dev/apikey" target="_blank" rel="noopener">steamcommunity.com/dev/apikey</a> (Domain: <code>localhost</code>). In Steam unter Profil › Privatsphäre die „Spieldetails“ auf „Öffentlich“.</div>
     </fieldset>
-    <fieldset><legend>PlayStation 5</legend>
+    <fieldset data-tab="quellen"><legend>🎮 PlayStation 5</legend>
       <label>NPSSO-Token</label><input type="password" id="psn_npsso" placeholder="${ph2(c.psn_npsso_set)}" autocomplete="off">
       <div class="help"><ol><li>Auf <a href="https://www.playstation.com" target="_blank" rel="noopener">playstation.com</a> anmelden.</li>
       <li>Im selben Browser <a href="https://ca.account.sony.com/api/v1/ssocookie" target="_blank" rel="noopener">diesen Link</a> öffnen.</li>
       <li>Den Wert hinter <code>"npsso"</code> einfügen.</li></ol>Wie ein Passwort behandeln. Hält ca. 2 Monate.</div>
     </fieldset>
-    <fieldset><legend>Xbox Series X</legend>
+    <fieldset data-tab="quellen"><legend>🎮 Xbox Series X</legend>
       <p class="help" style="margin-top:0"><b>Nicht nötig:</b> Deine Xbox-Spiele kommen über Playnite (Xbox-Bibliothek). Den Key brauchst du nur, wenn Playnite keine Xbox-Spiele liefert.</p>
       ${c.xbox_api_key_set?`<label class="check"><input type="checkbox" id="xbox_api_key_clear"> Gespeicherten OpenXBL-Key löschen</label>`:""}
       <label>OpenXBL-API-Key</label><input type="password" id="xbox_api_key" placeholder="${ph2(c.xbox_api_key_set)}" autocomplete="off">
       <div class="help"><ol><li>Auf <a href="https://xbl.io" target="_blank" rel="noopener">xbl.io</a> mit deinem Microsoft-Konto anmelden.</li>
       <li>Unter „API Keys“ einen Key erstellen und hier einfügen.</li></ol>Drittanbieter-Dienst. Spielzeiten kommen in Portionen.</div>
     </fieldset>
-    <fieldset><legend>Sonstiges</legend>
+    <fieldset data-tab="quellen"><legend>🔁 Abgleich</legend>
       <label>Automatisch abgleichen alle … Stunden</label><input type="number" id="sync_hours" min="1" max="48" value="${c.sync_hours}">
       <label class="check" style="margin-top:14px"><input type="checkbox" id="lan" ${c.lan?"checked":""}> Zusätzlich im Heim-WLAN freigeben</label>
       <div class="help">Brauchst du mit der Handy-App eigentlich nicht mehr. Wirkt nach einem Neustart.</div>
     </fieldset>
-    </details>
-    <fieldset><legend>📚 Backlog</legend>
+    <fieldset data-tab="allg"><legend>📚 Backlog</legend>
       <div class="help" style="margin-top:0">Welche PC-Stores zählen in deinen Backlog? Konsolen und geliehene Spiele sind nie dabei.</div>
       ${[...new Set([...DEFAULT_BL_STORES, ...S.data.games.filter(g=>g.device==="PC").map(g=>g.store)])].map(st=>`<label class="check" style="margin-top:8px"><input type="checkbox" class="blstore" value="${esc(st)}" ${backlogStores().includes(st)?"checked":""}> ${esc(st)}</label>`).join("")}
     </fieldset>
-    <fieldset><legend>📲 Push aufs Handy</legend>
+    <fieldset data-tab="handy"><legend>📲 Push aufs Handy</legend>
       <div class="help" style="margin-top:0">Hinweise (Angebote, Gratis-Spiele, Releases, Wochen- und Monats-Recap) kommen zusätzlich aufs Handy – über den kostenlosen Dienst <b>ntfy</b>, ohne Konto.</div>
       <ol class="help"><li>App <b>ntfy</b> installieren (<a href="https://play.google.com/store/apps/details?id=io.heckel.ntfy" target="_blank" rel="noopener">Android</a> / <a href="https://apps.apple.com/app/ntfy/id1625396347" target="_blank" rel="noopener">iPhone</a>).</li>
         <li>Hier ein Thema erzeugen, speichern, dann in ntfy auf „+“ und genau dieses Thema abonnieren.</li>
@@ -3966,15 +4166,16 @@ window.openSettings = async () => {
         <button class="btn ghost small" type="button" onclick="$('#push_topic').value='gr-'+crypto.getRandomValues(new Uint32Array(3)).join('').slice(0,22)">Erzeugen</button>
         <button class="btn ghost small" type="button" onclick="post('/api/push/test',{topic:$('#push_topic').value}).then(()=>toast('Test gesendet')).catch(e=>alert(e.message))">Test senden</button></div>
     </fieldset>
-    <fieldset><legend>🔔 Benachrichtigungen</legend><div id="notifyBox">${notifyBlock()}</div></fieldset>
-    <fieldset><legend>🔔 Extras & Hinweise</legend>
+    <fieldset data-tab="handy"><legend>🔔 Benachrichtigungen</legend><div id="notifyBox">${notifyBlock()}</div></fieldset>
+    <fieldset data-tab="allg"><legend>✨ Extras</legend>
       ${c.autostart_supported?`<label class="check" style="margin-bottom:10px"><input type="checkbox" id="autostartChk" ${c.autostart?"checked":""} onchange="setAutostart(this)"> Mit Windows starten (minimiert) – damit keine Tage fehlen</label>`:""}
       <label class="check"><input type="checkbox" id="steam_extras" ${c.steam_extras?"checked":""}> Steam-Erfolge, Wunschliste, Preise und Freunde laden</label>
       <label>Leistung deines PCs beim Zocken (Watt, für die Stromrechnung)</label><input type="number" id="watts" min="50" max="2000" value="${c.watts||350}">
       <label>Strompreis (€ pro kWh)</label><input type="number" id="kwh_price" min="0" max="5" step="0.01" value="${c.kwh_price||0.35}">
     </fieldset>
-    <div style="display:flex;gap:10px;justify-content:flex-end"><button class="btn ghost" type="button" onclick="$('#settings').close()">Abbrechen</button>
+    <div class="savebar"><button class="btn ghost" type="button" onclick="$('#settings').close()">Abbrechen</button>
       <button class="btn limeb" type="button" id="saveBtn">Speichern</button></div>`;
+  setTab(S.setTab || "allg");
   $("#instBtn").onclick = async () => {
     try { const r = await post("/api/playnite/install",{}); alert("Installiert nach:\n" + r.path + "\n\nStarte Playnite jetzt neu."); openSettings(); }
     catch(e){ alert(e.message); }
@@ -4002,6 +4203,12 @@ window.openSettings = async () => {
   };
   if (!$("#settings").open) $("#settings").showModal();
   pollDownloads(); loadUpdBox();
+};
+const SET_TABS = [["allg","Allgemein"],["quellen","Quellen"],["dienste","Dienste & Keys"],["handy","Handy & Push"],["duo","💞 Wir zwei"],["sys","System"]];
+window.setTab = k => {
+  S.setTab = k;
+  document.querySelectorAll("#settingsBody fieldset[data-tab]").forEach(f=>f.hidden = f.dataset.tab !== k);
+  document.querySelectorAll("#settingsBody .stabs button").forEach(b=>b.classList.toggle("on", b.dataset.k === k));
 };
 async function loadUpdBox(){
   const box = $("#updBox"); if (!box) return;
