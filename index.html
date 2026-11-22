@@ -1371,6 +1371,7 @@ p.story{font-size:16px;line-height:1.6;margin:0 0 12px}p.story.clamp{display:-we
 .tripc::after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#000a)}.tripc b{position:relative;z-index:1;color:#fff;font-size:17px}
 .giftc{display:flex;gap:16px;align-items:center}.giftc .gfig{width:84px;height:84px;flex:none;display:grid;place-items:center;font-size:44px;background:var(--panel2);border-radius:18px}.giftc .gi{width:72px}
 .gifts .ci.on{outline:2px solid var(--acc)}
+.gline{display:flex;gap:10px;align-items:center;margin-top:10px;padding:10px 12px;border-radius:14px;background:color-mix(in srgb,var(--pink) 12%,var(--panel2));font-size:14px}.gline img{width:34px;height:34px;object-fit:contain;flex:none}.gline.me{background:var(--panel2);color:var(--muted)}
 /* Was ist neu */
 .wnew ul{list-style:none;padding:0;margin:0}.wnew li{margin:2px 0}
 .nlink{all:unset;cursor:pointer;display:block;padding:6px 0;line-height:1.35}.nlink:hover{color:var(--acc)}
@@ -2871,6 +2872,10 @@ function homeCard(){
     ${pb ? `<div class="bondbar"><div class="bl"><span class="pill lv">Stufe ${pb.lvl + 1} von 8</span><b>${esc(pb.name)}</b><span class="sp"></span><small>${esc(petName(me))} &amp; ${esc(pn)}</small></div>
       <div class="steps">${BOND.map((_, i)=>`<i class="${i <= pb.lvl ? "on" : ""}"></i>`).join("")}</div>
       <small class="help">${sc ? `${esc(petName(me))} und ${esc(pn)} ${esc(sc[2])}. ` : ""}${pb.next ? `Noch ${Math.max(1, pb.next[0] - pb.pts)} Punkte bis „${esc(pb.next[1])}“.` : "Unzertrennlich – mehr geht nicht."}</small></div>` : ""}
+    ${(()=>{ if (!pa) return ""; const sent = (S.data.visits||[]).filter(v=>v.kind === "gift" && GIFTS[v.item] && Date.now()/1000 - v.at < 24*3600).slice(-1)[0], out = [];
+      if (gift) out.push(`<div class="gline">${giftIcon(gift.item)}<span><b>${esc(pn)}</b> hat dir ${esc(GIFTS[gift.item][0])} vorbeigebracht${gift.note ? `: „${esc(gift.note)}“` : "."}</span></div>`);
+      if (sent) out.push(`<div class="gline me">${giftIcon(sent.item)}<span>Du hast ${esc(pa.name)} ${esc(GIFTS[sent.item][0])} geschickt${sent.note ? `: „${esc(sent.note)}“` : "."}</span></div>`);
+      return out.join(""); })()}
     ${pa && b ? `<div class="inl" style="gap:8px;margin-top:12px;flex-wrap:wrap">${trip ? "" : `<button class="btn ghost small" onclick="openTrip()">${fxImg("bond_koffer","mi")}Auf Ausflug schicken</button>`}
       <button class="btn ghost small" onclick="openGift()">${fxImg("bond_geschenk","mi")}Mitbringsel für ${esc(pa.name)}</button>
       ${done ? `<button class="btn ghost small" onclick="openTripPhoto('${done.id}')">📸 Letztes Ausflugsfoto</button>` : ""}<button class="btn ghost small" onclick="openBand()">Euer Band</button></div>` : ""}
