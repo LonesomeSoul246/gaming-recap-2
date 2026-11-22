@@ -2202,28 +2202,25 @@ async function ntfyPartner(title, message, tags=["video_game"]){
 
 /* ---------- Was ist neu ---------- */
 // „Was ist neu“: alles vom 22.11.2026 (Update am Morgen + großer Umbau). Antippen springt an die Stelle.
-const CHANGELOG = [{v:"2026-11-22w4", top:[
-    ["Neues Design, aufgeräumte Menüs – und ein heller Modus", "set:allg"],
-    ["Ab 1. Dezember: ein Adventskalender für euch beide – mehr wird nicht verraten 🤫", "adv"],
-    ["Euer Band: 8 Stufen, Besuche und Geschenke zwischen euren Begleitern", "#/freunde"],
-    ["Jahreszeiten- und Fest-Effekte mit kleinen Tönen", "set:allg"],
-    ["Eure Geschichte: Chronik, Momente festhalten, Reise zurück", "story"]],
+// „Was ist neu“: alles vom 22.11.2026. Antippen springt an die Stelle.
+const CHANGELOG = [{v:"2026-11-22w4b", top:[
+    ["Die App sieht frischer aus – und es gibt jetzt auch eine helle Variante", "set:allg"],
+    ["Ab 1. Dezember wartet ein Adventskalender auf euch beide 🤫", "adv"],
+    ["Eure Begleiter werden mit der Zeit richtig gute Freunde", "#/freunde"],
+    ["Schnee, Herzen, Feuerwerk – die App feiert die Jahreszeiten und Feste mit", "set:allg"],
+    ["Eure schönsten Momente werden jetzt gesammelt", "story"]],
   groups:[
-    ["Start", [["Moment des Tages – jeden Tag etwas Neues", "#/uebersicht"], ["„Guten Morgen“ mit Rückblick auf den Abend nach „Licht aus“", "#/uebersicht"],
-      ["Monatskarte „Dein Monat“ und „Euer Monat“ zu zweit", "story"], ["„Dein PC“ (Downloads, Fernbedienung, Platz) jetzt eingeklappt unten", "#/uebersicht"]]],
-    ["Wir zwei", [["Neue Reiter: Uns · Pläne · Freunde (im Advent zusätzlich „Advent“)", "#/freunde"], ["Euer Zuhause mit Trophäen-Regal und vier Jahreszeiten", "#/freunde"],
-      ["Euer Band mit 8 Stufen und eigenen Szenen", "#/freunde"], ["Besuche und Geschenke zwischen euren Begleitern", "#/freunde"],
-      ["Wunschbaum, Überraschungs-Umschlag und Zeitkapsel unter „Pläne“", "plans"], ["Grüße erscheinen beim Begleiter", "#/freunde"], ["Wochen-Duell kompakter", "#/freunde"]]],
-    ["Advent", [["Ein Adventskalender für euch beide, jeden Tag ein Türchen – lasst euch überraschen", "adv"]]],
-    ["Begleiter", [["Charakter und Stimmungen mit eigenen Sätzen", "#/begleiter"], ["Fest-Outfits zu Weihnachten, Silvester, Valentinstag, Ostern, Halloween und Geburtstagen", "#/begleiter"],
-      ["14 Accessoires neu gezeichnet, Hexenhut neu, bessere Passform", "#/begleiter"], ["Vorschau beim Auswählen eines Accessoires", "#/begleiter"],
-      ["Winter-Accessoires, Weihnachtsstube und Silvester-Dach", "#/begleiter"], ["Neue Raid-Bosse: Sturmriese und Drachenpaar", "#/begleiter"]]],
-    ["Rückblick & Spiele", [["Rückblick: Zahlen · Erfolge · Geschichte", "#/statistik"], ["Chronik mit „Das behalten wir“ und „Reise zurück“", "story"],
-      ["Momente nach dem Zocken festhalten – gemeinsame Abende als Doppelseite", "story"], ["Spiele: Bibliothek · Backlog · Entdecken", "#/spiele"]]],
-    ["Einstellungen & Technik", [["Heller Modus, Effekte und Töne zum Ein- und Ausschalten", "set:allg"], ["Geburtstage und Jahrestag", "set:allg"],
-      ["Benachrichtigungen einzeln abschaltbar", "set:allg"], ["Jede neue Funktion einzeln abschaltbar", "set:allg"],
-      ["„Sicherung auf diesem PC“ und Zuruecksetzen.bat für den Notfall", "set:sys"], ["Zockabend-Einladungen kommen schneller an", "#/uebersicht"],
-      ["Download-Fortschritt zuverlässiger", "#/uebersicht"], ["Updates holen sich jetzt alle Dateien selbst", "set:sys"]]]]}];
+    ["Start", [["Jeden Tag ein kleiner Gruß von deinem Begleiter", "#/uebersicht"], ["Am Morgen nach einem Zockabend gibt's einen kurzen Rückblick", "#/uebersicht"],
+      ["Am Monatsanfang: dein Monat – und euer Monat zu zweit", "story"]]],
+    ["Wir zwei", [["Euer gemeinsames Zuhause, das sich mit den Jahreszeiten verändert", "#/freunde"], ["Im Regal sammeln sich eure gemeinsamen Erfolge", "#/freunde"],
+      ["Schickt eure Begleiter zueinander auf Besuch", "#/freunde"], ["Wünsche, Überraschungen und eine Zeitkapsel findet ihr jetzt unter „Pläne“", "plans"],
+      ["Grüße landen direkt beim Begleiter", "#/freunde"]]],
+    ["Begleiter", [["Jeder Begleiter hat seinen eigenen Charakter", "#/begleiter"], ["An Festtagen ziehen sie sich passend an", "#/begleiter"],
+      ["Viele Accessoires sind neu gezeichnet und sitzen besser – dazu gibt's einen Hexenhut", "#/begleiter"], ["Winter-Accessoires und neue Räume", "#/begleiter"],
+      ["Zwei neue Raid-Bosse", "#/begleiter"]]],
+    ["Rückblick", [["Eure Geschichte: alle Erinnerungen an einem Ort", "story"], ["Nach dem Zocken kannst du festhalten, wie es war", "story"],
+      ["Reise zurück in einen alten Monat", "story"]]],
+    ["Einstellungen", [["Helles Design, Effekte und Töne kannst du selbst an- und ausschalten", "set:allg"], ["Tragt eure Geburtstage und euren Jahrestag ein", "set:allg"]]]]}];
 const newsSeen = () => S.data.seen_new || store.get("gr_news_seen", "");
 window.newsGo = t => { if (t === "adv") return openAdventTab("kal"); if (t === "story"){ S.stat = "story"; location.hash = "#/statistik"; return; }
   if (t === "plans"){ S.fr = "plaene"; location.hash = "#/freunde"; return; } if (t.startsWith("set:")){ S.setTab = t.slice(4) === "sys" ? "sys" : null; openSettings(); return; } location.hash = t; };
@@ -2285,7 +2282,10 @@ function momentOfDay(){
     .forEach(e=>C.push([70, e.icon, `Heute vor ${d.getFullYear() - Number(e.d.slice(0,4))} Jahr${d.getFullYear() - Number(e.d.slice(0,4)) > 1 ? "en" : ""}: ${esc(e.title)}`, "#/statistik?story"]));
   if (S.data.ago) C.push([55, "🕰️", `Vor einem Jahr hast du ${(S.data.ago.games||[]).slice(0,2).map(x=>`<b>${esc(x[0])}</b>`).join(" und ") || "gezockt"} gespielt.`, ""]);
   if (hashN(isoDay(d)) % 4 === 0 && p && p.stage) C.push([50, "💭", `${esc(pn)} ${DREAMS[hashN(isoDay(d) + "d") % DREAMS.length]}`, "#/begleiter"]);
-  if (p && p.stage){ const [t, q] = petTrait(p); C.push([30, "🐾", `${esc(pn)} ist eben ${t} und ${q}.`, "#/begleiter"]); }
+  if (p && p.stage){ const [t, q] = petTrait(p); { const TL = {verspielt:["jagt heute wieder Staubflusen durchs Zimmer.","hat Lust auf Unsinn – pass auf deine Socken auf."], "gemütlich":["hat sich schon in die Kuscheldecke eingerollt.","findet: heute ist ein Sofa-Tag."],
+      neugierig:["steckt heute die Nase überall rein.","will unbedingt wissen, was du heute spielst."], verschmust:["weicht dir heute nicht von der Seite.","hat dich vermisst und will kuscheln."],
+      abenteuerlustig:["träumt mal wieder von Drachen.","sucht schon das nächste Abenteuer."], "verträumt":["hat letzte Nacht wieder Sterne gezählt.","schaut heute verträumt aus dem Fenster."]}[t] || [`ist heute gut drauf.`];
+    C.push([30, "🐾", `${esc(pn)} ${TL[hashN(isoDay(d) + "tl") % TL.length]}`, "#/begleiter"]); } }
   C.push([20, "🍃", (SEASON_LINES[d.getMonth()]||[""])[0], ""]);
   C.sort((a,b)=>b[0]-a[0]);
   return C[0];
@@ -4659,7 +4659,7 @@ S.fr = S.fr || (store.get("gr_fr", null) || "duo");
 function friendSeg(){
   const p = S.data.partner, adv = feat("advent") && adventSeason();
   if (S.fr === "advent" && !adv) S.fr = "duo";
-  const T = [["duo","Uns"],["plaene","Pläne"],["steam","Freunde"],...(adv ? [["advent","Advent"]] : [])];
+  const T = [["duo","Wir"],["plaene","Pläne"],["steam","Freunde"],...(adv ? [["advent","Advent"]] : [])];
   return `<div class="seg">${T.map(([k,l])=>`<button class="${S.fr===k?"on":""}" onclick="S.fr='${k}';store.set('gr_fr','${k}');route()">${k==="advent"?`<span class="tmp"></span>`:""}${l}</button>`).join("")}</div>`;
 }
 function myDuoRows(){
