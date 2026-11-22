@@ -51,9 +51,62 @@ code{background:#ffffff12;padding:1px 6px;border-radius:6px;font-size:.92em}
   background:#1A1D24e8;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:24px;padding:5px}
 .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 0;border-radius:18px;
   color:var(--muted);text-decoration:none;font-size:10.5px;font-weight:700}
-.tabbar a svg{width:22px;height:22px}
+.tabbar a svg{width:24px;height:24px}
 .tabbar a.on{color:var(--bg);background:var(--ink)}
 @media(min-width:1000px){.tabbar{display:none}.deskNav{display:flex}}
+/* Start „Heute“ */
+.today{min-height:0;background:radial-gradient(70% 120% at 100% 0%,color-mix(in srgb,var(--acc) 22%,transparent) 0,transparent 60%),var(--panel)}
+.today .h1{font-size:clamp(30px,7vw,46px)}
+.thpet{background:none;border:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted);cursor:pointer;flex:none;width:clamp(110px,26vw,170px)}
+.thpet .pwrap{width:100%}.thpet small{font-weight:800;font-size:12px}
+.secthead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:26px 0 10px}
+.secthead .h2{font-size:22px;font-weight:900;letter-spacing:-.4px}.secthead .chips{margin:0}
+.feed{display:flex;flex-direction:column;gap:2px}
+.fi{display:flex;gap:12px;align-items:flex-start;padding:9px 8px;border-radius:12px;color:inherit;text-decoration:none;font-size:14px;line-height:1.35}
+.fi:hover{background:var(--glass)}.fi>span{font-size:18px;width:24px;text-align:center;flex:none}
+.fi small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.cdl{display:grid;gap:8px}
+.cdi{display:grid;grid-template-columns:54px 1fr auto;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:10px 12px;border-radius:14px;background:var(--glass);color:inherit;text-decoration:none}
+.cdi b{grid-row:1;font-size:26px;font-weight:900;text-align:center;color:var(--acc);line-height:1}.cdi small{grid-row:2;grid-column:1;text-align:center;color:var(--muted);font-size:11px;font-weight:700}
+.cdi span{grid-row:1/3;grid-column:2;font-weight:700}.cdi em{grid-row:1/3;grid-column:3;font-style:normal;color:var(--muted);font-size:13px}
+.agoc p{margin:0;font-size:15px;line-height:1.5}
+.plans{display:grid;gap:8px}
+.plan{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px;border-radius:14px;background:var(--glass);border:1px solid transparent}
+.plan.ok{border-color:var(--cyan)}.pwhen{flex:1;min-width:150px}.pwhen b{display:block}.pwhen small{color:var(--muted);font-size:12.5px}
+.pst{font-size:13px;color:var(--muted)}.pbtns{display:flex;gap:6px}.pbtns .chip{padding:7px 12px;font-size:16px}
+.chip.on{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.dlr{display:grid;gap:2px;margin-bottom:10px}.dlr small{color:var(--muted);font-size:12px}
+.tmr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--violet) 18%,transparent);margin:6px 0 10px;font-weight:700;font-size:14px}
+.rbtns{flex-wrap:wrap;gap:6px;margin-top:8px}.rbtns .chip{font-size:13px;padding:8px 12px}
+.disks{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:6px}
+.disk b{font-size:14px}.disk small{color:var(--muted);font-size:12px}.qbar.warn i{background:var(--pink)}
+.spr{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.spr>div{flex:1;min-width:0}.spr b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.spr small{color:var(--muted);font-size:12px}.spr em{font-style:normal;font-weight:800}
+/* Navigation v5: fünf Bereiche, Begleiter in der Mitte */
+.tabbar{padding:6px;gap:2px}
+.tabbar a{position:relative;font-size:11.5px;padding:8px 0 7px;gap:3px;min-width:0}
+.tabbar a span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tabbar a.tmid{flex:1.1}
+.tpet{width:38px;height:38px;margin:-16px 0 -2px;border-radius:50%;background:var(--panel2,#20242F);border:2px solid var(--acc);display:grid;place-items:center;box-shadow:0 6px 16px #0008}
+.tpet img{width:34px;height:34px;object-fit:contain}
+.tabbar a.on .tpet{background:var(--acc)}
+.tdot{position:absolute;top:4px;right:calc(50% - 22px);width:10px;height:10px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 2px var(--panel)}
+.deskNav a{display:flex;align-items:center;gap:10px;position:relative}.deskNav a svg{width:20px;height:20px;flex:none}
+.dpet{width:24px;height:24px;display:grid;place-items:center;flex:none}.dpet img{width:26px;height:26px;object-fit:contain}
+.deskNav .tdot{top:50%;right:10px;transform:translateY(-50%)}
+.stiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.stiles.small{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.stile{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;row-gap:2px;align-items:center;text-align:left;padding:16px;border-radius:16px;background:var(--glass);border:1px solid var(--line);color:inherit;cursor:pointer;font:inherit;transition:transform .15s,border-color .15s}
+.stile:hover{transform:translateY(-2px);border-color:var(--acc)}
+.sti{grid-row:1/3;font-size:26px}.stile b{font-size:16px}.stiles.small .stile{padding:12px 14px}.stiles.small .sti{font-size:20px}.stiles.small .stile b{font-size:14px}
+.sts{font-size:12.5px;color:var(--muted)!important;display:flex;align-items:center;gap:6px}
+.sts::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.sts.ok::before{background:var(--cyan)}.sts.warn::before{background:var(--orange)}.sts.err::before{background:#ff5a6e}.sts.off::before{background:#ffffff30}
+.stback{display:flex;align-items:center;gap:12px;margin:0 0 6px}.stback b{font-size:18px}
+.stile.dis{opacity:.45;cursor:default}.stile.dis:hover{transform:none;border-color:var(--line)}
+.subnav{display:flex;gap:4px;background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:4px;margin:0 0 16px;width:max-content;max-width:100%}
+.subnav a{padding:8px 18px;border-radius:999px;color:var(--muted);text-decoration:none;font-weight:700;font-size:14px}
+.subnav a.on{background:var(--acc);color:var(--acc-ink,#0A1C2A)}
 .playing{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:18px;background:#33C3FF18;border:1px solid #33C3FF44;margin-bottom:14px;font-weight:700}
 .playing i{width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 #33C3FFaa;animation:pulse 1.6s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 10px #33C3FF00}100%{box-shadow:0 0 0 0 #33C3FF00}}
@@ -908,6 +961,13 @@ body::after{content:"";position:fixed;right:-15vw;bottom:-25vh;width:60vw;height
 .duoav img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.duoav.me{box-shadow:0 0 0 3px var(--acc)}.duoav.pa{box-shadow:0 0 0 3px var(--violet)}
 .crown{position:absolute;top:-22px;font-size:24px;z-index:2;filter:drop-shadow(0 4px 8px #0008);animation:crownIn .7s cubic-bezier(.3,1.6,.5,1) backwards .3s}
 @keyframes crownIn{from{transform:translateY(-12px) rotate(-20deg);opacity:0}}
+.whearts{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.whearts i{position:absolute;left:var(--x);bottom:-30px;font-style:normal;font-size:calc(22px * var(--s));color:#FF7AB6;opacity:0;animation:wheart var(--d) linear infinite;animation-delay:var(--dl)}
+@keyframes wheart{0%{transform:translateY(0) rotate(-10deg);opacity:0}12%{opacity:.55}100%{transform:translateY(-120cqh) rotate(14deg);opacity:0}}
+.wopp{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px 0;position:relative;z-index:1}.wopp>div{display:flex;flex-direction:column;align-items:center;gap:6px;width:38%;text-align:center}
+.wopp .poster{width:100%;max-width:150px;border-radius:14px}.wopp small{font-size:12px;opacity:.8}.wopp .duoheart{margin:0}
+.wpets{display:flex;justify-content:center;gap:6%;margin:10px 0 16px;position:relative;z-index:1}.wpets>div{display:flex;flex-direction:column;align-items:center;width:44%}.wpets .pwrap{width:100%;margin:0}.wpets small{opacity:.8;font-size:12px}
+@media (prefers-reduced-motion:reduce){.whearts{display:none}}
 .duoheart{font-size:30px;line-height:1;background:linear-gradient(135deg,var(--acc),#FF7AB6 55%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;animation:beat 2.4s ease-in-out infinite;margin-bottom:32px}
 @keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.18)}24%{transform:scale(1)}36%{transform:scale(1.1)}}
 @media (prefers-reduced-motion:reduce){.duoheart{animation:none}}
@@ -945,7 +1005,7 @@ body::after{content:"";position:fixed;right:-15vw;bottom:-25vh;width:60vw;height
 .wemo{font-size:clamp(44px,13cqw,72px);line-height:1;margin-bottom:6px}
 .stabs{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 16px;width:auto;position:sticky;top:-2px;z-index:5;background:var(--panel);box-shadow:0 8px 16px -8px #0009}
 .stabs button{flex:1 1 auto;white-space:nowrap}
-#settingsBody fieldset[hidden]{display:none}
+#settingsBody [hidden]{display:none!important}
 .savebar{position:sticky;bottom:-2px;display:flex;gap:10px;justify-content:flex-end;padding:12px 0 2px;margin-top:6px;background:linear-gradient(transparent,var(--panel) 30%)}
 .thgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .thm{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:10px;border-radius:16px;border:2px solid #ffffff12;transition:transform .2s,border-color .2s}
@@ -972,6 +1032,8 @@ body::after{content:"";position:fixed;right:-15vw;bottom:-25vh;width:60vw;height
 .splitbar{display:flex;height:8px;border-radius:99px;overflow:hidden;margin:6px 0 3px;background:var(--violet)}.splitbar i{height:100%}.splitbar i.me{background:var(--acc)}.splitbar i.pa{flex:1}
 .bv{display:flex;justify-content:space-between;font-size:11px;font-weight:800}
 @media(max-width:699px){.bgrid{grid-template-columns:1fr}}
+.bgrid .brow{grid-template-columns:44px minmax(0,1fr)!important;gap:10px;padding:8px 6px}.bgrid .brow .poster{width:44px}.bgrid .bm{min-width:0}
+.bgrid{grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr))}.bt{min-width:0}.bv{gap:8px}
 .ghist{display:flex;align-items:flex-end;gap:3px;height:96px;margin:6px 0 2px;padding-bottom:16px;position:relative}
 .gh{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative}
 .gh i{display:block;width:100%;max-width:18px;border-radius:4px 4px 2px 2px;background:var(--acc);transition:height .9s cubic-bezier(.2,.8,.2,1);min-height:0}
@@ -1042,6 +1104,14 @@ body::after{content:"";position:fixed;right:-15vw;bottom:-25vh;width:60vw;height
 .petmini .pstage{height:200px}.pmgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;align-items:center}.pmside h3{margin-top:0}@media(max-width:699px){.pmgrid{grid-template-columns:1fr;gap:12px}}
 .evo{position:fixed;inset:0;z-index:200;background:#000d;display:grid;place-items:center;padding:20px;animation:fadeIn .4s}
 @keyframes fadeIn{from{opacity:0}}
+.kofig{position:relative;width:300px;height:200px;margin:0 auto}.kopet{position:absolute;left:0;bottom:0;width:150px;animation:kolunge 1.2s ease-out .3s both}.kopet .pwrap{width:150px;margin:0}
+.koboss{position:absolute!important;right:10px;top:30px;width:120px!important;height:120px!important;font-size:80px;display:grid;place-items:center;animation:kohit 1.4s ease-in .9s both}
+.koslash{position:absolute;right:20px;top:40px;width:120px;height:10px;background:linear-gradient(90deg,transparent,#fff,transparent);transform:rotate(-35deg) scaleX(0);animation:koslash .35s ease-out 1s both;border-radius:9px;box-shadow:0 0 20px #fff}
+.kotxt{position:absolute;inset:0;display:grid;place-items:center;font-size:64px;font-weight:900;color:#FFD166;text-shadow:0 4px 0 #0008;animation:kotxt .5s cubic-bezier(.3,1.6,.5,1) 1.7s both}
+@keyframes kolunge{0%{transform:translateX(-40px)}60%{transform:translateX(70px)}100%{transform:translateX(0)}}
+@keyframes kohit{0%{transform:none;opacity:1}20%{transform:translateX(12px) rotate(8deg);filter:brightness(3)}40%{transform:translateX(-8px)}100%{transform:translateY(30px) rotate(25deg) scale(.6);opacity:0}}
+@keyframes koslash{to{transform:rotate(-35deg) scaleX(1.4);opacity:0}}@keyframes kotxt{from{transform:scale(0)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.kopet,.koboss,.koslash,.kotxt{animation:none}}
 .evobox{max-width:420px;text-align:center}.evofig{position:relative;width:260px;height:260px;margin:0 auto}.evofig .pwrap{position:absolute;inset:0;width:100%;margin:0}
 .evo-old{animation:evoOld 1.8s ease-in forwards!important}.evo-new{opacity:0;animation:evoNew 1s 1.6s cubic-bezier(.3,1.6,.5,1) forwards!important}
 @keyframes evoOld{0%{filter:none}60%{filter:brightness(3)}80%{opacity:1;filter:brightness(6)}100%{opacity:0;filter:brightness(8)}}
@@ -1093,6 +1163,19 @@ body::after{content:"";position:fixed;right:-15vw;bottom:-25vh;width:60vw;height
 .petfab img{width:56px;height:56px;object-fit:contain;animation:fabbob 3s ease-in-out infinite;filter:drop-shadow(0 3px 4px #0007)}.petfab img.shiny{filter:drop-shadow(0 3px 4px #0007) hue-rotate(150deg)}
 .petfab.egg img{width:44px;height:44px;animation:pwob 3s ease-in-out infinite;--s:1;--wob:1}
 @keyframes fabbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.petbusy .nest button,.petbusy .ci,.petbusy .chip{pointer-events:none;opacity:.55}
+.pwrap.aura::after{content:"";position:absolute;inset:-6% 0 0;pointer-events:none;z-index:3;background:
+  radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 18% 30%/14% 14%,radial-gradient(circle,#FFE08A 0 1.5px,transparent 2.5px) 70% 20%/18% 18%,
+  radial-gradient(circle,#fff 0 1px,transparent 2px) 40% 60%/22% 22%;animation:sparkle 3.5s ease-in-out infinite;opacity:.8}
+@keyframes sparkle{50%{opacity:.15;transform:translateY(-3%)}}@media (prefers-reduced-motion:reduce){.pwrap.aura::after{animation:none}}
+.hrows{display:grid;gap:10px}.hrow{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start}.hrow>span{font-size:22px;line-height:1.2}
+.hrow b{display:block;font-size:14px}.hrow small{display:block;color:var(--muted);font-size:13px;line-height:1.45}
+.quest.duo{background:linear-gradient(90deg,#FF7AB614,transparent);border-radius:12px}
+.nst.r2 .nfig{filter:drop-shadow(0 0 10px #7FC8FFaa)}.nst.r3 .nfig{filter:drop-shadow(0 0 12px #FFB547cc)}
+.nst.r2::after,.nst.r3::after{content:attr(data-r);position:absolute;top:6px;right:8px;font-size:10px;font-weight:900;letter-spacing:.5px;color:#7FC8FF}
+.nst.r3::after{color:#FFB547}.nst{position:relative}
+.nst.on .nfig{animation:aura 3s ease-in-out infinite}@keyframes aura{50%{filter:drop-shadow(0 0 14px var(--acc))}}
+@media (prefers-reduced-motion:reduce){.nst.on .nfig{animation:none}}
 .fabdot{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:var(--cyan);color:#0a1c2a;font-size:11px;font-weight:900;font-style:normal;display:grid;place-items:center;box-shadow:0 0 0 2px var(--panel)}
 @media(min-width:1000px){.petfab{display:none}}
 .petfab[hidden]{display:none}
@@ -1272,6 +1355,7 @@ const THEMES = [
   ["kirsch","Kirschblüte","Zartes Rosa und Flieder", {acc:"#FF8FB8", violet:"#B794F6", cyan:"#7FDBCA", pink:"#F6A6C9", ink2:"#2B0A18", bg:"#151015", panel:"#1F171E", panel2:"#281E27", glow:"#3A2436", deep:"#191118", deep2:"#1c151b"}],
   ["mono","Mono","Schlicht in Weiß und Grau", {acc:"#E8ECF2", violet:"#8E99AB", cyan:"#C9D3E0", pink:"#AEB8C6", ink2:"#0B0C0E", bg:"#0E0F11", panel:"#17181B", panel2:"#1E2024", glow:"#26282D", deep:"#121315", deep2:"#141518"}],
   ["drachenglut","Drachenglut","Boss-Beute: Glut und Gold", {acc:"#FFB020", violet:"#FF5A36", cyan:"#FFE08A", pink:"#FF7A59", ink2:"#2A1A00", bg:"#120C08", panel:"#1E1510", panel2:"#2A1D15", glow:"#4A2A14", deep:"#170f0a", deep2:"#1a120d"}, true],
+  ["jahreszeiten","Vier Jahreszeiten","Ein Begleiter aus jeder Jahreszeit gesammelt", {acc:"#7FC8FF", violet:"#FF7AB6", cyan:"#FFD166", pink:"#FF9EC4", ink2:"#0D1B2A", bg:"#0F1117", panel:"#181B24", panel2:"#20242F", glow:"#2B3044", deep:"#121520", deep2:"#151826"}, true],
   ["mondnacht","Mondnacht","Boss-Beute: Silber und Indigo", {acc:"#B8C8FF", violet:"#7C6BD6", cyan:"#9FE7FF", pink:"#C9B8FF", ink2:"#101836", bg:"#0B0D1C", panel:"#141729", panel2:"#1B1F36", glow:"#28305A", deep:"#0e1022", deep2:"#111426"}, true],
 ];
 const THEME = {base: null, cur: "nacht"};
@@ -1338,7 +1422,7 @@ async function loadCloud(force){
       const m = meta[norm(e.key)]; return !(m && m.updated && Date.parse(m.updated) >= e.ts) && Date.now()-e.ts < 30*86400e3; }));
   }
   const snap = S.snap, meta = {...(snap.meta||{})};
-  let goals = snap.goals || {}; const kvs = {year_overrides: snap.year_overrides || {}, wrapped: snap.wrapped_archive || {}, notpc: snap.notpc || {}, snotes: snap.snotes || {}, covers: snap.covers || {}, paid: snap.paid || {}, notify: snap.notify || null, critic: snap.critic || {}};
+  let goals = snap.goals || {}; const kvs = {year_overrides: snap.year_overrides || {}, wrapped: snap.wrapped_archive || {}, notpc: snap.notpc || {}, snotes: snap.snotes || {}, covers: snap.covers || {}, paid: snap.paid || {}, notify: snap.notify || null, critic: snap.critic || {}, plans: snap.plans || [], plan_resp: snap.plan_resp || {}};
   for (const e of edits()){
     if (e.kind === "kv"){ if (e.key === "goals") goals = e.value; else kvs[e.key] = e.value; continue; }
     const k = norm(e.key); meta[k] = {...(meta[k]||{}), ...pick(e,["status","rating","note","tier","hide"]), updated:new Date(e.ts).toISOString()};
@@ -1348,8 +1432,9 @@ async function loadCloud(force){
     sessions:snap.sessions||[], csessions:snap.csessions||[], status_log:snap.status_log||[], goals, steam:snap.steam||{}, prefs:snap.prefs||{},
     year_overrides: kvs.year_overrides, wrapped_archive: kvs.wrapped, notpc: kvs.notpc, snotes: kvs.snotes, covers: kvs.covers, paid: kvs.paid, notify: kvs.notify, critic: kvs.critic, push_ready: !!snap.push_ready, wl_deals: snap.wl_deals || {}, metacritic: snap.metacritic || {},
     values: snap.values || {}, values_at: snap.values_at, xcovers: snap.xcovers || {}, partner_url: snap.partner_url || null, partner: snap.partner || null, me_name: snap.me_name || "", me_duo: snap.me_duo || null, greets: snap.greets || [], push_topic: snap.push_topic || null, ui: snap.ui || {}, ghist: snap.ghist || null, pet: snap.pet || null, pet_raw: snap.pet_raw || {}, pet_imgs: snap.pet_imgs || [],
-    tracking_since: snap.tracking_since, health: snap.health || [],
+    tracking_since: snap.tracking_since, health: snap.health || [], new_games: snap.new_games || {},
     trophies: snap.trophies || [], free_games: snap.free_games || [],
+    pc: snap.pc || {}, ago: snap.ago || null, countdowns: snap.countdowns || [], plans: kvs.plans, plan_resp: kvs.plan_resp,
     playing:[], can_edit:false, period: p ? p.info : {period:"all"}, period_minutes: p ? p.pm : null};
   S.pcache = {}; S.yearPM = undefined; S.yearInfo = undefined; syncTheme();
   applyEstimate(); buildGroups(); header(); route(); flushEdits(); setTimeout(saveYearArchive, 1500);
@@ -1569,10 +1654,18 @@ function header(){
 
 /* ================= Router ================= */
 function cur(){ let h = location.hash.replace("#/","").split("/")[0]; if (h === "aktivitaet") h = "statistik"; return ROUTES.some(r=>r[0]===h) ? h : "uebersicht"; }
+const curRoute = () => cur();   // für Stellen, an denen eine lokale Variable „cur“ den Namen überdeckt
+// Fünf Bereiche – Unterseiten (Bibliothek/Backlog, Statistik/Wrapped) oben als Umschalter
+const NAV = [["uebersicht","Start","home",["uebersicht"]],["spiele","Spiele","lib",["spiele","backlog"]],["begleiter","Begleiter","pet",["begleiter"]],
+  ["freunde","Wir zwei","friends",["freunde"]],["statistik","Rückblick","act",["statistik","wrapped"]]];
+// Unterseiten stecken im jeweiligen Umschalter: Backlog in „Spiele“, Wrapped in „Rückblick“
+const subNav = () => "";
 function nav(){
-  const c = cur();
-  $("#tabbar").innerHTML = ROUTES.filter(r=>r[0]!=="begleiter").map(([k,l,i])=>`<a href="#/${k}" class="${c===k?"on":""}">${ICONS[i]}${l}</a>`).join("");
-  $("#deskNav").innerHTML = ROUTES.map(([k,l])=>`<a href="#/${k}" class="${c===k?"on":""}">${l}</a>`).join("");
+  const c = cur(), P = (S.data||{}).pet, p = P && (P.pets||[]).length ? petActive() : null;
+  const petIcon = p ? `<span class="tpet"><img src="${petSrc(p.sp, p.stage)}" alt=""></span>` : ICONS.pet;
+  const dot = k => k === "begleiter" && S.petNews ? `<i class="tdot"></i>` : "";
+  $("#tabbar").innerHTML = NAV.map(([k,l,i,g])=>`<a href="#/${k}" class="${g.includes(c)?"on":""} ${k==="begleiter"?"tmid":""}">${k==="begleiter"?petIcon:ICONS[i]}<span>${l}</span>${dot(k)}</a>`).join("");
+  $("#deskNav").innerHTML = NAV.map(([k,l,i,g])=>`<a href="#/${k}" class="${g.includes(c)?"on":""}">${k==="begleiter"&&p?`<span class="dpet"><img src="${petSrc(p.sp, p.stage)}" alt=""></span>`:ICONS[i]}<span>${l}</span>${dot(k)}</a>`).join("");
 }
 function route(){
   nav();
@@ -1588,6 +1681,7 @@ function route(){
    Zahlen zählen vom alten zum neuen Wert, Balken wachsen/schrumpfen, neue Teile blenden weich ein. */
 const MORPH = {counts:[], bars:[]};
 function setView(h){
+  h = subNav() + h;
   const v = $("#view");
   if (S.rendered !== cur() || !v.firstElementChild || matchMedia("(prefers-reduced-motion: reduce)").matches){ v.innerHTML = h; return; }
   const b = document.createElement("main"); b.innerHTML = h;
@@ -1637,6 +1731,7 @@ function quietRoute(){
   const y = scrollY; S.quiet = true; route(); S.quiet = false; scrollTo(0, y);
 }
 function afterRender(){
+  document.querySelectorAll("#view .seg").forEach(sg=>{ const b = sg.querySelector("button.on"); if (b && sg.scrollWidth > sg.clientWidth) sg.scrollLeft = b.offsetLeft - (sg.clientWidth - b.offsetWidth) / 2; });
   if (S.quiet){
     document.querySelectorAll(".reveal").forEach(el=>{ el.style.transition = "none"; el.classList.add("in");
       el.querySelectorAll("[data-count]").forEach(c=>c.textContent = (c.dataset.pre||"") + num(Number(c.dataset.count), Number(c.dataset.dec||0)));
@@ -1866,11 +1961,155 @@ function seasonCard(){
     <div class="sstrip">${[...cov,...cov].map(g=>`<div class="poster">${img(g.covers,g.title)}</div>`).join("")}</div>
     <div class="stxt"><small>🎬 Wrapped ${yr}</small><b>Dein Gaming-Jahr ${yr}</b><span>${sub}</span></div><em>▶</em></button>`;
 }
+/* ================= Start: „Heute“ ================= */
+const relTime = ms => { const m = Math.round((Date.now() - ms) / 6e4); return m < 1 ? "gerade eben" : m < 60 ? `vor ${m} Min` : m < 1440 ? `vor ${Math.round(m/60)} Std` : m < 2880 ? "gestern" : `vor ${Math.round(m/1440)} Tagen`; };
+const DAYS = ["So","Mo","Di","Mi","Do","Fr","Sa"];
+function todayHead(){
+  const h = new Date().getHours(), me = S.data.me_name || "", P = S.data.pet || {}, p = (P.pets||[]).length ? petActive() : null;
+  const hi = h < 5 ? "Noch wach" : h < 11 ? "Guten Morgen" : h < 17 ? "Hallo" : h < 22 ? "Guten Abend" : "Na, noch wach";
+  const d = new Date().toLocaleDateString("de-DE",{weekday:"long", day:"numeric", month:"long"});
+  return `<div class="khead today reveal"><div><div class="eyebrow">${esc(d)}</div><div class="h1">${hi}${me?`, ${esc(me)}`:""}!</div>
+    <p>${p ? esc(petBubble(p)) : "Schön, dass du da bist."}</p>
+    <div class="inl" style="gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn limeb" onclick="openPicker()">🎲 Was spiele ich heute?</button>
+      ${S.data.partner ? `<button class="btn ghost" onclick="planNew()">🎮 Zockabend vorschlagen</button>` : ""}</div></div>
+    ${p ? `<button class="thpet" onclick="location.hash='#/begleiter'" title="Zum Begleiter">${petFig(p, {scale:.95})}<small>${esc(petName(p))} · ${p.stage?`Lvl ${p.lvl}`:"Ei"}</small></button>` : ""}</div>`;
+}
+// Neuigkeiten: was seit gestern passiert ist
+function feedCard(){
+  const pa = S.data.partner, P = S.data.pet || {}, it = [];
+  if (pa){ const lv = duoLive(pa)[0]; if (lv) it.push([Date.now(), "💞", `<b>${esc(pa.name)}</b> spielt gerade <b>${esc(lv.t)}</b>`, "#/freunde"]);
+    (pa.news||[]).slice(0,4).forEach(e=>{ const ic = NEWS_ICON[e[0]]; if (ic) it.push([Date.parse(e[3]), ic[0], `<b>${esc(pa.name)}</b> ${esc(ic[1].replace("%t", e[2]))}`, "#/freunde"]); });
+    const pl = (pa.sess||[]).filter(x=>Date.now()/1000 - x[1] < 2*86400).sort((a,b)=>b[1]-a[1])[0];
+    if (pl) it.push([pl[1]*1000, "🎮", `<b>${esc(pa.name)}</b> hat ${hrs(pl[2]/60)} <b>${esc(titleOf(pl[0])||pl[0])}</b> gespielt`, "#/freunde"]); }
+  const wb = (P.current||{}).week; if (wb) it.push([Date.now() - 6e4, wb.won ? "🏆" : "⚔️", wb.won ? `<b>${esc(wb.name)}</b> ist besiegt 🎉` : `<b>${esc(wb.name)}</b>: noch ${num(Math.max(0, wb.hp - wb.dmg))} Leben`, "#/begleiter"]);
+  (P.memories||[]).slice(0,3).forEach(m=>{ const t = Date.parse(m.d + "T12:00"); if (Date.now() - t < 3*864e5) it.push([t, m.i, esc(m.t), "#/begleiter"]); });
+  (S.data.free_games||[]).filter(f=>f.kind==="now").slice(0,2).forEach(f=>it.push([Date.now() - 3e5, "🎁", `<b>${esc(f.title)}</b> ist gerade gratis bei Epic`, f.url||"#/spiele"]));
+  const sale = ((S.data.steam||{}).wishlist||[]).filter(w=>w.discount>0).sort((a,b)=>b.discount-a.discount)[0];
+  if (sale) it.push([Date.now() - 4e5, "🏷️", `<b>${esc(sale.name)}</b> von deiner Wunschliste: −${sale.discount} %`, "#/spiele"]);
+  if (!it.length) return "";
+  it.sort((a,b)=>b[0]-a[0]);
+  return `<section class="card x6 reveal"><h3>📰 Neuigkeiten</h3><div class="feed">${it.slice(0,7).map(([t,i,txt,href])=>`<a class="fi" href="${esc(href)}" ${href.startsWith("http")?'target="_blank" rel="noopener"':""}><span>${i}</span><div>${txt}<small>${t > Date.now() - 6e5 ? "jetzt" : relTime(t)}</small></div></a>`).join("")}</div></section>`;
+}
+// Countdowns: Spiele von der Wunschliste, die bald erscheinen
+function countdownCard(){
+  const cd = S.data.countdowns || []; if (!cd.length) return "";
+  return `<section class="card x6 reveal"><h3>⏳ Bald erhältlich</h3><div class="cdl">${cd.slice(0,4).map(c=>{ const d = Math.ceil((c.at*1000 - Date.now())/864e5);
+    return `<a class="cdi" href="https://store.steampowered.com/app/${esc(c.appid)}" target="_blank" rel="noopener"><b>${d <= 0 ? "heute" : d}</b><small>${d <= 0 ? "" : d === 1 ? "Tag" : "Tage"}</small><span>${esc(c.name)}</span><em>${new Date(c.at*1000).toLocaleDateString("de-DE",{day:"numeric",month:"short"})}</em></a>`; }).join("")}</div></section>`;
+}
+// Heute vor einem Jahr
+function agoCard(){
+  const a = S.data.ago; if (!a) return "";
+  const parts = [...(a.games||[]).map(([t,m])=>`<b>${esc(t)}</b> (${hrs(m)})`)];
+  return `<section class="card x6 reveal agoc"><h3>🕰️ Heute vor einem Jahr</h3><p>Am ${new Date(a.date+"T12:00").toLocaleDateString("de-DE",{weekday:"long",day:"numeric",month:"long",year:"numeric"})} hast du ${parts.length ? parts.join(", ") + " gespielt" : "gezockt"}.${(a.done||[]).length ? ` Und du hast <b>${(a.done||[]).map(esc).join(", ")}</b> durchgespielt 🏁` : ""}</p></section>`;
+}
+/* ---------- Zockabend-Planer ---------- */
+function planAll(){
+  const pa = S.data.partner || {}, mine = (S.data.plans||[]).map(p=>({...p, own:true, resp:(pa.plan_resp||{})[p.id]})),
+        theirs = (pa.plans||[]).map(p=>({...p, own:false, resp:(S.data.plan_resp||{})[p.id]}));
+  const now = new Date(Date.now() - 3*3600e3).toISOString().slice(0,16);
+  return [...mine, ...theirs].filter(p=>!p.cancel && p.at >= now).sort((a,b)=>a.at.localeCompare(b.at));
+}
+const planWhen = at => { const t = new Date(at); const d = Math.round((new Date(at.slice(0,10)) - new Date(new Date().toISOString().slice(0,10)))/864e5);
+  return `${d === 0 ? "Heute" : d === 1 ? "Morgen" : DAYS[t.getDay()] + " " + t.toLocaleDateString("de-DE",{day:"numeric",month:"numeric"})}, ${at.slice(11,16)} Uhr`; };
+function planCard(){
+  const pa = S.data.partner; if (!pa) return "";
+  const L = planAll(), me = S.data.me_name || "Ich";
+  const RS = {yes:["👍","dabei"], maybe:["🤔","vielleicht"], no:["👎","kann nicht"]};
+  return `<section class="card x6 reveal"><h3>🎮 Zockabende</h3>${L.length ? `<div class="plans">${L.map(p=>`<div class="plan ${p.resp==="yes"?"ok":""}">
+      <div class="pwhen"><b>${esc(planWhen(p.at))}</b><small>${p.own ? "dein Vorschlag" : `von ${esc(pa.name)}`}${p.game ? " · " + esc(p.game) : ""}${p.note ? " · " + esc(p.note) : ""}</small></div>
+      ${p.own ? `<span class="pst">${p.resp ? RS[p.resp][0] + " " + esc(pa.name) + " " + RS[p.resp][1] : "⏳ wartet auf " + esc(pa.name)}</span><button class="chip" onclick="planCancel('${p.id}')">Absagen</button>`
+        : `<div class="pbtns">${Object.entries(RS).map(([k,[e,l]])=>`<button class="chip ${p.resp===k?"on":""}" onclick="planAnswer('${p.id}','${k}')" title="${l}">${e}</button>`).join("")}</div>`}</div>`).join("")}</div>`
+    : `<p class="help" style="margin-top:0">Noch nichts geplant. Schlag ${esc(pa.name)} einen Abend vor – ihr bekommt beide eine Erinnerung eine Stunde vorher.</p>`}
+    <button class="btn ghost small" style="margin-top:10px" onclick="planNew()">＋ Zockabend vorschlagen</button></section>`;
+}
+function coopGames(){
+  const pa = S.data.partner || {}, theirs = new Map((pa.games||[]).filter(r=>r[5]).map(r=>[r[0], !!r[7]]));
+  return S.groups.filter(g=>theirs.has(g.key) && (theirs.get(g.key) || (g.features||[]).some(f=>/co-?op|multi/i.test(f))))
+    .sort((a,b)=>(b.last||0)-(a.last||0)).map(g=>g.title).slice(0,40);
+}
+window.planNew = () => {
+  const pa = S.data.partner; if (!pa) return;
+  const d = new Date(); d.setHours(20,0,0,0); if (d < new Date()) d.setDate(d.getDate()+1);
+  const iso = new Date(d - d.getTimezoneOffset()*6e4).toISOString().slice(0,16), cg = coopGames();
+  $("#infoBody").innerHTML = `<button class="ibtn dclose" onclick="$('#info').close()">✕</button>
+    <div class="eyebrow">Zockabend</div><div class="h1" style="font-size:clamp(26px,6vw,36px);margin:6px 0 12px">Mit ${esc(pa.name)} zocken?</div>
+    <label>Wann?</label><input type="datetime-local" id="plAt" value="${iso}">
+    <label>Was? <span class="help">(optional)</span></label><input type="text" id="plGame" list="plList" placeholder="${cg[0] ? esc(cg[0]) : "z. B. It Takes Two"}" maxlength="80">
+    <datalist id="plList">${cg.map(t=>`<option value="${esc(t)}">`).join("")}</datalist>
+    ${cg.length ? `<p class="help" style="margin:6px 0 0">Habt ihr beide, mit Koop: ${cg.slice(0,4).map(esc).join(", ")}</p>` : ""}
+    <label>Notiz <span class="help">(optional)</span></label><input type="text" id="plNote" placeholder="z. B. Pizza bestellen?" maxlength="140">
+    <button class="btn limeb" style="margin-top:16px" onclick="planSave()">Vorschlagen 💌</button>`;
+  if (!$("#info").open) $("#info").showModal();
+};
+async function pushPartner(title, msg){
+  const p = S.data.partner; if (!p || !p.topic) return false;
+  try { const r = await fetch("https://ntfy.sh/", {method:"POST", body: JSON.stringify({topic:p.topic, title, message:msg, tags:["gr-plan"],
+    click: S.data.partner_url ? S.data.partner_url.replace(/\/?$/, "/#/uebersicht") : undefined})}); return r.ok; } catch(e){ return false; }
+}
+window.planSave = async () => {
+  const at = $("#plAt").value; if (!at) return;
+  const p = {id: Math.random().toString(36).slice(2,10), at: at.slice(0,16), game: $("#plGame").value.trim(), note: $("#plNote").value.trim(), created: Math.floor(Date.now()/1000)};
+  await saveKv("plans", [...(S.data.plans||[]), p].slice(-40));
+  $("#info").close(); quietRoute();
+  const ok = await pushPartner(`🎮 ${S.data.me_name || "Dein Player 2"} schlägt einen Zockabend vor`, planWhen(p.at) + (p.game ? " · " + p.game : "") + (p.note ? " – " + p.note : ""));
+  toast(ok ? `Vorschlag an ${S.data.partner.name} geschickt 💌` : "Vorschlag gespeichert");
+};
+window.planCancel = async id => {
+  if (!confirm("Zockabend absagen?")) return;
+  const p = (S.data.plans||[]).find(x=>x.id===id);
+  await saveKv("plans", (S.data.plans||[]).map(x=>x.id===id ? {...x, cancel:true} : x)); quietRoute();
+  if (p) pushPartner(`😢 ${S.data.me_name || "Dein Player 2"} muss absagen`, planWhen(p.at) + " fällt leider aus.");
+};
+window.planAnswer = async (id, r) => {
+  await saveKv("plan_resp", {...(S.data.plan_resp||{}), [id]: r}); quietRoute();
+  const p = ((S.data.partner||{}).plans||[]).find(x=>x.id===id), me = S.data.me_name || "Dein Player 2";
+  if (p) pushPartner({yes:`🎉 ${me} ist dabei!`, maybe:`🤔 ${me} weiß noch nicht`, no:`😢 ${me} kann leider nicht`}[r], planWhen(p.at) + (p.game ? " · " + p.game : ""));
+  toast(r === "yes" ? "Zugesagt 🎉" : "Gespeichert");
+};
+/* ---------- Fernbedienung ---------- */
+function remoteCard(){
+  const pc = S.data.pc || {}; if (!pc.at) return "";
+  const t = pc.timer, age = (Date.now() - Date.parse(pc.at)) / 6e4, online = CLOUD ? age < 12 : true;
+  const dls = pc.downloads || [];
+  const tmr = t ? (t.mode === "after_session" ? "🌙 Fährt nach dieser Session herunter" : `🌙 Fährt um ${t.when.slice(11,16)} Uhr herunter`) : "";
+  return `<section class="card x6 reveal"><h3>🖥️ Dein PC <span class="h3s">${online ? (CLOUD ? `Stand ${relTime(Date.parse(pc.at))}` : "läuft") : "wahrscheinlich aus"}</span></h3>
+    ${dls.length ? dls.map(d=>`<div class="dlr"><span>⬇️ ${esc(d.name)}</span><div class="qbar"><i style="width:${d.pct}%"></i></div><small>${d.pct} % von ${num(d.gb,1)} GB</small></div>`).join("") : `<p class="help" style="margin-top:0">${online ? "Keine Downloads." : "Wenn der PC an ist, siehst du hier Downloads und kannst ihn steuern."}</p>`}
+    ${tmr ? `<div class="tmr">${tmr}<button class="chip" onclick="remoteCmd('cancel')">Stoppen</button></div>` : ""}
+    <div class="inl rbtns"><button class="chip" onclick="remoteCmd('after_session')">🌙 Nach dieser Session aus</button>
+      <button class="chip" onclick="remoteAt()">⏰ Um … aus</button><button class="chip" onclick="if(confirm('PC jetzt in den Ruhezustand schicken?'))remoteCmd('sleep')">💤 Ruhezustand</button>
+      ${pc.can_wake ? `<button class="chip" onclick="remoteCmd('wake_partner')">☀️ PC von ${esc((S.data.partner||{}).name||"Partner")} wecken</button>` : ""}</div>
+    ${CLOUD ? `<p class="help" style="margin:8px 0 0">Befehle kommen in etwa einer Minute am PC an.</p>` : ""}</section>`;
+}
+window.remoteAt = () => { const v = prompt("Um wie viel Uhr soll der PC herunterfahren? (HH:MM)", "23:30"); if (v && /^\d{1,2}:\d{2}$/.test(v.trim())) remoteCmd("at_time", v.trim().padStart(5,"0")); };
+window.remoteCmd = async (cmd, arg) => {
+  const msg = {after_session:"Nach dieser Session fährt der PC herunter 🌙", at_time:`PC fährt um ${arg} Uhr herunter`, cancel:"Timer gestoppt", sleep:"PC geht in den Ruhezustand 💤", wake_partner:"Weckruf geschickt ☀️"}[cmd];
+  if (LOCAL){ try { const r = await post("/api/remote", {cmd, arg}); S.data.pc = r.pc; toast(msg); quietRoute(); } catch(e){ toast(e.message); } return; }
+  await saveKv("remote", {id: Math.random().toString(36).slice(2,10), cmd, arg: arg||"", ts: Date.now()});
+  const pc = S.data.pc || {}; if (cmd === "after_session") pc.timer = {mode:"after_session"}; if (cmd === "at_time") pc.timer = {mode:"at_time", when:"0000-00-00T" + arg}; if (cmd === "cancel") pc.timer = null;
+  toast(msg + " – kommt gleich am PC an"); quietRoute();
+};
+/* ---------- Platz schaffen ---------- */
+function spaceCard(onlyLow){
+  const pc = S.data.pc || {}, disks = pc.disks || [], sp = pc.space || [];
+  const low = disks.filter(d=>d.total && d.free / d.total < .15);
+  if (onlyLow && !low.length) return "";
+  if (!disks.length && !sp.length) return "";
+  const tot = sp.reduce((s,x)=>s+x.gb,0);
+  return `<section class="card ${onlyLow?"x6":"s12"} reveal"><h3>💾 Platz schaffen ${low.length ? `<span class="h3s" style="color:var(--pink)">${low.map(d=>esc(d.d)).join(", ")} fast voll</span>` : ""}</h3>
+    <div class="disks">${disks.map(d=>`<div class="disk"><b>${esc(d.d)}</b><div class="qbar ${d.free/d.total<.15?"warn":""}"><i style="width:${(1 - d.free/d.total)*100}%"></i></div><small>${num(d.free)} GB frei von ${num(d.total)} GB</small></div>`).join("")}</div>
+    ${sp.length ? `<p class="help">Installiert, aber durchgespielt oder seit Monaten nicht angefasst – zusammen <b>${num(tot)} GB</b>:</p>
+    ${sp.slice(0, onlyLow ? 4 : 10).map(x=>`<div class="spr"><div><b>${esc(x.t)}</b><small>${x.done ? "durchgespielt" : x.idle != null ? `zuletzt vor ${x.idle >= 365 ? Math.floor(x.idle/365) + " J." : Math.round(x.idle/30) + " Mon."}` : ""}${x.drive ? " · " + esc(x.drive) : ""}</small></div><em>${num(x.gb,1)} GB</em>
+      ${LOCAL && x.appid ? `<a class="chip" href="steam://uninstall/${esc(x.appid)}">Deinstallieren</a>` : ""}</div>`).join("")}` : ""}</section>`;
+}
 function renderOverviewInner(){
   const c = ovCtx();
-  let h = playingBanner() + periodChips() + periodNotice();
+  let h = todayHead() + playingBanner();
   if (!c.played.length){ setView(h + emptyState()); return; }
-  h += seasonCard() + `<div class="bento">` + heroCard(c) + funSpot(c) + petMini() + saleBanner()
+  const tc = [feedCard(), planCard(), remoteCard(), countdownCard(), agoCard(), spaceCard(true)].filter(Boolean);
+  if (tc.length % 2) tc[tc.length-1] = tc[tc.length-1].replace('class="card x6', 'class="card x12');   // keine Lücke im Raster
+  if (tc.length) h += `<div class="bento">${tc.join("")}</div>`;
+  h += `<div class="secthead"><div class="h2">Deine Zahlen</div>${periodChips()}</div>` + periodNotice();
+  h += seasonCard() + `<div class="bento">` + heroCard(c) + funSpot(c) + saleBanner()
     + recentRail() + topCard(c) + platCard(c) + backlogMini() + `</div>`;
   setView(h);
   setTimeout(startSpot, 50);
@@ -1879,7 +2118,8 @@ function renderOverviewInner(){
 /* ================= Statistik ================= */
 S.stat = S.stat || "act";
 function statSeg(){
-  return `<div class="seg">${[["act","Aktivität"],["ach","Erfolge"],["facts","Fun Facts"]].map(([k,l])=>`<button class="${S.stat===k?"on":""}" onclick="S.stat='${k}';route()">${l}</button>`).join("")}</div>`;
+  const w = cur() === "wrapped";
+  return `<div class="seg">${[["act","Aktivität"],["ach","Erfolge"],["facts","Fun Facts"]].map(([k,l])=>`<button class="${!w && S.stat===k?"on":""}" onclick="S.stat='${k}';${w?"location.hash='#/statistik'":"route()"}">${l}</button>`).join("")}<button class="${w?"on":""}" onclick="location.hash='#/wrapped'">🎬 Wrapped</button></div>`;
 }
 function statHead(){
   const st = sessionStats(0), days = st.days.filter(d=>d>=dayKey(new Date(Date.now()-365*864e5))).length;
@@ -2327,8 +2567,10 @@ const TIERS = [["S","#FF6B8B"],["A","#FFB547"],["B","#33C3FF"],["C","#14F0C8"],[
 function libSeg(){
   const wl = ((S.data.steam||{}).wishlist||[]).length;
   const fg = (S.data.free_games||[]).filter(f=>f.kind==="now").length;
-  return `<div class="seg">${[["grid","Bibliothek"],["tier","Tier-Liste"],["wish",`Wunschliste${wl?` (${wl})`:""}`],["free",`Gratis${fg?` (${fg})`:""}`],["rel","Releases"]]
-    .map(([k,l])=>`<button class="${(S.lib.view||"grid")===k?"on":""}" onclick="S.lib.view='${k}';route()">${l}</button>`).join("")}</div>`;
+  const bl = cur() === "backlog";
+  return `<div class="seg">${[["grid","Bibliothek"],["backlog","Backlog"],["tier","Tier-Liste"],["wish",`Wunschliste${wl?` (${wl})`:""}`],["free",`Gratis${fg?` (${fg})`:""}`],["rel","Releases"]]
+    .map(([k,l])=>k === "backlog" ? `<button class="${bl?"on":""}" onclick="location.hash='#/backlog'">${l}</button>`
+      : `<button class="${!bl && (S.lib.view||"grid")===k?"on":""}" onclick="S.lib.view='${k}';${bl?"location.hash='#/spiele'":"route()"}">${l}</button>`).join("")}</div>`;
 }
 function renderLib(){
   if (S.lib.view === "tier") return renderTier();
@@ -2396,7 +2638,7 @@ function renderBacklog(){
   const counts = {}; all.forEach(g=>counts[g.status]=(counts[g.status]||0)+1);
   const filters = [["open","Alles offen",st.open],["done","Geschafft",st.done], ...STATUS.map(s=>[s.k,`${s.e} ${s.l}`,counts[s.k]||0]).filter(x=>x[2])];
   setView(`${blurHead("PC-Backlog", `${st.open} offen`, `${st.done} durchgespielt · ${num(st.pct)} % geschafft`, blGames().find(g=>g.status==="als_naechstes") || blGames().filter(g=>g.status==="angefangen").sort((a,b)=>(b.last||0)-(a.last||0))[0] || blGames().filter(g=>SMAP[g.status].g==="open").sort((a,b)=>(b.critic||0)-(a.critic||0))[0])}
-  <div class="bl-layout"><aside class="bl-aside">
+  ${libSeg()}<div class="bl-layout"><aside class="bl-aside">
     <section class="card violetc reveal"><div class="bhero">
       <div class="ring" style="--p:${st.pct}"><div><div><b>${num(st.pct)}%</b><br><span>geschafft</span></div></div></div>
       <div class="bhero nums"><div><b>${st.done}</b><span>durch</span></div><div><b>${st.unplayed}</b><span>nie gestartet</span></div>
@@ -2410,7 +2652,7 @@ function renderBacklog(){
       .map(([k,l])=>`<option value="${k}" ${B.sort===k?"selected":""}>${l}</option>`).join("")}</select>
       <span class="help" style="margin:0">Gestrichelt = automatisch erkannt</span></div>
     <div class="bhead"><span></span><span>Spiel</span><span>Status</span><span>Gespielt</span><span>Dauer</span><span>Im Regal</span></div>
-    <div id="blist"></div><div style="margin-top:18px">${historyCard()}</div></div></div>`);
+    <div id="blist"></div><div style="margin-top:18px">${historyCard()}</div><div style="margin-top:18px">${LOCAL ? spaceCard(false) : ""}</div></div></div>`);
   $("#bsort").onchange = e => { B.sort = e.target.value; blist(); };
   blist();
 }
@@ -2746,7 +2988,10 @@ function doneInYear(y){
 }
 // Neue Spiele zählen erst ab dem ersten Abgleich (vorher hat Playnite alles auf einmal importiert)
 function addedInYear(y){ const t0 = S.data.tracking_since ? new Date(S.data.tracking_since + "T23:59:59") : null;
-  return blGames().filter(g=>g.added && g.added.getFullYear()===Number(y) && (!t0 || g.added > t0)); }
+  const out = new Map(blGames().filter(g=>g.added && g.added.getFullYear()===Number(y) && (!t0 || g.added > t0)).map(g=>[g.key, g]));
+  // auch Konsolenspiele und alles, was neu im Verlauf aufgetaucht ist
+  for (const [k, day] of Object.entries(S.data.new_games||{})) if (day.startsWith(y) && !out.has(k)){ const g = S.gmap.get(k); if (g) out.set(k, g); }
+  return [...out.values()]; }
 function goalsCard(){
   const y = String(new Date().getFullYear()), g = (S.data.goals||{})[y] || {};
   const done = doneInYear(y).length, added = addedInYear(y).length;
@@ -2898,17 +3143,48 @@ const PET_INFO = {
   crysto:{name:"Crysto", el:"Kristall", fav:"Strategie", stages:["Splitter","Facett","Prismarch"], teaser:"Klug und standhaft – denkt drei Züge voraus.", c:"#A97BFF"},
   nocti:{name:"Nocti", el:"Mond", fav:"Horror & Mystery", stages:["Flausch","Dämmer","Velunara"], teaser:"Ein Nachtschwärmer mit großem Herz.", c:"#7C6BD6"},
   koppla:{name:"Koppla", el:"Licht", fav:"Koop & Mehrspieler", stages:["Piko & Pika","Echo & Edda","Harmonia"], teaser:"Zwei, die nur zusammen ganz sind.", c:"#FF8FB8"},
+  frostel:{name:"Frostel", el:"Eis", fav:"Survival & Erkundung", stages:["Flocki","Frostel","Glaziara"], teaser:"Taucht nur im Winter auf – kühl, aber kuschelig.", c:"#7FC8FF", season:"Winter"},
+  bluma:{name:"Bluma", el:"Blüte", fav:"Gemütlich & Kreativ", stages:["Blümchen","Blumhopp","Florabella"], teaser:"Ein Frühlingskind, das überall Blumen hinterlässt.", c:"#FF9EC4", season:"Frühling"},
+  sola:{name:"Sola", el:"Sonne", fav:"Rennen & Sport", stages:["Funkfeder","Solaris","Sonnara"], teaser:"Sehr selten – nur im Sommer zu finden.", c:"#FFB547", season:"Sommer"},
+  herzi:{name:"Herzi", el:"Liebe", fav:"Indie & Party", stages:["Herzchen","Schnurrlieb","Amorina"], teaser:"Sehr selten – schlüpft nur rund um Valentinstag.", c:"#FF7AB6", season:"Februar"},
+  tavik:{name:"Tavik", el:"Technik", fav:"Technik & Aufbau", stages:["Klick","Takt","Chronox"], teaser:"Tüftelt an allem, was Zahnräder hat.", c:"#E0A63A"},
+  kairo:{name:"Kairo", el:"Sand", fav:"Abenteuer & Open World", stages:["Dune","Siro","Zephar"], teaser:"Will immer hinter den nächsten Hügel schauen.", c:"#F2C46D"},
+  vexa:{name:"Vexa", el:"Tinte", fav:"Puzzle & Knobeln", stages:["Klecks","Schmier","Inkyra"], teaser:"Acht Arme, acht Ideen – liebt knifflige Rätsel.", c:"#8C5BFF"},
+  aeru:{name:"Aeru", el:"Wind", fav:"Tempo & Plattformer", stages:["Wölkchen","Böe","Tempestral"], teaser:"Schneller als der Wind, leichter als eine Wolke.", c:"#6FA8FF"},
+  moru:{name:"Moru", el:"Traum", fav:"Story & Atmosphäre", stages:["Schlummer","Somnia","Oneira"], teaser:"Sehr selten – träumt sich in jede Geschichte.", c:"#C08CFF"},
+  grumbo:{name:"Grumbo", el:"Erde", fav:"Survival & Crafting", stages:["Krümel","Brocken","Monolith"], teaser:"Ein Fels in der Brandung. Und ein bisschen Moos.", c:"#8FAF5A"},
+  blossom:{name:"Blossom", el:"Blüte", fav:"Gemütlich & Natur", stages:["Knospi","Blütenlauf","Floralis"], teaser:"Sehr selten – nur im Frühling.", c:"#FFA8C8", season:"Frühling"},
+  solero:{name:"Solero", el:"Sonne", fav:"Party & Sport", stages:["Krabbi","Korallo","Solmara"], teaser:"Sehr selten – nur im Sommer am Strand.", c:"#FF8A4C", season:"Sommer"},
+  autumo:{name:"Autumo", el:"Herbst", fav:"Abenteuer & Rätsel", stages:["Stups","Laubbert","Aurorix"], teaser:"Raschelt durchs Laub – nur im Herbst.", c:"#E8792E", season:"Herbst"},
+  frostius:{name:"Frostius", el:"Frost", fav:"Strategie & Taktik", stages:["Flocke","Kristall","Borealis"], teaser:"Sehr selten – nur im Winter.", c:"#9CC8FF", season:"Winter"},
 };
+const PET_RARE = {crysto:2, nocti:2, tavik:2, aeru:2, vexa:2, bluma:2, sola:2, autumo:2, frostel:2, moru:3, koppla:3, blossom:3, solero:3, frostius:3, herzi:3};
 const PET_ACC = {schleife:["Schleife","🎀"], headset:["Gaming-Headset","🎧"], brille:["Sonnenbrille","🕶️"], krone:["Krone","👑"], zauberhut:["Zauberhut","🎩"],
   blumen:["Blumenkranz","🌸"], herz:["Herz-Anhänger","💞"], muetze:["Bommelmütze","🧶"], pirat:["Piratenhut","🏴‍☠️"], weihnacht:["Weihnachtsmütze","🎅"],
-  kuerbis:["Kürbis-Hütchen","🎃"], wikinger:["Wikingerhelm","🪖"], party:["Partyhütchen","🎉"], halo:["Heiligenschein","💫"], diadem:["Kristall-Diadem","💎"], kapitaen:["Kapitänsmütze","⚓"]};
+  kuerbis:["Kürbis-Hütchen","🎃"], wikinger:["Wikingerhelm","🪖"], party:["Partyhütchen","🎉"], halo:["Heiligenschein","💫"], diadem:["Kristall-Diadem","💎"], kapitaen:["Kapitänsmütze","⚓"],
+  herzreif:["Herz-Haarreif","💗"], hasenohren:["Hasenohren","🐰"], sonnenhut:["Sonnenhut","👒"]};
 const PET_HAB = {lichtung:"Lichtung", sterne:"Sternenhimmel", strand:"Strand", zimmer:"Gaming-Zimmer", vulkan:"Vulkan", winter:"Winterwald", kristall:"Kristallhöhle", riff:"Unterwasser-Riff"};
 // Kopf (x, Oberkante, Augen) in Prozent – aus den Bildern ermittelt
-const PET_HEAD = {"brasu": [[30, 35, 52], [26, 34, 49], [22, 44, 56]], "neruma": [[38, 44, 50], [42, 51, 58], [46, 53, 58]], "moselle": [[31, 32, 51], [25, 24, 41], [22, 54, 64]], "crysto": [[24, 29, 47], [24, 41, 54], [26, 42, 54]], "nocti": [[50, 40, 54], [50, 48, 59], [50, 54, 66]], "koppla": [[26, 50, 60], [26, 46, 57], [28, 55, 64]]};
+// Kopf je Art/Stufe in % des Bildes: [Mitte x, Oberkante y, Augenhöhe y, Kopfbreite] (aus den Bildern ausgemessen)
+const PET_HEAD = {"brasu":[[35,32,57,55],[28,43,60,37],[20,50,68,30]],"neruma":[[37,52,65,40],[33,54,67,35],[47,63,72,22]],
+  "moselle":[[30,40,58,55],[25,48,63,40],[25,74,81,24]],"crysto":[[27,38,66,50],[30,54,72,35],[22,64,77,30]],
+  "nocti":[[38,46,66,40],[44,62,71,24],[48,63,68,22]],"koppla":[[22,57,72,32],[25,58,72,30],[38,70,77,22]],
+  "frostel":[[25,48,66,40],[27,46,62,35],[19,57,66,22]],"bluma":[[32,47,70,45],[20,52,68,30],[20,66,73,18]],
+  "sola":[[30,32,46,50],[22,44,55,28],[17,66,71,17]],"herzi":[[26,40,57,45],[20,46,60,32],[19,67,73,20]],
+  "tavik":[[30,24,45,50],[33,38,55,28],[32,50,58,18]],"kairo":[[27,44,63,40],[22,45,57,30],[22,38,50,26]],
+  "vexa":[[42,28,55,50],[42,40,53,30],[44,46,52,20]],"aeru":[[30,45,61,35],[22,40,50,32],[18,38,46,26]],
+  "moru":[[42,26,58,60],[42,33,46,36],[48,40,48,20]],"grumbo":[[44,30,60,48],[44,40,55,30],[42,32,45,24]],
+  "blossom":[[25,25,43,34],[20,30,50,28],[25,38,48,20]],"solero":[[52,25,40,50],[48,25,38,40],[50,25,37,36]],
+  "autumo":[[27,38,55,34],[32,40,55,34],[30,35,48,28]],"frostius":[[35,12,32,48],[35,18,35,36],[40,25,37,28]]};
+// sichtbare Figur je Bild (Breite, Höhe als Anteil) – damit spätere Stufen nicht kleiner wirken, nur weil sie breiter sind
+const PET_BOX = {"brasu_1":[0.917,0.779],"brasu_2":[0.918,0.667],"brasu_3":[0.92,0.554],"neruma_1":[0.921,0.537],"neruma_2":[0.92,0.545],"neruma_3":[0.925,0.442],"moselle_1":[0.925,0.883],"moselle_2":[0.921,0.779],"moselle_3":[0.922,0.462],"crysto_1":[0.917,0.796],"crysto_2":[0.921,0.61],"crysto_3":[0.921,0.543],"nocti_1":[0.925,0.654],"nocti_2":[0.922,0.504],"nocti_3":[0.92,0.526],"koppla_1":[0.917,0.5],"koppla_2":[0.92,0.515],"koppla_3":[0.922,0.419],"frostel_1":[0.925,0.604],"frostel_2":[0.92,0.616],"frostel_3":[0.922,0.508],"bluma_1":[0.8,0.929],"bluma_2":[0.92,0.708],"bluma_3":[0.922,0.461],"sola_1":[0.921,0.925],"sola_2":[0.921,0.662],"sola_3":[0.922,0.394],"herzi_1":[0.921,0.779],"herzi_2":[0.923,0.664],"herzi_3":[0.925,0.433],"tavik_1":[0.825,0.929],"tavik_2":[0.933,0.896],"tavik_3":[0.925,0.687],"kairo_1":[0.912,0.925],"kairo_2":[0.925,0.778],"kairo_3":[0.922,0.833],"vexa_1":[0.921,0.692],"vexa_2":[0.925,0.642],"vexa_3":[0.926,0.705],"aeru_1":[0.917,0.617],"aeru_2":[0.929,0.883],"aeru_3":[0.922,0.833],"moru_1":[0.925,0.779],"moru_2":[0.921,0.892],"moru_3":[0.924,0.772],"grumbo_1":[0.925,0.708],"grumbo_2":[0.929,0.671],"grumbo_3":[0.921,0.744],"blossom_1":[0.708,0.929],"blossom_2":[0.929,0.817],"blossom_3":[0.662,0.825],"solero_1":[0.9,0.938],"solero_2":[0.85,0.779],"solero_3":[0.792,0.912],"autumo_1":[0.767,0.933],"autumo_2":[0.817,0.833],"autumo_3":[0.688,0.733],"frostius_1":[0.792,0.921],"frostius_2":[0.708,0.925],"frostius_3":[0.85,0.933]}
+const petNorm = p => { const b = p && p.stage && PET_BOX[`${p.sp}_${p.stage}`]; if (!b) return 1;
+  return Math.max(.85, Math.min(1.25, .75 / (Math.pow(b[1], .6) * Math.pow(b[0], .4)))); };
 const petSrc = (sp, stage) => `pets/${sp}_${stage ? stage : "ei"}.webp`;
 // Sitz der Accessoire-Bilder: Breite (in % der Figur) und wo sie hingehören
 const ACC_FIT = {krone:[30,"hat"], zauberhut:[36,"hat"], muetze:[32,"hat"], pirat:[40,"hat"], weihnacht:[36,"hat"], kuerbis:[30,"hat"], wikinger:[34,"hat"],
-  party:[22,"hat"], kapitaen:[36,"hat"], diadem:[30,"hat"], blumen:[34,"hat"], headset:[40,"head"], halo:[34,"halo"], schleife:[22,"hat"], brille:[30,"eyes"], herz:[16,"neck"]};
+  party:[22,"hat"], kapitaen:[36,"hat"], diadem:[30,"hat"], blumen:[34,"hat"], headset:[40,"head"], halo:[34,"halo"], schleife:[22,"hat"], brille:[30,"eyes"], herz:[22,"neck"],
+  herzreif:[32,"hat"], hasenohren:[34,"hat"], sonnenhut:[42,"hat"]};
 const hasImg = n => ((S.data||{}).pet_imgs||[]).includes(n);
 const accIcon = id => hasImg(`acc_${id}.webp`) ? `<img src="pets/acc_${id}.webp" alt="">` : (PET_ACC[id]||["",""])[1];
 const bossIcon = b => hasImg(`boss_${b.id}.webp`) ? `<img src="pets/boss_${b.id}.webp" alt="">` : b.icon;
@@ -2920,20 +3196,23 @@ function petScale(p){
 }
 function petFig(p, opts={}){
   if (!p) return "";
-  const party = opts.party && p.stage && !p.acc ? "party" : null, a = p.acc || party;
-  const head = (PET_HEAD[p.sp]||[])[Math.max(0,p.stage-1)] || [50,30,45];
+  const party = opts.party && p.stage && !p.acc ? "party" : null;
+  const head = (PET_HEAD[p.sp]||[])[Math.max(0,p.stage-1)] || [50,30,45,40];
   let acc = "";
+  for (const a of [p.acc || party, p.acc2].filter(Boolean)){
   if (a && p.stage && !opts.sil){
     if (hasImg(`acc_${a}.webp`)){
-      const [w, kind] = ACC_FIT[a] || [30,"hat"];
+      const [w0, kind] = ACC_FIT[a] || [30,"hat"];
+      const w = Math.round(w0 * Math.max(.7, Math.min(1.35, (head[3]||40) / 40)) * (kind==="eyes" ? 1.25 : 1));
       const pos = {hat:[head[1] + 7, "-50%,-82%"], head:[head[1] + 8, "-50%,-50%"], halo:[head[1] - 6, "-50%,-50%"], eyes:[head[2], "-50%,-50%"], neck:[head[2] + 12, "-50%,0"]}[kind];
-      acc = `<span class="pacc img" style="left:${head[0]}%;top:${pos[0]}%;width:${w}cqw;height:${w}cqw;transform:translate(${pos[1]})"><img src="pets/acc_${a}.webp" alt=""></span>`;
+      acc += `<span class="pacc img" style="left:${head[0]}%;top:${pos[0]}%;width:${w}cqw;height:${w}cqw;transform:translate(${pos[1]})"><img src="pets/acc_${a}.webp" alt=""></span>`;
     } else {
       const ay = a === "brille" ? head[2] : ["schleife","blumen","herz","halo"].includes(a) ? head[1] + (a==="halo" ? -6 : 2) : head[1] - 3;
-      acc = `<span class="pacc" style="left:${head[0]}%;top:${ay}%">${accIcon(a)}</span>`;
+      acc += `<span class="pacc" style="left:${head[0]}%;top:${ay}%">${accIcon(a)}</span>`;
     }
   }
-  return `<div class="pwrap ${p.stage?"":"egg"} ${opts.cls||""}" style="--s:${opts.scale || petScale(p)};--wob:${p.stage?0:(p.hatch||0)}">
+  }
+  return `<div class="pwrap ${p.stage?"":"egg"} ${p.aura && !opts.sil ? "aura" : ""} ${opts.cls||""}" style="--s:${((opts.scale || petScale(p)) * petNorm(p)).toFixed(3)};--wob:${p.stage?0:(p.hatch||0)}">
     <img class="pimg ${p.shiny?"shiny":""} ${opts.sil?"sil":""}" src="${petSrc(p.sp, p.stage)}" alt="${esc(p.stage_name||"")}" draggable="false">${acc}</div>`;
 }
 const petName = p => p ? (p.nick || (p.stage ? p.stage_name : `${p.species}-Ei`)) : "";
@@ -2947,7 +3226,26 @@ function petLines(p){
   if (pl){ L.push(`${pl.title}! Ich feuer dich an 🔥`);
     const mins = (Date.now()/1000 - (pl.since||Date.now()/1000))/60; if (mins > 180) L.unshift("Schon über 3 Stunden … kurze Pause? Ich hol uns was zu trinken 🧃"); }
   if (h >= 1 && h < 5) L.push("Gähn … schon so spät. Ab ins Bett? 😴");
-  if (P.today && P.today.rested) L.push("Ausgeruht! Heute zählt deine erste Spielzeit doppelt ✨");
+  if (P.today && P.today.rested) L.push("Ausgeruht! Heute gibt's einen kleinen Bonus ✨");
+  // Lebendiger: Erinnerungen, Jahreszeit, Tageszeit, Nest, Seltenheit
+  if (p.imprint) L.push(`Weißt du noch, ${p.imprint}? Damit hat alles angefangen 🥹`, `Lust auf eine Runde ${p.imprint}? Nur so ein Gedanke … 👀`);
+  const lastWin = [...(P.history||[])].reverse().find(b=>b.won);
+  if (lastWin) L.push(`Gegen ${lastWin.name} waren wir unschlagbar 💪`);
+  const mo = new Date().getMonth() + 1, dow = new Date().getDay();
+  const SEASON = {12:"Bald ist Weihnachten 🎄 Ob der Frost-Yeti auftaucht?", 1:"Neues Jahr, neue Spiele! ❄️", 2:"Liebe liegt in der Luft 💘", 3:"Der Frühling kommt 🌷", 4:"Ich hab ein Ei gefunden … ach nein, ist ein Osterei 🐣",
+    5:"Sonne! Und wir sitzen drinnen und zocken 😎", 6:"Sommer! Zeit für Rennspiele 🏎️", 7:"Puh, heiß hier. Der Sonnenwurm ist bestimmt in der Nähe ☀️", 8:"Noch ein Sommerabend, noch eine Runde 🌅",
+    9:"Herbst – die beste Zeit für lange Spiele 🍂", 10:"Gruselzeit! 🎃 Hast du Lust auf was Schauriges?", 11:"Kuschelwetter. Decke, Tee, Controller ☕"};
+  if (SEASON[mo]) L.push(SEASON[mo]);
+  if (h >= 6 && h < 11) L.push("Guten Morgen ☀️ Heute schon was vor?");
+  else if (h >= 17 && h < 22) L.push(dow === 5 ? "Freitagabend! 🎉 Das Wochenende gehört uns." : "Feierabend! Zeit für eine Runde? 🎮");
+  if (dow === 0) L.push("Sonntag – heute Abend gibt's unseren Wochenrückblick 📬");
+  const recent = (S.groups||[]).filter(g=>g.last && Date.now() - g.last < 2*864e5).sort((a,b)=>b.last-a.last)[0];
+  if (recent) L.push(`${recent.title} neulich – das war spannend! Wie geht's weiter?`);
+  const others = (P.pets||[]).filter(x=>x.id !== p.id && x.stage);
+  if (others.length) L.push(`Grüß ${petName(others[others.length-1])} im Nest von mir! 👋`);
+  if (PET_RARE[p.sp]) L.push(PET_RARE[p.sp] === 3 ? "Wusstest du, dass ich sehr selten bin? 🌟" : "Psst … ich bin ziemlich selten ✨");
+  if (p.next_star) L.push(`Noch ${p.next_star - p.lvl} Level bis zu meinem nächsten Stern ⭐`);
+  if (p.lvl < 10 && p.stage) L.push("Ich bin noch klein – bis Level 10 wachse ich doppelt so schnell! 🌱");
   const wb = (P.current||{}).week;
   if (wb && !wb.won) L.push(`${wb.icon} ${wb.name} hat noch ${num(Math.max(0, wb.hp - wb.dmg))} Leben. ${wb.weak}`);
   if (wb && wb.won) L.push(`Wir haben ${wb.name} besiegt! 🎉`);
@@ -2964,7 +3262,7 @@ function petLines(p){
   L.push("Schön, dass du da bist!", "Streichel mich! 🥰");
   return L;
 }
-function petBubble(p){ const L = petLines(p); return L[(S._pl||0) % L.length]; }
+function petBubble(p){ const L = petLines(p), off = Math.floor(Date.now() / 36e5) % Math.max(1, L.length); return L[((S._pl||0) + (S._pl ? off : 0)) % L.length]; }
 window.petTap = el => {
   const w = el.closest(".pstage"); if (!w) return;
   const f = w.querySelector(".pwrap:not(.pvisit .pwrap)"); if (f){ f.classList.remove("hop"); void f.offsetWidth; f.classList.add("hop"); }
@@ -2979,24 +3277,34 @@ function petStage(p, big, extra=""){
     <div class="pdecor"></div>${extra}${petFig(p, {party: !!P.party})}<div class="pbub">${esc(petBubble(p))}</div></div>`;
 }
 async function savePet(mut, msg){
+  if (S.petBusy) return;              // Doppelklicks ignorieren
+  S.petBusy = true; document.body.classList.add("petbusy");
   const raw = JSON.parse(JSON.stringify(S.data.pet_raw || {pets:[], act:[], acc:{}, hab:"lichtung", gifts:[]}));
+  raw.act = raw.act || [];
+  const before = raw.act.length;
   mut(raw);
-  try { await saveKv("pet", raw); } catch(e){ toast("Speichern hat nicht geklappt"); return; }
+  try { await saveKv("pet", raw); } catch(e){ toast("Speichern hat nicht geklappt"); S.petBusy = false; document.body.classList.remove("petbusy"); return; }
+  S.petBusy = false; document.body.classList.remove("petbusy");
   S.data.pet_raw = raw;
   if (msg) toast(msg);
   if (!CLOUD){ await load(true); return; }
   const P = S.data.pet = S.data.pet || {pets:[]};
-  P.hab = raw.hab || P.hab; P.active = (raw.act.slice(-1)[0]||[])[1] || P.active;
+  P.hab = raw.hab || P.hab; if (raw.act.length > before) P.active = raw.act.slice(-1)[0][1];
+  P.eggs_ready = (P.eggs_ready||[]).filter(sp => !raw.pets.some(r=>r.sp===sp));
   raw.pets.forEach(r=>{ let p = (P.pets||[]).find(x=>x.id===r.id);
     if (!p){ const I = PET_INFO[r.sp]; p = {id:r.id, sp:r.sp, species:I.name, stage:0, stage_name:"Ei", lvl:1, xp:0, xp_lv:0, xp_next:40, hatch:0, hatch_need:3, fav:I.fav, start:r.start}; (P.pets = P.pets||[]).push(p); }
-    p.nick = r.nick || ""; p.acc = (raw.acc||{})[r.id] || null; });
+    p.nick = r.nick || ""; p.acc = (raw.acc||{})[r.id] || null; p.acc2 = (raw.acc2||{})[r.id] || null; });
   P.gifts_sent = raw.gifts || []; P.gift_ok = false;
   quietRoute();
 }
 const todayIso = () => new Date().toLocaleDateString("sv-SE");
-window.chooseEgg = sp => savePet(r=>{ const id = "p" + ((r.pets||[]).length + 1); r.pets = [...(r.pets||[]), {id, sp, start: todayIso()}]; r.act = [...(r.act||[]), [todayIso(), id]]; }, "Dein Ei liegt im Nest 🥚");
-window.setActivePet = id => savePet(r=>{ r.act = [...(r.act||[]), [todayIso(), id]]; }, "Dein Begleiter ist jetzt an deiner Seite");
-window.setPetAcc = (id, acc) => savePet(r=>{ r.acc = r.acc||{}; if (r.acc[id] === acc) delete r.acc[id]; else r.acc[id] = acc; });
+const nowIso = () => new Date().toISOString();
+window.chooseEgg = sp => { if ((S.data.pet_raw||{pets:[]}).pets.some(p=>p.sp===sp)) return;
+  savePet(r=>{ const id = "p" + Date.now().toString(36).slice(-7); r.pets = [...(r.pets||[]), {id, sp, start: todayIso()}]; r.act = [...(r.act||[]), [nowIso(), id]]; }, "Dein Ei liegt im Nest 🥚"); };
+window.setActivePet = id => { if ((S.data.pet||{}).active === id) return; savePet(r=>{ r.act = [...(r.act||[]), [nowIso(), id]]; }, "Dein Begleiter ist jetzt an deiner Seite"); };
+// Zwei Plätze: Kopf (Hüte, Ohren, Kronen …) und Gesicht/Hals (Brille, Anhänger)
+const accSlot = a => ["eyes","neck"].includes((ACC_FIT[a]||[0,"hat"])[1]) ? "acc2" : "acc";
+window.setPetAcc = (id, acc) => savePet(r=>{ const k = accSlot(acc); r[k] = r[k]||{}; if (r[k][id] === acc) delete r[k][id]; else r[k][id] = acc; });
 window.setPetHab = hab => savePet(r=>{ r.hab = hab; });
 window.renamePet = id => { const p = (S.data.pet.pets||[]).find(x=>x.id===id); const n = prompt("Wie soll dein Begleiter heißen?", petName(p)); if (n === null) return; savePet(r=>{ const x = r.pets.find(y=>y.id===id); if (x) x.nick = n.trim().slice(0,24); }); };
 window.sendGift = () => {
@@ -3023,6 +3331,69 @@ function petEvolutionCheck(){
   for (let i = 0; i < 26; i++){ const c = document.createElement("i"); c.className = "conf"; c.style.left = Math.random()*100 + "%"; c.style.background = [I.c,"#FFD166","#fff","#FF8FB8"][i%4]; c.style.animationDelay = (1.6 + Math.random()*.8) + "s"; el.appendChild(c); }
   return true;
 }
+// Spielregeln an einer Stelle (beim ersten Öffnen nach dem Neustart mit „Was ist neu“)
+window.petHelp = (fresh) => {
+  const row = (i, t, d) => `<div class="hrow"><span>${i}</span><div><b>${t}</b><small>${d}</small></div></div>`;
+  $("#infoBody").innerHTML = `<button class="ibtn dclose" onclick="$('#info').close()">✕</button>
+    <div class="eyebrow">${fresh ? "Neustart · Das ist neu" : "Begleiter"}</div><div class="h1" style="font-size:clamp(28px,6vw,40px);margin:6px 0 10px">So funktioniert's</div>
+    ${fresh ? `<p class="help" style="margin-top:0">Das Begleiter-Spiel wurde einmal neu gestartet: Dein erstes Tier ist geblieben (Level 5), alles andere beginnt frisch – fairer und langsamer, damit es lange Spaß macht. Deine Spielzeiten und Statistiken sind unverändert.</p>` : ""}
+    <div class="hrows">
+    ${row("🎮","Erfahrung","Kommt aus deiner echten Spielzeit am PC und auf Konsole. Die erste Stunde am Tag zählt voll, danach weniger (höchstens 3 Std/Tag). Läuft ein Spiel 30 Min ohne Eingabe, zählt das nicht.")}
+    ${row("✨","Extras","Lieblingsgenre deines Tiers +25 % · Ruhetag davor: kleiner Bonus · neues Spiel angefangen +100 · durchgespielt +500 (100 % +800, plus einen Tag Partyhut) · Erfolg +10 · gemeinsamer Abend +200.")}
+    ${row("🥚","Eier","Schlüpfen nach 3 Spieltagen (je 15 Min), an denen sie dabei waren. Vorher sammeln sie keine Erfahrung. Frisch geschlüpft wachsen sie bis Level 10 doppelt so schnell.")}
+    ${row("🔁","Wechseln","Wechselst du mitten am Tag, wird die Spielzeit an der Stelle geteilt. Tiere im Nest wachsen mit 10 % mit.")}
+    ${row("🌱","Stufen","Ei → Baby (Stufe 1) → Stufe 2 ab Level 10 → Endform (Stufe 3) ab Level 25. Danach gibt es Sterne bei Level 30, 35 und 40 und die Endform glitzert.")}
+    ${row("⚔️","Bosse","Jede Woche und jeden Monat einer. Sie richten sich nach deiner üblichen Spielzeit – meist fallen sie gegen Ende der Woche. Ein Sieg bleibt ein Sieg.")}
+    ${row("🎁","Beute","Accessoires, Lebensräume, Farbwelten. Eier gibt es zufällig nach Siegen – spätestens nach 8 Siegen kommt eins.")}
+    ${row("💎","Seltenheit","20 Arten. Selten (leuchten blau): Crysto, Nocti, Tavik, Aeru, Vexa. Sehr selten (leuchten gold): Moru, Koppla. Saison-Tiere gibt es nur in ihrer Jahreszeit – je eins selten und eins sehr selten: Frühling Bluma/Blossom, Sommer Sola/Solero, Herbst Autumo, Winter Frostel/Frostius, Februar Herzi. Ein Tier aus jeder Jahreszeit schaltet eine Farbwelt frei.")}
+    ${row("🎀","Accessoires","Zwei Plätze: Kopf (Hut, Krone, Ohren …) und Gesicht/Hals (Brille, Anhänger).")}
+    ${row("💞","Zu zweit","Gemeinsame Abende, eine Wochenaufgabe zu zweit (+120), Staffelstab (+40), Raid-Boss und Geschenke.")}
+    ${row("📋","Aufgaben","Drei kleine Aufgaben pro Woche (+60), aus rund 20 verschiedenen. Kein Muss.")}
+    ${row("📬","Wochenrückblick","Sonntagabend schickt dir dein Begleiter eine kurze Nachricht, was ihr in der Woche geschafft habt.")}</div>
+    <button class="btn" style="margin-top:14px" onclick="$('#info').close()">Alles klar</button>`;
+  if (!$("#info").open) $("#info").showModal();
+};
+// Letzter Treffer: neu besiegter Boss wird einmal groß gezeigt
+function petLastHit(){
+  const P = S.data.pet || {}, seen = store.get("gr_boss_ko", null);
+  const won = [...(P.history||[]), ...Object.values(P.current||{})].filter(b=>b.won);
+  const keys = won.map(b=>b.kind + b.from + b.id);
+  if (seen === null){ store.set("gr_boss_ko", keys); return false; }   // erstes Mal: nichts nachholen
+  const fresh = won.filter(b=>!seen.includes(b.kind + b.from + b.id));
+  store.set("gr_boss_ko", [...new Set([...seen, ...keys])].slice(-80));
+  if (!fresh.length) return false;
+  const b = fresh[fresh.length-1], p = petActive(), loot = (P.loot||[]).filter(l=>l.d === b.win_day);
+  const el = document.createElement("div"); el.className = "evo ko"; document.body.appendChild(el);
+  el.innerHTML = `<div class="evobox"><div class="kofig"><div class="kopet">${petFig(p, {scale:.8})}</div>
+      <div class="koboss bicon ${hasImg(`boss_${b.id}.webp`)?"img":""}">${bossIcon(b)}</div><div class="koslash"></div><div class="kotxt">K.O.!</div></div>
+    <div class="eyebrow" style="margin-top:14px">Letzter Treffer</div><div class="h1" style="font-size:28px">${esc(b.name)} besiegt!</div>
+    <p class="help">${num(b.dmg)} Schaden bei ${num(b.hp)} Lebenspunkten.${loot.length ? ` Beute: ${loot.map(l=>l.kind==="acc"?esc((PET_ACC[l.val]||[l.val])[0]):l.kind==="hab"?"Lebensraum "+esc(PET_HAB[l.val]||l.val):l.kind==="egg"?`${esc((PET_INFO[l.val]||{}).name||"")}-Ei 🥚`:l.kind==="theme"?"neue Farbwelt":"✨ Schillern").join(", ")}` : ""}</p>
+    <button class="btn limeb" onclick="this.closest('.evo').remove()">Weiter so! ⚔️</button></div>`;
+  return true;
+}
+// Jahres-Postkarte: Bild zum Teilen/Speichern
+window.petPostcard = async () => {
+  const P = S.data.pet || {}, p = petActive(); if (!p) return;
+  const yr = new Date().getFullYear(), I = PET_INFO[p.sp] || {}, c = document.createElement("canvas"); c.width = 1080; c.height = 1350;
+  const x = c.getContext("2d"), load = src => new Promise(r=>{ const im = new Image(); im.onload = ()=>r(im); im.onerror = ()=>r(null); im.src = src; });
+  const g = x.createLinearGradient(0,0,1080,1350); g.addColorStop(0,"#15111f"); g.addColorStop(1,(I.c||"#A97BFF")+"aa"); x.fillStyle = g; x.fillRect(0,0,1080,1350);
+  const hab = hasImg(`hab_${P.hab||"lichtung"}.webp`) ? await load(`pets/hab_${P.hab||"lichtung"}.webp`) : null;
+  x.save(); x.beginPath(); x.roundRect(70,170,940,760,48); x.clip(); if (hab) x.drawImage(hab,70,170,940,760); else { x.fillStyle="#ffffff10"; x.fillRect(70,170,940,760); } x.restore();
+  const im = await load(petSrc(p.sp, p.stage)); if (im){ const sz = 620 * petNorm(p); x.drawImage(im, 540 - sz/2, 900 - sz*.97, sz, sz); }
+  for (const ac of [p.acc, p.acc2].filter(a=>a && hasImg(`acc_${a}.webp`))){ const a = await load(`pets/acc_${ac}.webp`), h = (PET_HEAD[p.sp]||[])[Math.max(0,p.stage-1)]; if (a && h){
+    const sz = 620 * petNorm(p), [w0, kind] = ACC_FIT[ac]||[30,"hat"], w = sz * w0/100 * Math.max(.7, Math.min(1.35, (h[3]||40)/40)) * (kind==="eyes"?1.25:1), ox = 540 - sz/2, oy = 900 - sz*.97;
+    const [ty, fy] = {hat:[h[1]+7,.82], head:[h[1]+8,.5], halo:[h[1]-6,.5], eyes:[h[2],.5], neck:[h[2]+12,0]}[kind];
+    x.drawImage(a, ox + sz*h[0]/100 - w/2, oy + sz*ty/100 - w*fy, w, w); } }
+  x.fillStyle = "#fff"; x.textAlign = "center"; x.font = "800 34px system-ui, sans-serif"; x.fillText(`GAMING RECAP · ${yr}`, 540, 110);
+  x.font = "900 86px system-ui, sans-serif"; x.fillText(p.nick || p.stage_name, 540, 1040);
+  x.font = "700 38px system-ui, sans-serif"; x.globalAlpha = .85;
+  x.fillText(`${I.name} · Level ${p.lvl} · ${P.wins||0} Bosse besiegt`, 540, 1105);
+  if (p.imprint) x.fillText(`Geprägt von ${p.imprint}`, 540, 1160);
+  x.globalAlpha = .6; x.font = "600 30px system-ui, sans-serif"; x.fillText(`Gemeinsam mit ${S.data.me_name || "dir"} durchs Jahr 💛`, 540, 1260);
+  const blob = await new Promise(r=>c.toBlob(r, "image/png")), file = new File([blob], `begleiter-${yr}.png`, {type:"image/png"});
+  if (navigator.canShare && navigator.canShare({files:[file]})){ try { await navigator.share({files:[file], title:`Mein Begleiter ${yr}`}); return; } catch(e){ if (e.name === "AbortError") return; } }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = file.name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+};
 // Was seit dem letzten Besuch passiert ist: Erfahrung und Boss-Schaden
 function petGains(p){
   const P = S.data.pet || {}, seen = store.get("gr_pet_xp", {}), bseen = store.get("gr_boss_dmg", {}), out = {xp:0, boss:{}};
@@ -3038,13 +3409,20 @@ function petGainsSeen(){
 }
 function petFab(){
   const fab = $("#petFab"); if (!fab) return;
-  const p = S.data && S.data.pet && petActive(), on = cur() === "begleiter" || !S.data || !S.data.pet;
+  const p = S.data && S.data.pet && petActive(), on = true;   // Begleiter sitzt jetzt in der Navigation
   fab.hidden = on;
-  if (on) return;
-  const g = p ? petGains(p) : {xp:0}, P = S.data.pet;
-  const news = (g.xp > 0) || (P.eggs_ready||[]).length || (p && !p.stage && p.hatch >= p.hatch_need);
+  { const P0 = (S.data && S.data.pet) || {}, nk = [p ? p.id : "", p ? p.stage : "", p ? p.lvl : "", (P0.eggs_ready||[]).join(","), (P0.loot||[]).length, P0.wins||0, P0.raid_wins||0, todayIso()].join("|");
+    if (cur() === "begleiter" && S.data && S.data.pet) store.set("gr_petseen", nk);
+    const was = S.petNews; S.petNews = cur() !== "begleiter" && store.get("gr_petseen", "") !== nk && ((P0.eggs_ready||[]).length || (P0.loot||[]).length || (p && p.stage));
+    if (was !== S.petNews) nav(); }
+  const P = (S.data && S.data.pet) || {}, g = p ? petGains(p) : {xp:0};
+  // Hinweis nur für Neues seit dem letzten Besuch der Begleiter-Seite
+  const nkey = [p ? p.id : "", p ? p.stage : "", p ? p.lvl : "", (P.eggs_ready||[]).join(","), (P.loot||[]).length, P.wins||0, P.raid_wins||0, todayIso()].join("|");
+  if (on){ if (S.data && S.data.pet) store.set("gr_petseen", nkey); return; }
+  const fresh = store.get("gr_petseen", "") !== nkey;
+  const news = fresh && ((g.xp > 0) || (P.eggs_ready||[]).length || (P.loot||[]).length || (p && p.stage));
   fab.innerHTML = p ? `<img class="${p.shiny?"shiny":""}" src="${petSrc(p.sp, p.stage)}" alt="">${news?`<i class="fabdot">${g.xp > 0 ? "+" + (g.xp > 999 ? Math.round(g.xp/100)/10 + "k" : g.xp) : "!"}</i>`:""}`
-    : `<img src="pets/moselle_ei.webp" alt=""><i class="fabdot">!</i>`;
+    : `<img src="pets/moselle_ei.webp" alt="">${(P.pets||[]).length ? "" : `<i class="fabdot">!</i>`}`;
   fab.classList.toggle("egg", !p || !p.stage);
 }
 function petMini(){
@@ -3073,12 +3451,14 @@ function bossRow(b, big, from){
     ${big ? `<p class="help" style="margin:6px 0 0">💡 ${esc(b.weak)}</p>` : ""}</div></div>`;
 }
 const PART_LABEL = {play:"🎮 Spielzeit", rested:"💤 Ausgeruht-Bonus", fav:"❤️ Lieblingsgenre", new:"🆕 Neues Spiel", done:"🏁 Durchgespielt", ach:"🏆 Erfolge", evening:"💞 Gemeinsamer Abend"};
-const REW_LABEL = {boss:"⚔️ Boss besiegt", raid:"🐙 Raid gewonnen", quest:"📋 Aufgabe geschafft"};
+const REW_LABEL = {boss:"⚔️ Boss besiegt", raid:"🐙 Raid gewonnen", quest:"📋 Aufgabe geschafft", duo:"💞 Aufgabe zu zweit", relay:"🏃 Staffelstab"};
 function renderPet(){
   const P = S.data.pet;
   if (!P){ setView(`<div class="empty"><div class="big">🥚</div><h2>Begleiter</h2><p class="help">Wird beim nächsten Abgleich am PC vorbereitet.</p></div>`); return; }
   const head = `<div class="khead reveal"><div><div class="eyebrow">Dein Begleiter</div><div class="h1">${P.pets && P.pets.length ? esc(petName(petActive())) : "Such dir ein Ei aus"}</div>
-    <p>${P.pets && P.pets.length ? "Wächst mit deinem Spielen und kämpft für dich gegen Bosse" : "Es schlüpft nach ein paar Spieltagen und wächst mit dir"}</p></div></div>`;
+    <p>${P.pets && P.pets.length ? "Wächst mit deinem Spielen und kämpft für dich gegen Bosse" : "Es schlüpft nach ein paar Spieltagen und wächst mit dir"}</p>
+    <button class="btn ghost small" style="margin-top:10px" onclick="petHelp()">📖 So funktioniert's</button></div></div>`;
+  if (P.pets && P.pets.length && !store.get("gr_pet_v2", 0)){ store.set("gr_pet_v2", 1); setTimeout(()=>petHelp(true), 900); }
   if (!P.pets || !P.pets.length){
     setView(head + `<div class="eggpick">${(P.starter||["brasu","neruma","moselle"]).map(sp=>{ const I = PET_INFO[sp];
       return `<button class="card eggc reveal" style="--c:${I.c}" onclick="if(confirm('${I.name} auswählen? Das Ei liegt dann in deinem Nest.'))chooseEgg('${sp}')">
@@ -3097,11 +3477,11 @@ function renderPet(){
       ${petStage(p, true, visit ? `<div class="pvisit">${petFig({...pa.pet}, {scale:.5})}<small>${esc(pa.name)}s ${esc(pa.pet.nick || pa.pet.stage_name)} ist zu Besuch</small></div>` : "")}
       ${g.xp ? `<div class="gainf">+${num(g.xp)} Erfahrung</div>` : ""}
       <div class="pinfo"><div><b class="pname">${esc(petName(p))} <button class="ibtn tiny" onclick="renamePet('${p.id}')" title="Umbenennen">✏️</button></b>
-        <span class="help">${esc(I.name)} · ${p.stage ? `${esc(p.stage_name)} · Stufe ${p.stage} von 3` : "Ei"}${p.shiny ? " · ✨ schillernd" : ""}</span></div>
+        <span class="help">${esc(I.name)} · ${p.stage ? `${esc(p.stage_name)} · Stufe ${p.stage} von 3` : "Ei"}${p.shiny ? " · ✨ schillernd" : ""}${p.imprint ? ` · 🎮 geprägt von ${esc(p.imprint)}` : ""}${p.stars ? ` · ${"⭐".repeat(p.stars)}` : ""}${p.next_star ? ` · nächster Stern ab Level ${p.next_star}` : ""}</span></div>
         ${p.next_name ? `<div class="pnext" title="Nächste Form"><div class="pnfig">${petFig({...p, stage: Math.min(3, p.stage+1), acc:null}, {sil:true, scale:.95})}</div><small>${p.stage ? `ab Lvl ${p.next_stage}` : "schlüpft bald"}</small></div>` : ""}
         <div class="plv"><small>${p.stage ? "Level" : "Schlüpft in"}</small><b>${p.stage ? p.lvl : `${p.hatch_need - p.hatch} T`}</b></div></div>
       <div class="pxp pbig"><i style="width:0" data-w="${prog}%"></i></div>
-      <p class="help" style="margin:6px 0 0">${p.stage ? `${num(p.xp - p.xp_lv)} / ${num(p.xp_next - p.xp_lv)} Erfahrung bis Level ${p.lvl+1}${p.next_stage ? ` · ${esc(p.next_name)} ab Level ${p.next_stage}` : " · Endform erreicht 🌟"}` : `${p.hatch} von ${p.hatch_need} Spieltagen (je mind. 15 Min)`} ${qi("pet")}</p>
+      <p class="help" style="margin:6px 0 0">${p.stage ? `${num(p.xp - p.xp_lv)} / ${num(p.xp_next - p.xp_lv)} Erfahrung bis Level ${p.lvl+1}${p.next_stage ? ` · ${esc(p.next_name)} ab Level ${p.next_stage}` : " · Endform erreicht 🌟"}` : `${p.hatch} von ${p.hatch_need} Spieltagen (je mind. 15 Min)`} <button class="qbtn" onclick="petHelp()" title="So funktioniert's">?</button></p>
       ${parts.length || rews.length ? `<div class="tparts"><small>Heute ${num(T.xp||0)} Erfahrung:</small>${parts.map(([k,v])=>`<span>${PART_LABEL[k]||k} +${num(v)}</span>`).join("")}${rews.map(r=>`<span>${REW_LABEL[r.why]||r.why} +${num(r.xp)}</span>`).join("")}</div>`
         : `<p class="help" style="margin:8px 0 0">Heute noch keine Erfahrung – ${T.rested===false && (P.today||{}).min===0 ? "spiel eine Runde, dann wächst er weiter." : "spiel eine Runde!"}</p>`}
     </section>
@@ -3110,16 +3490,18 @@ function renderPet(){
         : `<p class="help" style="margin:0">Die ersten Kämpfe starten, sobald dein PC das nächste Mal abgleicht – meist innerhalb weniger Minuten, wenn er läuft.</p>`}
       <p class="help" style="margin:10px 0 0">${num(P.wins||0)} Siege${P.raid_wins?` · ${P.raid_wins} Raid-Siege`:""}${P.next_loot ? ` · Nächste Beute beim ${P.next_loot[0]}. Sieg` : ""}</p></section>`;
   // Aufgaben
-  if ((P.quests||[]).length) h += `<section class="card s12 x6 reveal"><h3>📋 Aufgaben der Woche <span class="h3s">je +150 Erfahrung</span></h3>${P.quests.map(q=>`<div class="quest ${q.done?"done":""}">
+  if ((P.quests||[]).length) h += `<section class="card s12 x6 reveal"><h3>📋 Aufgaben der Woche <span class="h3s">je +60 Erfahrung</span></h3>${P.quests.map(q=>`<div class="quest ${q.done?"done":""}">
       <span class="qck">${q.done?"✓":""}</span><div><b>${esc(q.t.replace("Lieblingsgenre", p.fav).replace("Ein gemeinsamer Abend", pa ? `Ein gemeinsamer Abend mit ${pa.name}` : "Ein gemeinsamer Abend"))}</b>
-      <div class="qbar"><i style="width:0" data-w="${q.prog/q.target*100}%"></i></div></div><small>${q.target >= 60 && q.id === "fav120" ? `${hrs(q.prog)} / ${hrs(q.target)}` : `${num(q.prog)} / ${num(q.target)}`}</small></div>`).join("")}
-      <p class="help" style="margin:8px 0 0">Neue Aufgaben jeden Montag. Kein Muss – wer sie schafft, bekommt einen Schub.</p></section>`;
+      <div class="qbar"><i style="width:0" data-w="${q.prog/q.target*100}%"></i></div></div><small>${["fav120","fav300","con60","pc60","same300"].includes(q.id) ? `${hrs(q.prog)} / ${hrs(q.target)}` : `${num(q.prog)} / ${num(q.target)}`}</small></div>`).join("")}
+      ${P.duo_quest && pa ? (q=>`<div class="quest duo ${q.done?"done":""}"><span class="qck">${q.done?"✓":"💞"}</span><div><b>Zu zweit: ${esc(q.t)}</b>
+        <div class="qbar"><i style="width:0" data-w="${q.prog/q.target*100}%"></i></div></div><small>${q.id==="both8" ? `${hrs(q.prog)} / ${hrs(q.target)}` : `${num(q.prog)} / ${num(q.target)}`}</small></div>`)(P.duo_quest) : ""}
+      <p class="help" style="margin:8px 0 0">Neue Aufgaben jeden Montag. Kein Muss – wer sie schafft, bekommt einen Schub.${pa ? ` Die Aufgabe zu zweit gibt euch beiden +120. 🏃 Staffelstab: Legt ${esc(pa.name)} innerhalb von 2 Std los, nachdem du aufgehört hast (oder umgekehrt), gibt's +40.` : ""}</p></section>`;
   // Sammlung
   const U = P.unlocked || {acc:[], hab:["lichtung"], theme:[]};
   h += `<section class="card s12 x6 reveal"><h3>🎒 Sammlung <span class="h3s">${(U.acc||[]).length} / ${Object.keys(PET_ACC).length} Accessoires</span></h3>
     <div class="secttl">Accessoires ${p.stage ? "" : "<span style='text-transform:none;letter-spacing:0'>(nach dem Schlüpfen)</span>"}</div>
     <div class="coll">${Object.entries(PET_ACC).map(([k,[n]])=>{ const has = (U.acc||[]).includes(k);
-      return `<button class="ci ${has?"":"lock"} ${p.acc===k?"on":""}" ${has && p.stage?`onclick="setPetAcc('${p.id}','${k}')"`:""} title="${esc(n)}"><span class="${hasImg(`acc_${k}.webp`)&&has?"img":""}">${has?accIcon(k):"🔒"}</span><small>${esc(n)}</small></button>`; }).join("")}</div>
+      return `<button class="ci ${has?"":"lock"} ${p.acc===k||p.acc2===k?"on":""}" ${has && p.stage?`onclick="setPetAcc('${p.id}','${k}')"`:""} title="${esc(n)}"><span class="${hasImg(`acc_${k}.webp`)&&has?"img":""}">${has?accIcon(k):"🔒"}</span><small>${esc(n)}</small></button>`; }).join("")}</div>
     <div class="secttl">Lebensraum</div>
     <div class="coll">${Object.entries(PET_HAB).map(([k,n])=>{ const has = (U.hab||[]).includes(k);
       return `<button class="ci hab hab-${k} ${has?"":"lock"} ${P.hab===k?"on":""}" ${habStyle(k)} ${has?`onclick="setPetHab('${k}')"`:""}><span>${has?"":"🔒"}</span><small>${esc(n)}</small></button>`; }).join("")}</div>
@@ -3129,7 +3511,7 @@ function renderPet(){
       ${(P.gifts_sent||[]).length ? `<span class="help">Zuletzt verschenkt: ${esc((PET_ACC[P.gifts_sent.slice(-1)[0].acc]||[""])[0])}</span>` : ""}</div>` : ""}</section>`;
   // Nest
   const ready = P.eggs_ready || [];
-  h += `<section class="card s12 x6 reveal"><h3>🪺 Nest</h3><div class="nest">${(P.pets||[]).map(q=>`<div class="nst ${q.id===P.active?"on":""}">
+  h += `<section class="card s12 x6 reveal"><h3>🪺 Nest</h3><div class="nest">${(P.pets||[]).map(q=>`<div class="nst ${q.id===P.active?"on":""} ${PET_RARE[q.sp]?"r"+PET_RARE[q.sp]:""}" data-r="${PET_RARE[q.sp]===3?"SEHR SELTEN":"SELTEN"}">
       <div class="nfig">${petFig({...q}, {scale:.95})}</div><b>${esc(petName(q))}</b><small>${q.stage?`Lvl ${q.lvl}`:"Ei"} · ${esc(q.species)}</small>
       ${q.id===P.active ? `<span class="chip on">An deiner Seite</span>` : `<button class="chip" onclick="setActivePet('${q.id}')">Mitnehmen</button>`}</div>`).join("")}
     ${ready.map(sp=>`<div class="nst new"><div class="nfig"><div class="pwrap egg" style="--s:.8;--wob:1"><img class="pimg" src="${petSrc(sp,0)}" alt=""></div></div><b>${esc(PET_INFO[sp].name)}-Ei</b><small>neu erbeutet!</small>
@@ -3137,8 +3519,10 @@ function renderPet(){
     <p class="help" style="margin-bottom:0">Erfahrung bekommt nur der Begleiter an deiner Seite. Die anderen warten gemütlich im Nest.</p></section>`;
   // Album
   const al = new Set(P.album||[]);
-  h += `<section class="card s12 x6 reveal"><h3>📖 Sammelalbum <span class="h3s">${al.size} / 18 entdeckt</span></h3><div class="album">${Object.entries(PET_INFO).map(([sp,inf])=>
-      `<div class="alrow"><small>${esc(inf.name)}</small>${[1,2,3].map(st=>{ const f = al.has(`${sp}_${st}`);
+  if (p.stage) h += `<section class="card s12 x6 reveal"><h3>📮 Jahres-Postkarte</h3><p class="help" style="margin-top:0">Ein Bild von ${esc(petName(p))} mit eurem Jahr – zum Teilen oder Aufheben.</p>
+    <button class="btn ghost small" onclick="petPostcard()">Postkarte erstellen</button></section>`;
+  h += `<section class="card s12 x6 reveal"><h3>📖 Sammelalbum <span class="h3s">${al.size} / ${Object.keys(PET_INFO).length*3} entdeckt</span></h3><div class="album">${Object.entries(PET_INFO).map(([sp,inf])=>
+      `<div class="alrow"><small>${esc(inf.name)}${inf.season?`<br><i style="opacity:.7;font-style:normal">${esc(inf.season)}</i>`:""}</small>${[1,2,3].map(st=>{ const f = al.has(`${sp}_${st}`);
         return `<div class="alc ${f?"":"unk"}" title="${f?esc(inf.stages[st-1]):"Noch nicht entdeckt"}">${petFig({sp, stage:st, lvl:1}, {sil:!f, scale:.95})}<span>${f?esc(inf.stages[st-1]):"???"}</span></div>`; }).join("")}</div>`).join("")}</div></section>`;
   // Erinnerungen
   const mem = P.memories || [];
@@ -3147,18 +3531,9 @@ function renderPet(){
   // Verlauf & Wie
   const hist = [...(P.history||[])].reverse().slice(0,8);
   if (hist.length) h += `<section class="card s12 x6 reveal"><h3>📜 Letzte Kämpfe</h3>${hist.map(b=>`<div class="xrow" style="cursor:default"><div class="bicon sm ${hasImg(`boss_${b.id}.webp`)?"img":""}">${bossIcon(b)}</div><div><b>${esc(b.name)}</b><span>${fdate(new Date(b.to+"T12:00"))} · ${b.won?"besiegt":"entkommen"} · ${num(b.dmg)} / ${num(b.hp)}</span></div><em title="${b.won?"Besiegt":"Entkommen"}">${b.won?"🏆":"💨"}</em></div>`).join("")}</section>`;
-  h += `<section class="card s12 ${hist.length?"x6":""} reveal"><h3>✨ So wächst ${esc(petName(p))}</h3><div class="hows">
-    <div><b>🎮 Spielen</b><span>Die erste Stunde am Tag zählt voll, danach weniger – max. 3 Std pro Tag.</span></div>
-    <div><b>💤 Ausgeruht</b><span>Nach einem Tag Pause zählt der nächste Spieltag doppelt.</span></div>
-    <div><b>❤️ ${esc(p.fav)}</b><span>Sein Lieblingsgenre gibt 50 % extra.</span></div>
-    <div><b>🏁 Durchspielen</b><span>+500 Erfahrung, 100 % sogar +800 – und einen Tag lang Partyhut.</span></div>
-    <div><b>🆕 Neues anfangen</b><span>+100 pro neu angefangenem Spiel.</span></div>
-    <div><b>🏆 Erfolge</b><span>+10 pro Steam-Erfolg.</span></div>
-    ${pa ? `<div><b>💞 Gemeinsame Abende</b><span>+200 – und der Raid gegen den Koop-Kraken.</span></div>` : ""}
-    <div><b>⚔️ Bosse</b><span>Jede Woche und jeden Monat einer, passend zu deinem Spieltempo. Im Oktober und Dezember gibt es Saison-Bosse.</span></div></div></section>`;
   setView(h + `</div>`);
-  clearInterval(S._pti); S._pti = setInterval(()=>{ const b = document.querySelector(".pethero .pbub"); if (!b || cur() !== "begleiter"){ clearInterval(S._pti); return; } S._pl = (S._pl||0) + 1; b.textContent = petBubble(p); b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); }, 9000);
-  setTimeout(()=>{ const evo = petEvolutionCheck();
+  clearInterval(S._pti); S._pti = setInterval(()=>{ const b = document.querySelector(".pethero .pbub"); if (!b || curRoute() !== "begleiter"){ clearInterval(S._pti); return; } S._pl = (S._pl||0) + 1; b.textContent = petBubble(p); b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); }, 9000);
+  setTimeout(()=>{ const evo = petEvolutionCheck() || petLastHit();
     if (!evo && g.boss.week){ const f = document.querySelector(".pethero .pwrap"); if (f){ f.classList.add("lunge"); setTimeout(()=>f.classList.remove("lunge"), 900); }
       const bi = document.querySelector(".battle .bicon"); if (bi){ setTimeout(()=>{ bi.classList.add("hit"); setTimeout(()=>bi.classList.remove("hit"), 700); }, 380); } }
     petGainsSeen(); petFab(); }, 500);
@@ -3175,10 +3550,10 @@ function duoMeet(p){
 }
 
 /* ================= Wir zwei ================= */
-S.fr = S.fr || "steam";
+S.fr = S.fr || (store.get("gr_fr", null) || "duo");
 function friendSeg(){
   const p = (S.data||{}).partner;
-  return `<div class="seg">${[["steam","Steam-Freunde"],["duo", p ? `💞 ${esc(p.name||"Wir zwei")}` : "💞 Wir zwei"]].map(([k,l])=>`<button class="${S.fr===k?"on":""}" onclick="S.fr='${k}';route()">${l}</button>`).join("")}</div>`;
+  return `<div class="seg">${[["duo", p ? `💞 ${esc(p.name||"Wir zwei")}` : "💞 Wir zwei"],["steam","Steam-Freunde"]].map(([k,l])=>`<button class="${S.fr===k?"on":""}" onclick="S.fr='${k}';store.set('gr_fr','${k}');route()">${l}</button>`).join("")}</div>`;
 }
 function myDuoRows(){
   // eigene Spiele in derselben Form wie die Partner-Daten
@@ -3260,6 +3635,27 @@ function duoEvenings(p){
   return {list, n:list.length, min:list.reduce((s,e)=>s+e.min,0), best:[...list].sort((a,b)=>b.min-a.min)[0], top};
 }
 const GREETS = [["💪","Ich feuer dich an!"],["💞","Hab dich lieb"],["🎮","Lust, zusammen zu zocken?"],["👏","Glückwunsch!"],["🍕","Pause? Essen ist fertig"],["😴","Gute Nacht, Player 2"]];
+// Grüße nach Lage: Tageszeit, was der andere gerade macht, und viel Liebe 💞
+const GREET_POOL = {
+  love: [["💞","Hab dich lieb"],["🥰","Du bist mein Lieblings-Koop-Partner"],["💘","Du hast mein Herz gelootet"],["🫶","Player 1 vermisst Player 2"],["💌","Nur kurz: Ich denk an dich"],
+         ["🌹","Legendärer Drop: du"],["🍀","Mit dir ist jeder Run ein Glücksrun"],["🧸","Kuscheln &gt; Respawn"],["✨","Du bist mein Main Quest"],["💍","Bester Spielstand meines Lebens: wir"]],
+  morning: [["☀️","Guten Morgen, Sonnenschein"],["☕","Kaffee ist fertig, Player 2"],["🌅","Neuer Tag, neue Quests – du schaffst das"]],
+  day: [["💪","Du rockst den Tag"],["🍫","Snack-Lieferung im Anflug"],["📱","Kurze Pause? Ich wink dir zu"]],
+  evening: [["🎮","Lust, zusammen zu zocken?"],["🍕","Pause? Essen ist fertig"],["🛋️","Couch ist frei – Koop-Abend?"],["🍿","Filmabend oder Zockabend?"]],
+  night: [["😴","Gute Nacht, Player 2"],["🌙","Speicher ab und komm kuscheln"],["💤","Letzter Boss morgen – jetzt ab ins Bett"]],
+  playing: [["🔥","Ich feuer dich an!"],["🎯","Zeig dem Spiel, wer der Boss ist"],["🏆","Hol dir den Sieg, ich glaub an dich"],["🧃","Trinken nicht vergessen, Gamer"]],
+  done: [["🎉","Glückwunsch zum Durchspielen!"],["👑","Abgeschlossen wie ein Profi"],["🥳","Party! Wieder eins geschafft"]],
+};
+function greetChoices(p){
+  const h = new Date().getHours(), seed = Math.floor(Date.now() / 36e5) + (S.greetShuffle||0), pick = (arr, n, off=0) => { const out = [];
+    for (let i = 0; i < arr.length && out.length < n; i++) out.push(arr[(seed * 7 + off + i * 3) % arr.length]); return [...new Set(out)]; };
+  const ctx = [], live = duoLive(p)[0], news = (p.news||[]).find(e => ["done","full"].includes(e[0]) && Date.now() - Date.parse(e[3]) < 2*864e5);
+  if (live) ctx.push(...pick(GREET_POOL.playing, 2));
+  if (news) ctx.push(...pick(GREET_POOL.done, 1));
+  ctx.push(...pick(GREET_POOL[h < 5 || h >= 23 ? "night" : h < 11 ? "morning" : h < 17 ? "day" : "evening"], 2, 1));
+  const out = [...ctx.slice(0, 3), ...pick(GREET_POOL.love, 6 - Math.min(3, ctx.length), 2)];
+  return out.map(([e,t]) => [e, t.replace("&gt;", ">")]);
+}
 window.sendGreet = async (text, btn) => {
   const p = S.data.partner; if (!p || !p.topic) return;
   if (btn){ btn.disabled = true; setTimeout(()=>btn.disabled = false, 8000); }
@@ -3286,7 +3682,7 @@ function duoGreetBox(){
   const got = [...(S.data.greets||[])].sort((a,b)=>b.at-a.at).slice(0,4), sent = store.get("gr_greets_sent", []).slice(-1)[0];
   el.innerHTML = `${got.length ? got.map((g,i)=>`<div class="greet ${i===0 && Date.now()/1000 - g.at < 3600 ? "new" : ""}"><b>${esc(g.msg)}</b><small>${esc((g.title||"").replace(/^💞\s*/,""))} · ${relT(g.at)}</small></div>`).join("")
       : `<p class="help" style="margin:0 0 10px">Noch keine Grüße bekommen. Mach den Anfang 💌</p>`}
-    ${p.topic ? `<div class="gbtns">${GREETS.map(([e,t])=>`<button class="chip" onclick="sendGreet('${e} ${t}', this)">${e} ${t}</button>`).join("")}</div>
+    ${p.topic ? `<div class="gbtns">${(S._gc = greetChoices(p)).map(([e,t],i)=>`<button class="chip" onclick="sendGreet(S._gc[${i}].join(' '), this)">${e} ${esc(t)}</button>`).join("")}<button class="chip" title="Andere Grüße" onclick="S.greetShuffle=(S.greetShuffle||0)+1;duoGreetBox()">🔀</button></div>
       ${sent ? `<p class="help" style="margin:8px 0 0">Zuletzt gesendet: ${esc(sent.msg)} · ${relT(sent.at)}</p>` : ""}`
       : `<p class="help" style="margin:8px 0 0">Grüße schicken geht, sobald ${esc(p.name)} Push aufs Handy eingerichtet und die neueste Version hat.</p>`}`;
 }
@@ -3306,7 +3702,7 @@ function renderDuo(head){
       ${S.data.can_edit?`<button class="btn limeb" onclick="S.setTab='duo';openSettings()">Einstellungen öffnen</button>`:`<p class="help">Das Einrichten geht am PC.</p>`}</div>`);
     return;
   }
-  if (!S.yearPM && !S._duoYear){ S._duoYear = 1; ensurePeriod("year").then(()=>{ if (S.fr === "duo" && cur() === "freunde") quietRoute(); }).catch(()=>{}); }
+  if (!S.yearPM && !S._duoYear){ S._duoYear = 1; ensurePeriod("year").then(()=>{ if (S.fr === "duo" && curRoute() === "freunde") quietRoute(); }).catch(()=>{}); }
   const D = duoData(), {me, meName, mine, theirs, weeks, tot, both, match, streak} = D;
   const sc = S.duoScope || "week", [a, b] = tot[sc], sum = a + b;
   const share = sum ? a / sum * 100 : 50, diff = Math.abs(a - b);
@@ -3414,8 +3810,9 @@ window.startDuoStory = () => {
   const myAv = D.me.avatar || ((S.data.steam||{}).me||{}).avatar;
   const L = [], cover = g => `<div class="poster">${g && g.g ? img(g.g.covers, g.t) : g && g.c ? `<img src="${esc(g.c)}" alt="">` : ph((g||{}).t||"")}</div>`;
   const blobs = (...c) => c.map((col,i)=>`<div class="wblob" style="background:${col};width:${60+i*14}cqw;height:${60+i*14}cqw;left:${[-20,40,-10,50][i%4]}%;top:${[-10,30,60,-20][i%4]}%;animation-delay:${-i*3}s"></div>`).join("");
+  const hearts = () => `<div class="whearts" aria-hidden="true">${Array.from({length:14},(_,i)=>`<i style="--x:${(i*37)%100}%;--d:${6+(i*7)%7}s;--dl:${-(i*1.3)%8}s;--s:${.6+(i%4)*.25}">♥</i>`).join("")}</div>`;
   const av2 = `<div class="sduo w-in d1">${duoAv(myAv, meName, "me")}<span class="duoheart">♥</span>${duoAv(p.avatar, p.name, "pa")}</div>`;
-  L.push({bg:"#15111f", tr:"zoom", html:`${blobs("#33C3FF55","#A97BFF66","#FF7AB633")}<div class="k w-in">Gaming Recap · Wir zwei</div>${av2}
+  L.push({bg:"#15111f", tr:"zoom", html:`${blobs("#33C3FF55","#A97BFF66","#FF7AB633")}${hearts()}<div class="k w-in">Gaming Recap · Wir zwei</div>${av2}
     <div class="h w-in d2 split">Unser Gaming-Jahr ${yr}.</div><p class="w-in d3">${esc(meName)} & ${esc(p.name)} – eine Story für euch zwei.</p>`});
   if (!sum){ L.push({bg:"#181B21", html:`<div class="h">Dieses Jahr ist noch nichts erfasst.</div><p>Spielt ein bisschen – dann füllt sich eure Story.</p>`}); return openStory(L); }
   L.push({bg:"#121522", html:`${blobs("#33C3FF55","#A97BFF55")}<div class="wglass"><div class="k w-in">Zusammen habt ihr ${yr}</div>
@@ -3444,12 +3841,31 @@ window.startDuoStory = () => {
     L.push({bg:"#1a1220", html:`${blobs("#FF7AB633","#7C8CFF55")}<div class="k w-in">Wochen-Duelle ${yr}</div>
       <div class="wbig w-in d1" style="font-size:clamp(56px,20cqw,120px)">${w0}:${w1}</div>
       <p class="w-in d2"><b class="cme">${esc(meName)}</b> gegen <b class="cpa">${esc(p.name)}</b>${streak.n>1?` · aktuell ${streak.n} Siege in Folge für ${esc(streak.who?p.name:meName)}`:""}.${crowns[0]+crowns[1] ? ` Monatskronen: 👑 ${crowns[0]} : ${crowns[1]}.` : ""}</p>`}); }
+  // Gegensätze: wer liebt was, das der/die andere kaum anfasst
+  const opp = (side) => [...mine.values()].map(x=>[x, theirs.get(x.k)]).filter(([x,y])=>y && (side ? y.y > 300 && x.y < 60 : x.y > 300 && y.y < 60) && (x.y||y.y))
+    .sort((u,v)=> side ? v[1].y-u[1].y : v[0].y-u[0].y)[0];
+  const mOnly = opp(0), pOnly = opp(1);
+  if (mOnly || pOnly) L.push({bg:"#1b1424", html:`${blobs("#33C3FF44","#FF7AB644")}<div class="k w-in">Gegensätze ziehen sich an</div>
+    <div class="wopp">${mOnly?`<div class="w-in d1">${cover(mOnly[0])}<b class="cme">${esc(meName)}</b><small>${esc(mOnly[0].t)} · ${hrs(mOnly[0].y)}</small></div>`:""}
+    <span class="duoheart w-in d2">♥</span>${pOnly?`<div class="w-in d3">${cover(pOnly[1])}<b class="cpa">${esc(p.name)}</b><small>${esc(pOnly[1].t)} · ${hrs(pOnly[1].y)}</small></div>`:""}</div>
+    <p class="w-in d4">Das liebt jeweils nur eine*r von euch. Vielleicht ein Abend zum Reinschnuppern? 😉</p>`});
+  // Eure Begleiter nebeneinander
+  const myPet = S.data.pet && petActive(), paPet = (p.pet && p.pet.sp) ? p.pet : null;
+  if (myPet && myPet.stage && paPet && paPet.stage) L.push({bg:"#10201a", html:`${blobs("#14F0C844","#FF7AB633")}${hearts()}<div class="k w-in">Eure Begleiter</div>
+    <div class="wpets"><div class="w-in d1">${petFig(myPet, {scale:.9})}<b class="cme">${esc(myPet.nick||myPet.stage_name)}</b><small>Level ${myPet.lvl}</small></div>
+    <div class="w-in d2">${petFig({...paPet, hatch:3}, {scale:.9})}<b class="cpa">${esc(paPet.nick||paPet.stage_name)}</b><small>Level ${paPet.lvl}</small></div></div>
+    <div class="h w-in d3 split" style="font-size:clamp(26px,8cqw,46px)">Kleine Helden, großes Team.</div>`});
+  // Liebesgrüße
+  const gotN = (S.data.greets||[]).filter(g=>new Date(g.at*1000).getFullYear()===yr).length, sentN = store.get("gr_greets_sent", []).length;
+  if (gotN + sentN >= 2) L.push({bg:"#22111c", html:`${blobs("#FF7AB666","#A97BFF55")}${hearts()}<div class="k w-in">Post für dich</div>
+    <div class="xl w-in d1" data-count="${gotN + sentN}">0</div><div class="h w-in d2 split">Grüße hin und her.</div>
+    <p class="w-in d3">Mitten im Zocken an den anderen denken – das ist Koop auf Profi-Niveau. 💌</p>`});
   L.push({bg:"#0e1b1d", html:`${blobs("#14F0C855","#A97BFF44")}<div class="k w-in">Euer Gaming-Match</div>
     <div class="xl w-in d1" data-count="${match.pct}" data-pre="">0</div><div class="h w-in d2" style="font-size:clamp(30px,9.5cqw,58px);overflow-wrap:anywhere">${matchText(match.pct)}.</div>
     <p class="w-in d3">${match.gen.length?`Ihr trefft euch am ehesten bei <b>${esc(match.gen[0][0])}</b>.`:""} ${D.both.length} Spiele habt ihr beide gespielt.</p>`});
   const next = [...mine.values()].filter(x=>x.own && theirs.has(x.k) && theirs.get(x.k).own && (x.mp || theirs.get(x.k).mp) && x.m + theirs.get(x.k).m < 300)
     .sort((u,v)=>(v.g.critic||70)-(u.g.critic||70))[0];
-  L.push({bg:"#15111f", html:`${blobs("#33C3FF44","#A97BFF55","#FF7AB633")}${av2}<div class="h w-in d2 split">Auf ein weiteres Jahr, Player 2.</div>
+  L.push({bg:"#15111f", html:`${blobs("#33C3FF44","#A97BFF55","#FF7AB633")}${hearts()}${av2}<div class="h w-in d2 split">Auf ein weiteres Jahr, Player 2.</div>
     <p class="w-in d3">${next?`Vorschlag fürs nächste Jahr: <b>${esc(next.t)}</b> – habt ihr beide und lässt sich zusammen spielen.`:"Danke fürs gemeinsame Zocken."} 💞</p>`});
   openStory(L);
 };
@@ -3464,7 +3880,6 @@ const EXPLAIN = {
   pcvs: ["PC vs. Konsole", "Anteil deiner Spielzeit am PC im Vergleich zu PlayStation und Xbox im gewählten Zeitraum."],
   backlog: ["PC-Backlog", "Alle PC-Spiele, die du besitzt (Stores wählbar in den Einstellungen). „Geschafft“ = durchgespielt oder komplett. Der Status wird automatisch erkannt (z. B. nie gestartet, angefangen) – du kannst ihn im Spiel-Detail ändern. Story-Dauern kommen von IGDB."],
   duo: ["Wir zwei", "Zwei Gaming-Recap-Installationen teilen verschlüsselt Spielliste, Spielzeiten, Genres, Tier-Liste und was gerade läuft (keine Keys, keine Notizen). Aktualisiert sich etwa alle 5–10 Minuten, solange beide PCs laufen."],
-  pet: ["Begleiter", "Dein Begleiter wächst mit deinem echten Spielen: Die erste Stunde am Tag zählt voll, danach weniger (höchstens 3 Std pro Tag). Nach einem Tag Pause zählt der nächste Spieltag doppelt. Durchspielen, neue Spiele anfangen, Erfolge und gemeinsame Abende geben extra Erfahrung, sein Lieblingsgenre 50 % mehr. Stufe 2 kommt ab Level 10 (etwa nach einem Monat), die Endform ab Level 25 (etwa nach vier Monaten). Jede Woche und jeden Monat kommt ein Boss – Siege bringen Beute: Accessoires, Lebensräume, Farbwelten und neue Eier."],
   evenings: ["Gemeinsame Abende", "Wenn ihr beide gleichzeitig dasselbe Spiel am PC spielt (mindestens 15 Minuten überlappend), zählt das als gemeinsamer Abend. Grundlage sind die Sessions, die Gaming Recap auf beiden PCs misst. Nach Mitternacht zählt noch zum Vorabend."],
   match: ["Gaming-Match", "Wie ähnlich ihr spielt: zu 60 % eure Genres (Anteil an der Spielzeit) und zu 40 %, wie viele Spiele ihr beide gespielt habt. Die Monatskrone 👑 bekommt, wer im laufenden Monat mehr gespielt hat; das Wochen-Duell zählt die Kalenderwochen (Mo–So)."],
   coop: ["Zusammen spielen", "Spiele, die ihr beide besitzt und die laut Playnite Mehrspieler oder Koop haben – sortiert nach Wertung."],
@@ -3591,7 +4006,7 @@ function renderWrapped(){
   const deep = decodeURIComponent(location.hash.split("/")[2] || "");   // aus der Push-Nachricht: direkt ein Monat
   if (deep){ history.replaceState(null, "", "#/wrapped"); if (wrapModes().some(m=>m[0]===deep)){ W.mode = deep; setTimeout(()=>startWrapped(), 400); } }
   if (!wrapModes().some(m=>m[0]===W.mode)) W.mode = "year";
-  setView(`<section class="card hero reveal in" style="min-height:58vh;justify-content:center;text-align:center;align-items:center">
+  setView(statSeg() + `<section class="card hero reveal in" style="min-height:58vh;justify-content:center;text-align:center;align-items:center">
     <div class="eyebrow">Dein Gaming Recap</div><div class="num" style="font-size:clamp(70px,20vw,170px);line-height:1;padding-bottom:.12em">Wrapped</div>
     <div class="sub" style="margin:10px auto 18px">Deine Story: Stunden, Top-Spiele, dein Gamer-Typ und Rekorde. Am Ende gibt's dein Poster als Bild zum Teilen.</div>
     <div class="chips" id="wrapChips" style="justify-content:center;flex-wrap:wrap">${wrapModes().filter(m=>!m[2]).map(([k,l])=>`<button class="chip ${W.mode===k?"on":""}" data-k="${esc(k)}" onclick="setWrapMode('${k}')">${esc(l)}</button>`).join("")}${(()=>{ const old = wrapModes().filter(m=>m[2]); return old.length ? `<select class="chip" style="width:auto" onchange="if(this.value){setWrapMode(this.value)}"><option value="">Ältere Jahre ▾</option>${old.map(([k,l])=>`<option value="${esc(k)}" ${W.mode===k?"selected":""}>${esc(l)}</option>`).join("")}</select>` : ""; })()}</div>
@@ -4312,21 +4727,39 @@ function roll(){
 /* ================= Handy-Menü (Cloud) ================= */
 function cloudMenu(){
   const q = edits(), waiting = q.filter(e=>!e.sent).length, sent = q.length - waiting;
+  const H = S.data.health || [], bad = H.filter(h=>h.level==="error").length, warn = H.filter(h=>h.level==="warn").length;
+  const pushed = (S.snap||{}).pushed, age = pushed ? (Date.now() - new Date(pushed)) / 36e5 : 99;
+  const N = S.data.notify || {}, non = Object.values(N.cats || {}).filter(v=>v !== false).length;
+  const pa = S.data.partner;
+  const tile = (k, i, l, sub, cls) => `<button type="button" class="stile" onclick="setTab('${k}')"><span class="sti">${i}</span><b>${l}</b><small class="sts ${cls}">${sub}</small></button>`;
+  const off = (i, l) => `<div class="stile dis"><span class="sti">${i}</span><b>${l}</b><small class="sts off">Nur am PC</small></div>`;
   $("#settingsBody").innerHTML = `<button class="ibtn dclose" onclick="$('#settings').close()">✕</button>
-    <div class="h1" style="font-size:32px">Handy-App</div>
-    <div class="kv"><div><small>Vom PC hochgeladen</small><b>${(S.snap||{}).pushed?new Date(S.snap.pushed).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"–"}</b></div>
-      <div><small>Letzter Abgleich am PC</small><b>${S.data.last_sync?new Date(S.data.last_sync).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"–"}</b></div>
-      <div><small>Deine Änderungen</small><b>${!q.length ? "✓ alle beim PC angekommen" : `${waiting ? waiting + " noch nicht gesendet · " : ""}${sent ? sent + " beim PC ausstehend" : ""}`}</b></div></div>
-    <p class="help">Deine Änderungen gehen sofort verschlüsselt an GitHub. Ist dein PC an, holt er sie innerhalb von 2 Minuten ab und lädt den neuen Stand hoch. Bis dahin siehst du sie hier schon. Ist der PC aus, warten sie dort sicher.</p>
-    <div class="secttl" style="margin-top:14px">🎨 Farbwelt</div>${themePicker()}
-    <div class="secttl" style="margin-top:14px">🔔 Benachrichtigungen</div><div id="notifyBox">${notifyBlock()}</div>
-    <div class="secttl" style="margin-top:14px">Systemcheck am PC</div>${healthBlock()}
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
-      <button class="btn limeb" onclick="S.snap=null;$('#settings').close();loadCloud(true)">Neu laden</button>
-      <button class="btn ghost" onclick="sendNow()">⇪ Jetzt senden</button>
-      <button class="btn ghost" onclick="if(confirm('Abmelden? Das Passwort wird von diesem Gerät gelöscht.')){store.del('gr_pass');store.del('gr_blob');location.reload()}">Abmelden</button></div>`;
+    <div class="h1" style="font-size:32px">Einstellungen</div>
+    <div class="stiles">
+      ${tile("sync","🔄","Abgleich", !q.length ? (pushed ? `Stand ${relTime(new Date(pushed).getTime())}` : "Noch kein Stand") : `${q.length} Änderung${q.length>1?"en":""} unterwegs`, age < 12 && !waiting ? "ok" : "warn")}
+      ${tile("look","🎨","Farbwelt", esc((THEMES.find(t=>t[0]===THEME.cur)||[0,"Standard"])[1]), "ok")}
+      ${tile("notify","🔔","Benachrichtigungen", S.data.notify ? `${non} an` : "Standard", "ok")}
+      ${tile("health","🩺","Systemcheck am PC", bad ? `${bad} Problem${bad>1?"e":""}` : warn ? `${warn} Hinweis${warn>1?"e":""}` : "Alles in Ordnung", bad ? "err" : warn ? "warn" : "ok")}
+    </div>
+    <div class="secttl" style="margin:18px 0 8px">Am PC einstellen</div>
+    <div class="stiles small">${off("🎮","Spiele-Quellen")}${off("🔑","Keys & Dienste")}${off("💞", pa ? `Wir zwei · ${esc(pa.name)}` : "Wir zwei")}${off("🖥️","System & Updates")}</div>
+    <div class="stback" hidden><button type="button" class="btn ghost small" onclick="setTab(null)">‹ Alle Einstellungen</button><b id="stTitle"></b></div>
+    <fieldset data-tab="sync"><legend>🔄 Abgleich</legend>
+      <div class="kv"><div><small>Vom PC hochgeladen</small><b>${pushed?new Date(pushed).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"–"}</b></div>
+        <div><small>Letzter Abgleich am PC</small><b>${S.data.last_sync?new Date(S.data.last_sync).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"–"}</b></div>
+        <div><small>Deine Änderungen</small><b>${!q.length ? "✓ alle beim PC angekommen" : `${waiting ? waiting + " noch nicht gesendet · " : ""}${sent ? sent + " beim PC ausstehend" : ""}`}</b></div></div>
+      <p class="help">Deine Änderungen gehen sofort verschlüsselt an GitHub. Ist dein PC an, holt er sie innerhalb von 2 Minuten ab und lädt den neuen Stand hoch. Bis dahin siehst du sie hier schon. Ist der PC aus, warten sie dort, bis er wieder läuft.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+        <button class="btn limeb" type="button" onclick="S.snap=null;$('#settings').close();loadCloud(true)">Neu laden</button>
+        <button class="btn ghost" type="button" onclick="sendNow()">⇪ Jetzt senden</button>
+        <button class="btn ghost" type="button" onclick="if(confirm('Abmelden? Das Passwort wird von diesem Gerät gelöscht.')){store.del('gr_pass');store.del('gr_blob');location.reload()}">Abmelden</button></div></fieldset>
+    <fieldset data-tab="look"><legend>🎨 Farbwelt</legend>${themePicker()}</fieldset>
+    <fieldset data-tab="notify"><legend>🔔 Benachrichtigungen</legend><div id="notifyBox">${notifyBlock()}</div></fieldset>
+    <fieldset data-tab="health"><legend>🩺 Systemcheck am PC</legend>${healthBlock() || `<p class="help">Noch keine Daten vom PC.</p>`}</fieldset>`;
+  setTab(null);
   if (!$("#settings").open) $("#settings").showModal();
 }
+const CLOUD_TABS = [["sync","🔄","Abgleich"],["look","🎨","Farbwelt"],["notify","🔔","Benachrichtigungen"],["health","🩺","Systemcheck am PC"]];
 
 /* ================= Einrichtungs-Assistent (erster Start am PC) ================= */
 const WZ = {step:0, c:null};
@@ -4472,7 +4905,7 @@ window.openSettings = async () => {
   $("#settingsBody").innerHTML = `<button class="ibtn dclose" onclick="$('#settings').close()">✕</button>
     <div class="h1" style="font-size:32px">Einstellungen</div>
     <p class="help" style="margin-top:-8px">Alles bleibt auf diesem PC (Ordner <code>daten</code>). Die Handy-App bekommt nur eine verschlüsselte Kopie.</p>
-    <div class="seg stabs">${SET_TABS.map(([k,l])=>`<button type="button" data-k="${k}" onclick="setTab('${k}')">${l}</button>`).join("")}</div>
+    ${setTiles(c)}<div class="stback" hidden><button type="button" class="btn ghost small" onclick="setTab(null)">‹ Alle Einstellungen</button><b id="stTitle"></b></div>
     <fieldset data-tab="allg"><legend>🎨 Farbwelt</legend>${themePicker()}</fieldset>
     <fieldset data-tab="allg"><legend>👤 Profil</legend>
       <label>Dein Name (für „Wir zwei“ und das Wrapped)</label><input type="text" id="user_name" value="${esc(c.user_name||"")}" placeholder="Dein Vorname" maxlength="40"></fieldset>
@@ -4494,6 +4927,8 @@ window.openSettings = async () => {
       <div class="inl"><input type="password" id="partner_code" placeholder="${ph2(c.partner_code_set)}" autocomplete="off" style="flex:1">
         <button class="btn ghost small" type="button" onclick="const v='wz-'+crypto.getRandomValues(new Uint32Array(3)).join('').slice(0,18);$('#partner_code').type='text';$('#partner_code').value=v">Erzeugen</button></div>
       <p class="help">Einer erzeugt den Code und schickt ihn dem anderen. Die geteilten Daten (Spiele und Spielzeiten) sind damit verschlüsselt.</p>
+      <label class="check" style="margin-top:10px"><input type="checkbox" id="allow_wake" ${c.allow_wake?"checked":""}> ${esc((S.data.partner||{}).name || "Mein Partner")} darf meinen PC per Handy aufwecken</label>
+      <p class="help">Klappt nur im selben Heimnetz und wenn „Wake-on-LAN“ im BIOS/Netzwerkadapter an ist. Aus Ruhezustand geht es fast immer.</p>
     </fieldset>
     <fieldset data-tab="sys"><legend>⬇️ Hintergrund-Downloads</legend><div id="dlBox"><p class="help">Lade Status …</p></div></fieldset>
     <fieldset data-tab="sys"><legend>🩺 Systemcheck</legend>${healthBlock() || `<p class="help">Wird beim nächsten Abgleich erstellt.</p>`}</fieldset>
@@ -4599,7 +5034,7 @@ window.openSettings = async () => {
     </fieldset>
     <div class="savebar"><button class="btn ghost" type="button" onclick="$('#settings').close()">Abbrechen</button>
       <button class="btn limeb" type="button" id="saveBtn">Speichern</button></div>`;
-  setTab(S.setTab || "allg");
+  setTab(S.setTab || null);
   $("#instBtn").onclick = async () => {
     try { const r = await post("/api/playnite/install",{}); alert("Installiert nach:\n" + r.path + "\n\nStarte Playnite jetzt neu."); openSettings(); }
     catch(e){ alert(e.message); }
@@ -4620,7 +5055,7 @@ window.openSettings = async () => {
         ...($("#auto_update")?{auto_update:ch("auto_update")}:{}), ...($("#publish_updates")?{publish_updates:ch("publish_updates")}:{}), gh_token:v("gh_token"), cloud_pass:v("cloud_pass"),
         cloud_enabled:ch("cloud_enabled"), tracker:ch("tracker"), hltb:ch("hltb"), lan:ch("lan"), sync_hours:Number(v("sync_hours"))||6,
         backlog_stores:[...document.querySelectorAll(".blstore:checked")].map(e=>e.value),
-        steam_extras:ch("steam_extras"), push_topic:v("push_topic"),
+        steam_extras:ch("steam_extras"), push_topic:v("push_topic"), allow_wake:ch("allow_wake"),
         watts:Number(v("watts"))||350, kwh_price:Number(v("kwh_price"))||0.35});
       $("#settings").close(); toast("Gespeichert"); setTimeout(load,400);
     } catch(e){ alert("Speichern fehlgeschlagen: " + e.message); $("#saveBtn").disabled = false; }
@@ -4628,11 +5063,30 @@ window.openSettings = async () => {
   if (!$("#settings").open) $("#settings").showModal();
   pollDownloads(); loadUpdBox();
 };
-const SET_TABS = [["allg","Allgemein"],["quellen","Quellen"],["dienste","Keys"],["handy","Handy"],["duo","💞 Wir zwei"],["sys","System"]];
+// Übersicht aus Kacheln: Status auf einen Blick, Seltenes unter „Erweitert“
+const SET_TABS = [["allg","🎨","Allgemein"],["quellen","🎮","Spiele-Quellen"],["handy","📱","Handy & Push"],["duo","💞","Wir zwei"],["dienste","🔑","Keys & Dienste"],["sys","🖥️","System & Updates"]];
+function setTiles(c){
+  const src = Object.values(S.data.sources||{}), ok = src.filter(x=>x && x.ok !== false && !x.error).length;
+  const keys = ["steam_api_key_set","igdb_client_secret_set","itad_key_set","sgdb_key_set","rawg_key_set","xbox_api_key_set"].filter(k=>c[k]).length;
+  const H = S.data.health || [], bad = H.filter(h=>h.level==="error").length, warn = H.filter(h=>h.level==="warn").length;
+  const pa = S.data.partner;
+  const st = {allg:[`${esc(c.user_name || "Kein Name")} · ${esc((THEMES.find(t=>t[0]===THEME.cur)||[0,"Standard"])[1])}`, c.user_name ? "ok" : "warn"],
+    quellen:[src.length ? `${ok} von ${src.length} verbunden` : "Noch nichts verbunden", src.length && ok === src.length ? "ok" : "warn"],
+    handy:[c.cloud_enabled ? (c.push_topic ? "Handy-App + Push aktiv" : "Handy-App aktiv · Push aus") : "Aus", c.cloud_enabled ? "ok" : "off"],
+    duo:[pa ? `Verbunden mit ${esc(pa.name)}` : c.partner_url ? "Wartet auf Partner" : "Nicht verbunden", pa ? "ok" : "off"],
+    dienste:[`${keys} Keys hinterlegt`, keys ? "ok" : "off"],
+    sys:[bad ? `${bad} Problem${bad>1?"e":""}` : warn ? `${warn} Hinweis${warn>1?"e":""}` : "Alles in Ordnung", bad ? "err" : warn ? "warn" : "ok"]};
+  const tile = ([k,i,l]) => `<button type="button" class="stile" onclick="setTab('${k}')"><span class="sti">${i}</span><b>${l}</b><small class="sts ${st[k][1]}">${st[k][0]}</small></button>`;
+  return `<div class="stiles">${SET_TABS.slice(0,4).map(tile).join("")}</div><div class="secttl" style="margin:18px 0 8px">Erweitert</div><div class="stiles small">${SET_TABS.slice(4).map(tile).join("")}</div>`;
+}
+if ($("#settings")) $("#settings").addEventListener("close", () => { S.setTab = null; });
 window.setTab = k => {
   S.setTab = k;
   document.querySelectorAll("#settingsBody fieldset[data-tab]").forEach(f=>f.hidden = f.dataset.tab !== k);
-  document.querySelectorAll("#settingsBody .stabs button").forEach(b=>b.classList.toggle("on", b.dataset.k === k));
+  document.querySelectorAll("#settingsBody .stiles, #settingsBody .secttl").forEach(e=>e.hidden = !!k);
+  const bk = $("#settingsBody .stback"); if (bk){ bk.hidden = !k; const t = [...SET_TABS, ...CLOUD_TABS].find(x=>x[0]===k); $("#stTitle").textContent = ""; }
+  const sv = $("#settingsBody .savebar"); if (sv) sv.hidden = !k;
+  const d = $("#settings"); if (d) d.scrollTop = 0;
 };
 async function loadUpdBox(){
   const box = $("#updBox"); if (!box) return;
@@ -4692,6 +5146,21 @@ if (CLOUD && "serviceWorker" in navigator){
 }
 nav();
 load();
+// Handy: beim Zurückkehren in die App und alle 3 Min. still nach neuen Daten schauen
+if (CLOUD){
+  let lastPoll = Date.now();
+  const poll = async () => {
+    if (document.hidden || !pass() || !S.snap || cur()==="wrapped" || Date.now() - lastPoll < 45000) return;
+    lastPoll = Date.now();
+    try {
+      const r = await fetch(`data.enc?t=${Date.now()}`, {cache:"no-store"}); if (!r.ok) return;
+      const text = await r.text(); if (!text || text === store.get("gr_blob", null)) return;
+      if ($("dialog[open]")) { lastPoll = 0; return; }
+      loadCloud(true);
+    } catch(e){}
+  };
+  document.addEventListener("visibilitychange", poll); setInterval(poll, 180000);
+}
 if (LOCAL) setInterval(()=>{ if (!document.hidden && cur()!=="wrapped") fetch("/api/data?period="+S.period).then(r=>r.json()).then(d=>{
   const changed = JSON.stringify(d.playing) !== JSON.stringify(S.data && S.data.playing) || d.last_sync !== (S.data && S.data.last_sync);
   if (changed && !$("#detail").open && !$("#picker").open && !$("#settings").open) load(true);
