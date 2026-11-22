@@ -1361,7 +1361,7 @@ p.story{font-size:16px;line-height:1.6;margin:0 0 12px}p.story.clamp{display:-we
 @media(min-width:1000px){.phint{bottom:30px}}
 .emptyin{display:flex;gap:14px;align-items:center;margin:2px 0 10px}.emptyin .ea{width:84px;height:auto;flex:none;border-radius:12px}.emptyin p{margin:0}
 .ysil{filter:brightness(0) drop-shadow(0 0 8px #9fe3ff88);opacity:.85}
-.sscene .spets.trio{width:min(86%,430px)}.sscene .spets.trio .pwrap{width:33%}.sscene .syeti{width:40%;margin:0 -2%;filter:drop-shadow(0 4px 6px #0005)}
+.sscene .spets.trio{width:min(86%,430px)}.sscene .spets.trio .pwrap{width:33%}.sscene .syeti{width:40%;margin:0 -2%;filter:drop-shadow(0 4px 6px #0005)}.sscene .syeti.sbaeck{width:34%}.sscene .syeti.ysil{filter:brightness(0) drop-shadow(0 0 8px #9fe3ff88);opacity:.8}
 /* Was ist neu */
 .wnew ul{list-style:none;padding:0;margin:0}.wnew li{margin:2px 0}
 .nlink{all:unset;cursor:pointer;display:block;padding:6px 0;line-height:1.35}.nlink:hover{color:var(--acc)}
@@ -2422,10 +2422,15 @@ function adventCard(){
 }
 window.openAdventTab = sub => { S.fr = "advent"; if (sub) S.advTab = sub; location.hash = "#/freunde"; if (curRoute() === "freunde") route(); };
 // Szene mit beiden Begleitern
+// Wer neben euren Begleitern im Bild steht – je Kapitel (bei Abstimmungs-Kapiteln je Fassung). „!“ = nur als Schatten
+const STORY_CAST = {8:"baeck_1", 9:"baeck_3", 10:["baeck_4","baeck_5"], 11:"baeck_6", 13:"!yeti_2", 15:["!yeti_2",null], 18:"yeti_1", 19:"boss_yeti",
+  20:["yeti_3","yeti_4"], 21:"yeti_5", 22:"yeti_6", 23:"yeti_7", 24:"yeti_8"};
+function storyCast(n){ let c = STORY_CAST[n]; if (Array.isArray(c)) c = c[adventVote(n - 1) === 2 ? 1 : 0]; return c || null; }
 function storyScene(s, cls="", n=0){
-  const P = storyPets(), img = typeof s === "string" ? s : `story_${s}`, yeti = n >= 19;
+  const P = storyPets(), img = typeof s === "string" ? s : `story_${s}`, c = n ? storyCast(n) : null, sil = c && c[0] === "!", ci = c && c.replace("!", "");
+  const who = ci && hasImg(`${ci}.webp`) ? `<img class="syeti ${sil ? "ysil" : ""} ${ci.startsWith("baeck") ? "sbaeck" : ""}" src="pets/${ci}.webp" alt="">` : "";
   return `<div class="sscene ${cls}" ${hasImg(`${img}.webp`) ? `style="background-image:url('pets/${img}.webp')"` : ""}>
-    <div class="spets ${yeti ? "trio" : ""}">${P.me && P.me.stage ? petFig({...P.me}, {scale:.8}) : ""}${yeti && hasImg("yeti_freund.webp") ? `<img class="syeti" src="pets/${n <= 21 ? "boss_yeti" : "yeti_freund"}.webp" alt="">` : ""}${P.pp && P.pp.stage ? petFig({...P.pp}, {scale:.8}) : ""}</div></div>`;
+    <div class="spets ${who ? "trio" : ""}">${P.me && P.me.stage ? petFig({...P.me}, {scale:.8}) : ""}${who}${P.pp && P.pp.stage ? petFig({...P.pp}, {scale:.8}) : ""}</div></div>`;
 }
 function voteBox(n){
   const c = STORY.ch[n]; if (!c.vote) return "";
