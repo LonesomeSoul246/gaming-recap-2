@@ -2740,15 +2740,17 @@ function bond(){
   return {pts:B.pts, lvl:i, name:BOND[i][1], icon:BOND[i][2], next:nx, pct: nx ? (B.pts - BOND[i][0]) / (nx[0] - BOND[i][0]) * 100 : 100, parts:B.parts};
 }
 // Freundschaft des aktuellen Begleiter-Paars: Vorsprung aus dem Band + was seit dem Kennenlernen dazukam
-const pairKey = (me, pp) => me && pp ? `${me.id}|${pp.sp}|${(pp.stage_name||"").slice(0,12)}`.replace(/[^A-Za-z0-9|äöüÄÖÜß_-]/g,"") : "";
+const pairKey = (me, pp) => me && pp ? `${me.id}|${pp.sp}` : "";
 function pairBond(){
   const pa = S.data.partner, me = S.data.pet && (S.data.pet.pets||[]).length ? petActive() : null, pp = pa && pa.pet, b = bond();
   if (!b || !me || !pp || !pp.stage) return null;
-  const k = pairKey(me, pp), seen = (S.data.pairs||{})[k];
-  if (!seen && !S._pairSaving){ S._pairSaving = 1; saveKv("pairs", {...(S.data.pairs||{}), [k]: isoDay(nowD())}).finally(()=>S._pairSaving = 0); }
+  const P = S.data.pairs || {}, k = pairKey(me, pp), seen = P[k] || Object.entries(P).find(([x])=>x.startsWith(k + "|"))?.[1];
+  const dates = Object.values(P).sort(), first = !dates.length || (seen && seen === dates[0]);
+  // nur am PC und nur einmal pro Sitzung merken, damit Handy und PC sich nicht gegenseitig überschreiben
+  if (!seen && LOCAL && !(S._pairSaved||{})[k]){ (S._pairSaved = S._pairSaved || {})[k] = 1; saveKv("pairs", {...P, [k]: isoDay(nowD())}).catch(()=>{}); }
   const since = seen || isoDay(nowD()), ev = duoEvenings(pa);
-  const own = ev ? ev.list.filter(e=>e.day >= since).length : 0, first = Object.values(S.data.pairs||{}).sort()[0];
-  const pts = seen && seen === first ? b.pts : Math.floor(b.pts * .4) + own;      // das erste Paar hat das ganze Band erlebt
+  const own = ev ? ev.list.filter(e=>e.day >= since).length : 0;
+  const pts = first ? b.pts : Math.floor(b.pts * .4) + own;      // das erste Paar hat das ganze Band erlebt
   const i = bondLevel(pts), nx = BOND[i+1];
   return {pts, lvl:i, name:BOND[i][1], icon:BOND[i][2], next:nx, pct: nx ? (pts - BOND[i][0]) / (nx[0] - BOND[i][0]) * 100 : 100, since};
 }
@@ -3064,7 +3066,7 @@ function fxBlock(){
 const partnerWants = k => !((S.data.partner||{}).push_off||[]).includes(k);
 function autoSaves(){
   if (S._autoS || !(LOCAL || CLOUD) || !S.data) return; S._autoS = 1;
-  const D = S.data.dates || {}, d = datesOf(); if (!Object.keys(D).length && d.me) saveKv("dates", d).catch(()=>{});
+  const D = S.data.dates || {}, d = datesOf(); if (LOCAL && !Object.keys(D).length && d.me) saveKv("dates", d).catch(()=>{});
   const Y = (adventSeason() || nowD().getMonth() === 0) && S.data.partner ? yetiState() : null;
   if (Y && Y.beaten && !store.get("gr_yeti_" + nowD().getFullYear(), 0)){ store.set("gr_yeti_" + nowD().getFullYear(), 1);
     if (partnerWants("yeti")) ntfyPartner("❄️ Advents-Boss besiegt!", "Ihr habt es zusammen geschafft – schaut mal in euer Zuhause.", ["snowflake"]); sfx("win"); }
