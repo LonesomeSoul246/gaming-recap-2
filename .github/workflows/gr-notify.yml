@@ -1,0 +1,29 @@
+# Gaming Recap: Benachrichtigungen auch bei ausgeschaltetem PC (Epic-Gratisspiele, Wunschlisten-Angebote)
+name: Gaming Recap Benachrichtigungen
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: gr-notify
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prüfen und senden
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          STEAM_ID: ${{ secrets.STEAM_ID }}
+        run: python3 cloudnotify.py
+      - name: Stand merken
+        run: |
+          if ! git diff --quiet -- notify-state.json || [ -n "$(git status --porcelain notify-state.json)" ]; then
+            git config user.name "gaming-recap-bot"
+            git config user.email "gaming-recap-bot@users.noreply.github.com"
+            git add notify-state.json
+            git commit -m "Benachrichtigungen: Stand"
+            for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+          fi
