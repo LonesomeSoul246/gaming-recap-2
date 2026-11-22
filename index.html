@@ -1362,6 +1362,15 @@ p.story{font-size:16px;line-height:1.6;margin:0 0 12px}p.story.clamp{display:-we
 .emptyin{display:flex;gap:14px;align-items:center;margin:2px 0 10px}.emptyin .ea{width:84px;height:auto;flex:none;border-radius:12px}.emptyin p{margin:0}
 .ysil{filter:brightness(0) drop-shadow(0 0 8px #9fe3ff88);opacity:.85}
 .sscene .spets.trio{width:min(86%,430px)}.sscene .spets.trio .pwrap{width:33%}.sscene .syeti{width:40%;margin:0 -2%;filter:drop-shadow(0 4px 6px #0005)}.sscene .syeti.sbaeck{width:34%}.sscene .syeti.ysil{filter:brightness(0) drop-shadow(0 0 8px #9fe3ff88);opacity:.8}
+.home .hnote{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;z-index:2}.home .hnote .fx{width:clamp(48px,11vw,80px)}
+.hnote small{font:800 12px/1.3 var(--font);letter-spacing:0;text-transform:none;background:#000a;color:#fff;padding:4px 10px;border-radius:99px;white-space:nowrap}
+.hero2 .hnote.big{position:absolute;right:12%;bottom:14%;display:flex;flex-direction:column;align-items:center;gap:4px;z-index:1}.hero2 .hnote.big .fx{width:90px}
+@media(max-width:760px){.hero2 .hnote.big{right:auto;left:50%;transform:translateX(-50%);bottom:8%}}
+.home .hgift{position:absolute;left:30%;bottom:8%;width:9%;font-size:clamp(20px,4vw,34px);z-index:3;animation:bob 2.6s ease-in-out infinite}.home .hgift img{width:100%}
+.trips{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tripc{all:unset;cursor:pointer;height:150px;border-radius:16px;background:#1a2040 center/cover;display:flex;align-items:flex-end;padding:12px;box-sizing:border-box;position:relative;overflow:hidden}
+.tripc::after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#000a)}.tripc b{position:relative;z-index:1;color:#fff;font-size:17px}
+.giftc{display:flex;gap:16px;align-items:center}.giftc .gfig{width:84px;height:84px;flex:none;display:grid;place-items:center;font-size:44px;background:var(--panel2);border-radius:18px}.giftc .gi{width:72px}
+.gifts .ci.on{outline:2px solid var(--acc)}
 /* Was ist neu */
 .wnew ul{list-style:none;padding:0;margin:0}.wnew li{margin:2px 0}
 .nlink{all:unset;cursor:pointer;display:block;padding:6px 0;line-height:1.35}.nlink:hover{color:var(--acc)}
@@ -2214,7 +2223,7 @@ const CHANGELOG = [{v:"2026-11-22w4b", top:[
     ["Start", [["Jeden Tag ein kleiner Gruß von deinem Begleiter", "#/uebersicht"], ["Am Morgen nach einem Zockabend gibt's einen kurzen Rückblick", "#/uebersicht"],
       ["Am Monatsanfang: dein Monat – und euer Monat zu zweit", "story"]]],
     ["Wir zwei", [["Euer gemeinsames Zuhause, das sich mit den Jahreszeiten verändert", "#/freunde"], ["Im Regal sammeln sich eure gemeinsamen Erfolge", "#/freunde"],
-      ["Schickt eure Begleiter zueinander auf Besuch", "#/freunde"], ["Wünsche, Überraschungen und eine Zeitkapsel findet ihr jetzt unter „Pläne“", "plans"],
+      ["Schickt eure Begleiter auf Ausflüge – und bringt euch gegenseitig Kleinigkeiten vorbei", "#/freunde"], ["Wünsche, Überraschungen und eine Zeitkapsel findet ihr jetzt unter „Pläne“", "plans"],
       ["Grüße landen direkt beim Begleiter", "#/freunde"]]],
     ["Begleiter", [["Jeder Begleiter hat seinen eigenen Charakter", "#/begleiter"], ["An Festtagen ziehen sie sich passend an", "#/begleiter"],
       ["Viele Accessoires sind neu gezeichnet und sitzen besser – dazu gibt's einen Hexenhut", "#/begleiter"], ["Winter-Accessoires und neue Räume", "#/begleiter"],
@@ -2558,6 +2567,7 @@ function chronicle(){
       const best = [...ev.list].sort((a,b)=>b.min-a.min)[0]; if (best && best.min > 90) L.push({id:"jr:"+best.day, d:best.day, icon:"🌟", title:"Euer längster gemeinsamer Abend", sub:hrs(best.min), kind:"duo"});
       ev.list.forEach(e=>{ if ([10,25,50,100].includes(ev.list.length - ev.list.indexOf(e))) L.push({id:"jn:"+e.day, d:e.day, icon:"🎉", title:`${ev.list.length - ev.list.indexOf(e)}. gemeinsamer Abend`, kind:"duo"}); }); }
     bondMemories().forEach(e=>L.push(e));
+    tripsDone().forEach(t=>L.push({id:"tr:"+t.id, d:isoDay(new Date(t.at*1000)), icon:"📸", title:`Ausflug: ${TRIP_BY_ID[t.item][1]}`, sub:"Erinnerungsfoto", kind:"duo", trip:t.id}));
     const theirDone = new Set((pa.news||[]).filter(n=>n[0]==="done"||n[0]==="full").map(n=>n[1]));
     for (const k of seen) if (theirDone.has(k)) L.push({id:"bd:"+k, d:(L.find(x=>x.id==="dn:"+k)||{}).d || isoDay(new Date()), icon:"🤝", title:`Ihr habt beide ${titleK(k)} durchgespielt`, kind:"duo"});
     (S.data.wishes||[]).concat(pa.wishes||[]).filter(w=>w.done || (S.data.wish_done||{})[w.id] || (pa.wish_done||{})[w.id]).forEach(w=>{ const t = w.done || (S.data.wish_done||{})[w.id] || (pa.wish_done||{})[w.id];
@@ -2578,7 +2588,7 @@ function chronicle(){
 function renderStory(head){
   const L = chronicle(), pins = new Set(S.data.pins||[]), pa = S.data.partner, me = S.data.me_name || "Du";
   const pinned = L.filter(e=>pins.has(e.id));
-  const row = e => `<div class="chr k-${e.kind}"><span class="chi">${e.icon}</span><div class="chm"><small>${fdate(new Date(e.d+"T12:00"))}${e.sub && e.kind!=="moment" ? " · " + esc(e.sub) : e.kind==="moment" ? " · " + esc(e.sub) : ""}</small>
+  const row = e => `<div class="chr k-${e.kind}" ${e.trip ? `onclick="openTripPhoto('${e.trip}')" style="cursor:pointer"` : ""}><span class="chi">${e.icon}</span><div class="chm"><small>${fdate(new Date(e.d+"T12:00"))}${e.sub && e.kind!=="moment" ? " · " + esc(e.sub) : e.kind==="moment" ? " · " + esc(e.sub) : ""}</small>
       ${e.kind === "moment" && e.them ? `<div class="dbl"><div><em>${esc(me)}</em><b>${e.me[0]?MOMOOD[e.me[0]]+" ":""}${esc(e.me[1]||"")}</b></div><div class="pa"><em>${esc(pa.name)}</em><b>${e.them[0]?MOMOOD[e.them[0]]+" ":""}${esc(e.them[1]||"")}</b></div></div>` : `<b>${esc(e.title)}</b>`}</div>
       <button class="pin ${pins.has(e.id)?"on":""}" onclick="togglePin('${esc(e.id).replace(/'/g,"")}')" title="Anpinnen">📌</button></div>`;
   const byYear = {}; L.forEach(e=>(byYear[e.d.slice(0,4)] = byYear[e.d.slice(0,4)] || []).push(e));
@@ -2698,8 +2708,8 @@ window.surpriseSave = async () => {
 /* ---------- Bindung: „Euer Band“ (bleibt immer) + Freundschaft je Begleiter-Paar ---------- */
 const SEASON_OF = m => [11,0,1].includes(m) ? "winter" : m <= 4 ? "fruehling" : m <= 7 ? "sommer" : "herbst";
 const BOND = [[0,"Fremde","🌱"],[3,"Bekannte","👋"],[8,"Spielkameraden","🎮"],[15,"Freunde","🤝"],[25,"Beste Freunde","💛"],[40,"Vertraute","🫶"],[60,"Seelenverwandte","✨"],[90,"Unzertrennlich","💞"]];
-const BOND_UNLOCK = {1:"Eure Begleiter besuchen sich ab und zu", 2:"Kissenschlacht im Zuhause", 3:"Duo-Angriff: gemeinsame Abende treffen Bosse stärker", 4:"Gemeinsames Sitzkissen & Geschenke",
-  5:"Begleiter bringen sich gegenseitig Mitbringsel", 6:"Eure Begleiter erzählen von „eurem Spiel“", 7:"Herzkristall im Regal"};
+const BOND_UNLOCK = {1:"Ausflüge zu zweit", 2:"Kissenschlacht im Zuhause", 3:"Duo-Angriff: gemeinsame Abende treffen Bosse stärker", 4:"Gemeinsames Sitzkissen & Geschenke",
+  5:"Ab und zu bringt ein Begleiter einfach so ein Mitbringsel", 6:"Eure Begleiter erzählen von „eurem Spiel“", 7:"Herzkristall im Regal"};
 const bondLevel = pts => { let i = 0; while (i < BOND.length - 1 && pts >= BOND[i+1][0]) i++; return i; };
 // Punkte und woher sie kommen (alles zählt, nichts geht verloren)
 function bandPoints(){
@@ -2718,7 +2728,8 @@ function bandPoints(){
     "Erfüllte Wünsche": ch.filter(e=>e.id.startsWith("wi:")).length * 2,
     "Doppelseiten & beide durchgespielt": ch.filter(e=>e.kind==="moment" && e.them).length + ch.filter(e=>e.id.startsWith("bd:")).length * 2,
     "Überraschungen": ((pa.surprises||[]).filter(x=>x.open).length + (S.data.surprises||[]).filter(x=>x.reveal <= new Date().toISOString().slice(0,16)).length),
-    "Raid-Siege": (P.history||[]).filter(h=>h.won && h.kind==="raid").length * 2};
+    "Raid-Siege": (P.history||[]).filter(h=>h.won && h.kind==="raid").length * 2,
+    "Ausflüge & Mitbringsel": tripsDone().length + [...(S.data.visits||[]), ...((pa.visits)||[])].filter(v=>v.kind === "gift").length / 2};
   const pts = Math.floor(Object.values(parts).reduce((s,x)=>s+x,0));
   const out = {pts, parts}; S._band = [S.data, out]; return out;
 }
@@ -2753,23 +2764,86 @@ function homeScene(lvl){
   const ok = S0.filter(([l,, , s])=>lvl >= l && (!s || s.includes(sea)));
   return ok.length ? ok[hashN(isoDay(nowD()) + "scene") % ok.length] : null;
 }
-// Besuche: automatisch ab und zu (ab Stufe 1) und per Knopf
-function visitNow(){
-  const pa = S.data.partner, b = bond(); if (!pa || !b) return null;
-  const mine = (pa.visits||[]).filter(v=>v.kind==="visit" && Date.now()/1000 - v.at < 4*3600).slice(-1)[0];   // vom Partner geschickt
-  if (mine) return {who:"pa", v:mine};
-  if (b.lvl >= 1){ const d = isoDay(nowD()), h = nowD().getHours(); if (hashN(d + "visit") % 3 === 0 && h >= 16 && h < 21) return {who:"pa", auto:true}; }
+/* ---------- Ausflüge & Mitbringsel ---------- */
+// Ziele je Jahreszeit: [id, Name, „sind …“, Ersatzbild]
+const TRIPS = {winter:[["ausflug_1","Schlittenfahren","beim Schlittenfahren","hab_winter"],["ausflug_2","Eislaufen","beim Eislaufen","hab_winter"]],
+  fruehling:[["ausflug_3","Picknick","beim Picknick","hab_lichtung"],["ausflug_4","Drachen steigen","Drachen steigen","hab_lichtung"]],
+  sommer:[["ausflug_5","Ein Tag am See","am See","hab_strand"],["ausflug_6","Sterne gucken","Sterne gucken","hab_sterne"]],
+  herbst:[["ausflug_7","Laub-Spaziergang","im Herbstwald","hab_lichtung"],["ausflug_8","Kürbisfeld","auf dem Kürbisfeld","hab_lichtung"]]};
+const TRIP_BY_ID = Object.fromEntries(Object.values(TRIPS).flat().map(t=>[t[0], t]));
+const GIFTS = {gift_blume:["eine Blume","🌸"], gift_keks:["einen Herz-Keks","🍪"], gift_brief:["einen kleinen Liebesbrief","💌"], gift_kugel:["eine Schneekugel","❄️"],
+  gift_stein:["einen Herz-Stein","🪨"], gift_apfel:["einen Apfel","🍎"], gift_muschel:["eine Muschel","🐚"]};
+const TRIP_HOURS = 3;
+const tripImg = t => hasImg(`${t[0]}.webp`) ? t[0] : t[3];
+const giftIcon = (g, cls="") => hasImg(`${g}.webp`) ? `<img class="${cls}" src="pets/${g}.webp" alt="">` : (GIFTS[g]||["","🎁"])[1];
+// alle Ausflüge von beiden Seiten
+function allTrips(){ const pa = S.data.partner || {};
+  return [...(S.data.visits||[]).map(v=>({...v, mine:1})), ...((pa.visits)||[]).map(v=>({...v, mine:0}))].filter(v=>v.kind === "trip" && TRIP_BY_ID[v.item]).sort((a,b)=>a.at-b.at); }
+function tripNow(){ const t = allTrips().slice(-1)[0], now = Date.now()/1000; return t && now - t.at < TRIP_HOURS * 3600 ? t : null; }
+function tripsDone(){ const now = Date.now()/1000; return allTrips().filter(t=>now - t.at >= TRIP_HOURS * 3600); }
+window.openTrip = () => {
+  const pa = S.data.partner, me = petActive(); if (!pa || !me) return;
+  if (tripNow()) return toast("Die beiden sind gerade schon unterwegs 🙂");
+  const today = isoDay(nowD()); if ((S.data.visits||[]).some(v=>v.kind === "trip" && isoDay(new Date(v.at*1000)) === today)) return toast("Heute hast du die beiden schon losgeschickt – morgen wieder!");
+  const L = TRIPS[SEASON_OF(nowD().getMonth())];
+  $("#infoBody").innerHTML = `<button class="ibtn dclose" onclick="$('#info').close()">✕</button><div class="eyebrow">Ausflug</div>
+    <div class="h1" style="font-size:clamp(24px,5.5vw,32px);margin:4px 0 6px">Wohin geht's heute?</div>
+    <p class="help" style="margin:0 0 12px">${esc(petName(me))} und ${esc(pa.pet ? (pa.pet.nick || pa.pet.stage_name) : "sein Freund")} sind etwa ${TRIP_HOURS} Stunden unterwegs und bringen ein Erinnerungsfoto mit. ${esc(pa.name)} bekommt Bescheid.</p>
+    <div class="trips">${L.map(t=>`<button class="tripc" onclick="startTrip('${t[0]}')" style="background-image:url('pets/${tripImg(t)}.webp')"><b>${esc(t[1])}</b></button>`).join("")}</div>`;
+  if (!$("#info").open) $("#info").showModal();
+};
+window.startTrip = async id => {
+  const t = TRIP_BY_ID[id], me = petActive(), pa = S.data.partner;
+  await saveKv("visits", [...(S.data.visits||[]), {id: Date.now().toString(36).slice(-8), at: Math.floor(Date.now()/1000), kind:"trip", item:id, note:""}].slice(-60));
+  if (partnerWants("visit")) ntfyPartner(`🎒 Ausflug: ${t[1]}`, `${S.data.me_name || "Dein Player 2"} hat ${petName(me)} und ${pa.pet ? (pa.pet.nick || pa.pet.stage_name) : "deinen Begleiter"} losgeschickt – in ${TRIP_HOURS} Stunden gibt's ein Foto.`, ["camera"]);
+  sfx("unlock"); $("#info").close(); toast(`Die beiden sind ${t[2]} 🎒`); quietRoute();
+};
+// Erinnerungsfoto: Ausflugsort + beide Begleiter
+window.openTripPhoto = id => {
+  const t = allTrips().find(x=>x.id === id); if (!t) return; const T = TRIP_BY_ID[t.item], P = storyPets();
+  $("#infoBody").innerHTML = `<button class="ibtn dclose" onclick="$('#info').close()">✕</button>
+    <div class="sscene big photo" style="background-image:url('pets/${tripImg(T)}.webp')"><div class="spets">${P.me && P.me.stage ? petFig({...P.me}, {scale:.8}) : ""}${P.pp && P.pp.stage ? petFig({...P.pp}, {scale:.8}) : ""}</div></div>
+    <div class="eyebrow" style="margin-top:12px">${fdate(new Date(t.at*1000))}</div><div class="h1" style="font-size:clamp(24px,5.5vw,32px);margin:4px 0">${esc(T[1])}</div>
+    <p class="help">${t.mine ? "Du hast" : `${esc((S.data.partner||{}).name || "")} hat`} die beiden losgeschickt.</p>`;
+  if (!$("#info").open) $("#info").showModal();
+};
+// Mitbringsel: Auswahl + kurzer Satz
+window.openGift = () => {
+  const pa = S.data.partner, me = petActive(); if (!pa || !me) return;
+  const today = isoDay(nowD()); if ((S.data.visits||[]).some(v=>v.kind === "gift" && isoDay(new Date(v.at*1000)) === today)) return toast("Heute war schon ein Mitbringsel unterwegs – morgen wieder 💛");
+  $("#infoBody").innerHTML = `<button class="ibtn dclose" onclick="$('#info').close()">✕</button><div class="eyebrow">Mitbringsel</div>
+    <div class="h1" style="font-size:clamp(24px,5.5vw,32px);margin:4px 0 6px">Was bringt ${esc(petName(me))} ${esc(pa.name)}?</div>
+    <div class="coll gifts" data-g="">${Object.entries(GIFTS).map(([g,[n]])=>`<button class="ci" onclick="this.parentNode.dataset.g='${g}';this.parentNode.querySelectorAll('.ci').forEach(b=>b.classList.toggle('on',b===this))"><span class="img">${giftIcon(g)}</span><small>${esc(n.replace(/^(eine?n?) /,""))}</small></button>`).join("")}</div>
+    <input type="text" id="giftNote" maxlength="80" placeholder="Ein kurzer Satz dazu (optional)" style="width:100%;margin:10px 0">
+    <button class="btn limeb" onclick="sendGiftItem()">Vorbeibringen</button>`;
+  if (!$("#info").open) $("#info").showModal();
+};
+window.sendGiftItem = async () => {
+  const g = ($(".gifts")||{dataset:{}}).dataset.g, me = petActive(), pa = S.data.partner; if (!g) return toast("Such erst etwas aus 🙂");
+  const note = ($("#giftNote")||{}).value ? $("#giftNote").value.trim().slice(0,80) : "";
+  await saveKv("visits", [...(S.data.visits||[]), {id: Date.now().toString(36).slice(-8), at: Math.floor(Date.now()/1000), kind:"gift", item:g, note}].slice(-60));
+  if (partnerWants("visit")) ntfyPartner(`💝 ${petName(me)} war bei dir`, `${petName(me)} hat dir ${GIFTS[g][0]} vorbeigebracht${note ? `: „${note}“` : "."}`, ["gift"]);
+  sfx("unlock"); $("#info").close(); toast(`${petName(me)} ist mit ${GIFTS[g][0]} unterwegs 💝`); quietRoute();
+};
+// Was bei mir angekommen ist (vom Partner, 24 Std sichtbar) – ab Stufe „Vertraute“ auch ab und zu von selbst
+function giftForMe(){
+  const pa = S.data.partner; if (!pa) return null; const now = Date.now()/1000, seen = store.get("gr_gift_seen", []);
+  const g = ((pa.visits)||[]).filter(v=>v.kind === "gift" && GIFTS[v.item] && now - v.at < 24*3600).slice(-1)[0];
+  if (g) return {...g, seen: seen.includes(g.id)};
+  const b = bond(), d = isoDay(nowD()); if (b && b.lvl >= 5 && hashN(d + "auto-gift") % 5 === 0 && nowD().getHours() >= 9){
+    const keys = Object.keys(GIFTS).filter(k=>k !== "gift_brief"), id = "auto" + d.replace(/-/g,"");
+    return {id, kind:"gift", item: keys[hashN(d) % keys.length], note:"", auto:true, at: now, seen: seen.includes(id)}; }
   return null;
 }
-window.sendVisit = async kind => {
-  const pa = S.data.partner, me = petActive(); if (!pa || !me) return;
-  const last = (S.data.visits||[]).filter(v=>v.kind===kind).slice(-1)[0];
-  if (last && Date.now()/1000 - last.at < 20*3600) return toast(kind === "visit" ? `${petName(me)} war heute schon zu Besuch – morgen wieder 🙂` : "Heute ist schon eine Karte unterwegs 💌");
-  const item = kind === "card" ? "postkarte" : "";
-  await saveKv("visits", [...(S.data.visits||[]), {id: Date.now().toString(36).slice(-8), at: Math.floor(Date.now()/1000), kind, item, auto:false}].slice(-60));
-  if (partnerWants("visit")) ntfyPartner(kind === "visit" ? `🧳 ${petName(me)} kommt zu Besuch` : "💌 Eine Postkarte ist angekommen", kind === "visit" ? `${petName(me)} ist für ein paar Stunden bei euch im Zuhause.` : `${petName(me)} hat eine Postkarte geschickt.`, ["luggage"]);
-  sfx("unlock"); toast(kind === "visit" ? `${petName(me)} ist unterwegs 🧳` : "Postkarte verschickt 💌"); quietRoute();
-};
+window.giftSeen = id => { store.set("gr_gift_seen", [...store.get("gr_gift_seen", []), id].slice(-60)); quietRoute(); };
+function giftCard(){
+  const g = giftForMe(), pa = S.data.partner; if (!g || g.seen) return "";
+  const pn = pa.pet ? (pa.pet.nick || pa.pet.stage_name) : pa.name;
+  return `<section class="card reveal giftc"><button class="ibtn dclose" onclick="giftSeen('${g.id}')" aria-label="Schließen">✕</button><div class="gfig">${giftIcon(g.item, "gi")}</div>
+    <div><div class="eyebrow">${g.auto ? "Einfach so" : "Mitbringsel"}</div><h3 style="margin:4px 0">${esc(pn)} hat dir ${esc(GIFTS[g.item][0])} vorbeigebracht</h3>
+    ${g.note ? `<p class="qans pa" style="margin:6px 0 0"><em>${esc(pa.name)}</em><span style="display:block">${esc(g.note)}</span></p>` : g.auto ? `<p class="help" style="margin:4px 0 0">Ohne Grund – nur weil die beiden sich so gut verstehen.</p>` : ""}</div></section>`;
+}
+
 function homeCard(){
   if (!feat("home")) return "";
   const pa = S.data.partner, me = S.data.pet && (S.data.pet.pets||[]).length ? petActive() : null, pp = pa && pa.pet;
@@ -2784,20 +2858,22 @@ function homeCard(){
   if (ev && ev.n >= 50) T.push(["pets/tro_rahmen.webp", "50 gemeinsame Abende – euer Foto"]);
   if (Y && Y.friend) T.push(["pets/tro_yeti.webp", "Frost-Yeti – jetzt euer Freund"]);
   if (b && b.lvl >= 7) T.push(["pets/tro_herzkristall.webp", "Unzertrennlich"]);
-  const sc = pb ? homeScene(pb.lvl) : b ? homeScene(b.lvl) : null, vis = visitNow();
+  const trip = tripNow(), gift = giftForMe(), done = tripsDone().slice(-1)[0];
+  const sc = trip ? null : pb ? homeScene(pb.lvl) : b ? homeScene(b.lvl) : null;
   const bg = hasImg(`hab_zuhause_${sea}.webp`) ? `style="background-image:url('pets/hab_zuhause_${sea}.webp')"` : "";
   const pn = pp ? (pp.nick || pp.stage_name) : "";
   return `<section class="card reveal homec"><div class="ch"><span class="ic">${ICONS.home}</span><h3>${pa ? "Euer Zuhause" : "Zuhause"}</h3><span class="sp"></span>${pb ? `<span class="pill bondp">${pb.icon} ${esc(pb.name)}</span>` : ""}</div>
     <div class="home" ${bg}><div class="shelf">${T.slice(0,9).map(([src,t,ic])=>`<span class="tro" title="${esc(t)}">${src ? `<img src="${src}" alt="">` : ic||"🏆"}</span>`).join("")}</div>
       ${sc && hasImg(`bond_${sc[1]}.webp`) ? `<img class="hprop p-${sc[1]}" src="pets/bond_${sc[1]}.webp" alt="">` : ""}
       ${Y && Y.friend && nowD().getMonth() !== 10 ? `<img class="hyeti" src="pets/yeti_freund.webp" alt="Frost-Yeti">` : ""}
-      <div class="hpets">${petFig({...me}, {scale:.62})}${pp && pp.stage ? petFig({...pp}, {scale:.62}) : ""}</div>
-      ${vis ? `<span class="hvisit">${fxImg("bond_koffer")}<small>${esc(pn)} ist zu Besuch</small></span>` : ""}</div>
+      ${trip ? `<span class="hnote">${hasImg("gift_zettel.webp") ? fxImg("gift_zettel") : fxImg("bond_postkarte")}<small>Sind ${esc(TRIP_BY_ID[trip.item][2])} – zurück um ${new Date((trip.at + TRIP_HOURS*3600)*1000).toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"})}</small></span>`
+        : `<div class="hpets">${petFig({...me}, {scale:.62})}${pp && pp.stage ? petFig({...pp}, {scale:.62}) : ""}</div>${gift ? `<span class="hgift">${giftIcon(gift.item)}</span>` : ""}`}</div>
     ${pb ? `<div class="bondbar"><div class="bl"><span class="pill lv">Stufe ${pb.lvl + 1} von 8</span><b>${esc(pb.name)}</b><span class="sp"></span><small>${esc(petName(me))} &amp; ${esc(pn)}</small></div>
       <div class="steps">${BOND.map((_, i)=>`<i class="${i <= pb.lvl ? "on" : ""}"></i>`).join("")}</div>
       <small class="help">${sc ? `${esc(petName(me))} und ${esc(pn)} ${esc(sc[2])}. ` : ""}${pb.next ? `Noch ${Math.max(1, pb.next[0] - pb.pts)} Punkte bis „${esc(pb.next[1])}“.` : "Unzertrennlich – mehr geht nicht."}</small></div>` : ""}
-    ${pa && b ? `<div class="inl" style="gap:8px;margin-top:12px;flex-wrap:wrap"><button class="btn ghost small" onclick="sendVisit('visit')">${fxImg("bond_koffer","mi")}${esc(petName(me))} zu ${esc(pa.name)} schicken</button>
-      ${b.lvl >= 4 ? `<button class="btn ghost small" onclick="sendVisit('card')">${fxImg("bond_postkarte","mi")}Postkarte schicken</button>` : ""}<button class="btn ghost small" onclick="openBand()">Euer Band</button></div>` : ""}
+    ${pa && b ? `<div class="inl" style="gap:8px;margin-top:12px;flex-wrap:wrap">${trip ? "" : `<button class="btn ghost small" onclick="openTrip()">${fxImg("bond_koffer","mi")}Auf Ausflug schicken</button>`}
+      <button class="btn ghost small" onclick="openGift()">${fxImg("bond_geschenk","mi")}Mitbringsel für ${esc(pa.name)}</button>
+      ${done ? `<button class="btn ghost small" onclick="openTripPhoto('${done.id}')">📸 Letztes Ausflugsfoto</button>` : ""}<button class="btn ghost small" onclick="openBand()">Euer Band</button></div>` : ""}
     ${!T.length ? `<p class="help" style="margin:8px 0 0">Das Regal füllt sich mit euren Erfolgen: Raid-Siege, gemeinsam durchgespielte Spiele, 50 Abende …</p>` : ""}</section>`;
 }
 window.openPetProfile = () => {
@@ -2978,7 +3054,7 @@ function fxBlock(){
       <div><label>Euer Jahrestag</label><input type="date" id="anniv" value="${esc(D.anniv||"")}" onchange="setDates()"></div></div>
     <p class="help" style="margin:4px 0 10px">Beim Geburtstag zählt nur Tag und Monat. An diesen Tagen gibt es Luftballons und eine Party-Mütze.</p>
     <div class="secttl" style="margin-top:10px">Benachrichtigungen (höchstens eine pro Tag)</div>
-    ${pw("fest", "Ein Fest beginnt")}${pw("vote", "Abstimmung in der Weihnachtsgeschichte")}${pw("answers", "Antworten auf eine gemeinsame Frage sind da")}${pw("yeti", "Der Advents-Boss ist besiegt")}${pw("visit", "Besuch und Post von Begleitern")}`;
+    ${pw("fest", "Ein Fest beginnt")}${pw("vote", "Abstimmung in der Weihnachtsgeschichte")}${pw("answers", "Antworten auf eine gemeinsame Frage sind da")}${pw("yeti", "Der Advents-Boss ist besiegt")}${pw("visit", "Ausflüge und Mitbringsel")}`;
 }
 const partnerWants = k => !((S.data.partner||{}).push_off||[]).includes(k);
 function autoSaves(){
@@ -3011,7 +3087,8 @@ function extraLines(p){
   (TRAIT_LINES[t] || []).forEach(x=>L.push(x));
   const m = petMood(p); if (m && MOOD_LINES[m]) L.push(...MOOD_LINES[m]);
   if (og && pb && pb.lvl >= 6) L.push(`${og} mit euch beiden ist einfach unser Ding 💞`, `Wann spielen wir wieder ${og}?`);
-  const v = pa && visitNow(); if (v) L.push(`${pa.pet ? (pa.pet.nick || pa.pet.stage_name) : "Besuch"} ist da! Wir spielen gerade zusammen 🧳`);
+  const tg = pa && giftForMe(); if (tg) L.push(`Schau mal, was ${pa.pet ? (pa.pet.nick || pa.pet.stage_name) : pa.name} mir für dich mitgegeben hat! ${(GIFTS[tg.item]||["","🎁"])[1]}`);
+  const dn = pa && tripsDone().slice(-1)[0]; if (dn && Date.now()/1000 - dn.at < 30*3600) L.push(`Der Ausflug war so schön! ${TRIP_BY_ID[dn.item][1]} machen wir bald wieder 📸`);
   return L;
 }
 /* ---- „Euer Monat“: Paar-Monats-Wrapped ---- */
@@ -3042,7 +3119,8 @@ function todayHead(){
   const d = nowD().toLocaleDateString("de-DE",{weekday:"long", day:"numeric", month:"long"}), sea = SEASON_OF(nowD().getMonth());
   const M = feat("moment") ? momentOfDay() : null, plan = pa ? planAll().find(x=>x.at.slice(0,10) === isoDay(nowD())) : null;
   const scene = p && p.stage ? `<button class="hscene" onclick="location.hash='#/begleiter'" title="Zum Begleiter" ${hasImg(`hab_zuhause_${sea}.webp`) ? `style="background-image:url('pets/hab_zuhause_${sea}.webp')"` : ""}>
-      <span class="hpets2">${petFig(p, {scale:.9})}${pp && pp.stage ? petFig({...pp}, {scale:.9}) : ""}</span>${moodBubble(p)}${feat("greetpet") && freshGreet() ? `<span class="pletter">${fxImg("fx_brief")}</span>` : ""}</button>` : "";
+      ${(()=>{ const tr = pa && tripNow(); return tr ? `<span class="hnote big">${hasImg("gift_zettel.webp") ? fxImg("gift_zettel") : fxImg("bond_postkarte")}<small>Sind ${esc(TRIP_BY_ID[tr.item][2])} – zurück um ${new Date((tr.at + TRIP_HOURS*3600)*1000).toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"})}</small></span>`
+        : `<span class="hpets2">${petFig(p, {scale:.9})}${pp && pp.stage ? petFig({...pp}, {scale:.9}) : ""}</span>`; })()}${moodBubble(p)}${feat("greetpet") && freshGreet() ? `<span class="pletter">${fxImg("fx_brief")}</span>` : ""}</button>` : "";
   return `<div class="khead today hero2 ${scene ? "" : "noscene"} reveal">${scene}<div class="htxt"><div class="eyebrow">${esc(d)}</div><div class="h1">${hi}${me?`, ${esc(me)}`:""}!</div>
     ${M ? `<a class="moment" ${M[3] ? `href="${M[3].replace("?story","")}" onclick="${M[3].includes("story") ? "S.stat='story';" : ""}"` : ""}><span class="mi0">${M[1]}</span><span>${M[2]}</span></a>` : `<p>${p ? esc(petBubble(p)) : "Schön, dass du da bist."}</p>`}
     <div class="inl" style="gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn limeb" onclick="openPicker()">${ICONS.dice || ""}Was spiele ich heute?</button>
@@ -3186,7 +3264,7 @@ function renderOverviewInner(){
   const c = ovCtx();
   let h = todayHead() + playingBanner();
   if (!c.played.length){ setView(h + emptyState()); return; }
-  h += whatsNewCard() + adventCard() + monthWrapCard() + capsuleCard(false) + momentPrompt();
+  h += giftCard() + whatsNewCard() + adventCard() + monthWrapCard() + capsuleCard(false) + momentPrompt();
   const tc = [planCard(), feedCard(), countdownCard(), agoCard(), spaceCard(true)].filter(Boolean);
   if (tc.length) h += `<div class="mcols">${tc.join("")}</div>`;   // zwei Spalten, jede Karte nur so hoch wie ihr Inhalt
   h += `<div class="secthead"><div class="h2">Deine Zahlen</div>${periodChips()}</div>` + periodNotice();
