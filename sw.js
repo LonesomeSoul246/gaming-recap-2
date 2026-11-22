@@ -1,7 +1,7 @@
 // Gaming Recap – Service Worker (nur in der Handy-App auf GitHub Pages aktiv)
 // App-Dateien und Bilder kommen sofort aus dem Speicher (schneller Start), werden im Hintergrund aktualisiert.
 // Daten (data.enc usw.) immer frisch aus dem Netz, bei Funkloch aus dem Speicher.
-const CACHE = "gaming-recap-725dca1b7f02";
+const CACHE = "gaming-recap-e5e7d3f93248";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", e => {

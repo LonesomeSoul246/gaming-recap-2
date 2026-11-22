@@ -54,6 +54,29 @@ code{background:#ffffff12;padding:1px 6px;border-radius:6px;font-size:.92em}
 .tabbar a svg{width:24px;height:24px}
 .tabbar a.on{color:var(--bg);background:var(--ink)}
 @media(min-width:1000px){.tabbar{display:none}.deskNav{display:flex}}
+/* Spalten (Masonry): jede Karte so hoch wie ihr Inhalt */
+.mcols{columns:2 380px;column-gap:14px;margin:14px 0}
+.mcols>.card{break-inside:avoid;display:block;margin:0 0 14px;width:100%;box-sizing:border-box}
+.mcols+.bento{margin-top:0}
+/* Wir zwei: Hero mit großer Zahl */
+.duohero{background:radial-gradient(60% 90% at 0% 0%,color-mix(in srgb,var(--acc) 30%,transparent) 0,transparent 60%),radial-gradient(60% 90% at 100% 100%,color-mix(in srgb,var(--violet) 34%,transparent) 0,transparent 60%),var(--panel)}
+.duonum{text-align:center;margin:2px 0 10px}.duonum .eyebrow{color:var(--acc)}
+.duonum b{display:block;font-size:clamp(64px,13vw,128px);font-weight:900;line-height:.9;letter-spacing:-.06em;margin:6px 0 0}
+.duonum span{font-size:clamp(18px,3vw,24px);font-weight:800;letter-spacing:-.3px}
+/* Wochen-Duell */
+.wduelh{background:linear-gradient(105deg,color-mix(in srgb,var(--acc) 26%,var(--panel)) 0,var(--panel) 48%,var(--panel) 52%,color-mix(in srgb,var(--violet) 30%,var(--panel)) 100%)}
+.wduelh>.eyebrow{text-align:center;color:var(--ink);opacity:.8}
+.wdbig{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:10px 0 12px;text-align:center}
+.wdbig small{display:block;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.wdbig>div{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:4px}.wdbig small{flex-basis:100%}
+.wdbig b{display:inline-block;font-size:clamp(46px,6.5vw,80px);font-weight:900;line-height:.95;letter-spacing:-.05em}
+.wdbig span{font-size:18px;font-weight:800;margin-left:4px;opacity:.75}
+.wdbig .me b{color:var(--acc)}.wdbig .pa b{color:var(--violet)}
+.wdbig .lead b{text-shadow:0 0 28px currentColor}
+.wdbig em{font-style:normal;font-weight:900;font-size:15px;letter-spacing:1px;padding:8px 10px;border-radius:999px;background:var(--glass);border:1px solid var(--line)}
+.wdbar{display:flex;height:10px;border-radius:99px;overflow:hidden;background:#ffffff12}.wdbar i.me{background:var(--acc)}.wdbar i.pa{flex:1;background:var(--violet)}
+.wdst{text-align:center;margin:10px 0 14px;font-size:14px;color:var(--muted)}.wdst b{font-size:16px}
+.cme{color:var(--acc)}.cpa{color:var(--violet)}
 /* Start „Heute“ */
 .today{min-height:0;background:radial-gradient(70% 120% at 100% 0%,color-mix(in srgb,var(--acc) 22%,transparent) 0,transparent 60%),var(--panel)}
 .today .h1{font-size:clamp(30px,7vw,46px)}
@@ -85,11 +108,11 @@ code{background:#ffffff12;padding:1px 6px;border-radius:6px;font-size:.92em}
 /* Navigation v5: fünf Bereiche, Begleiter in der Mitte */
 .tabbar{padding:6px;gap:2px}
 .tabbar a{position:relative;font-size:11.5px;padding:8px 0 7px;gap:3px;min-width:0}
-.tabbar a span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tabbar a .tl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .tabbar a.tmid{flex:1.1}
-.tpet{width:38px;height:38px;margin:-16px 0 -2px;border-radius:50%;background:var(--panel2,#20242F);border:2px solid var(--acc);display:grid;place-items:center;box-shadow:0 6px 16px #0008}
-.tpet img{width:34px;height:34px;object-fit:contain}
-.tabbar a.on .tpet{background:var(--acc)}
+.tpet{position:relative;width:24px;height:24px;flex:none}
+.tpet img{position:absolute;left:50%;bottom:-3px;transform:translateX(-50%);width:46px;height:46px;border-radius:50%;object-fit:contain;padding:3px;box-sizing:border-box;background:var(--panel2,#20242F);border:2px solid var(--acc);box-shadow:0 6px 16px #0008}
+.tabbar a.on .tpet img{background:var(--acc)}
 .tdot{position:absolute;top:4px;right:calc(50% - 22px);width:10px;height:10px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 2px var(--panel)}
 .deskNav a{display:flex;align-items:center;gap:10px;position:relative}.deskNav a svg{width:20px;height:20px;flex:none}
 .dpet{width:24px;height:24px;display:grid;place-items:center;flex:none}.dpet img{width:26px;height:26px;object-fit:contain}
@@ -1664,7 +1687,7 @@ function nav(){
   const c = cur(), P = (S.data||{}).pet, p = P && (P.pets||[]).length ? petActive() : null;
   const petIcon = p ? `<span class="tpet"><img src="${petSrc(p.sp, p.stage)}" alt=""></span>` : ICONS.pet;
   const dot = k => k === "begleiter" && S.petNews ? `<i class="tdot"></i>` : "";
-  $("#tabbar").innerHTML = NAV.map(([k,l,i,g])=>`<a href="#/${k}" class="${g.includes(c)?"on":""} ${k==="begleiter"?"tmid":""}">${k==="begleiter"?petIcon:ICONS[i]}<span>${l}</span>${dot(k)}</a>`).join("");
+  $("#tabbar").innerHTML = NAV.map(([k,l,i,g])=>`<a href="#/${k}" class="${g.includes(c)?"on":""} ${k==="begleiter"?"tmid":""}">${k==="begleiter"?petIcon:ICONS[i]}<span class="tl">${l}</span>${dot(k)}</a>`).join("");
   $("#deskNav").innerHTML = NAV.map(([k,l,i,g])=>`<a href="#/${k}" class="${g.includes(c)?"on":""}">${k==="begleiter"&&p?`<span class="dpet"><img src="${petSrc(p.sp, p.stage)}" alt=""></span>`:ICONS[i]}<span>${l}</span>${dot(k)}</a>`).join("");
 }
 function route(){
@@ -2007,7 +2030,9 @@ function planAll(){
   const pa = S.data.partner || {}, mine = (S.data.plans||[]).map(p=>({...p, own:true, resp:(pa.plan_resp||{})[p.id]})),
         theirs = (pa.plans||[]).map(p=>({...p, own:false, resp:(S.data.plan_resp||{})[p.id]}));
   const now = new Date(Date.now() - 3*3600e3).toISOString().slice(0,16);
-  return [...mine, ...theirs].filter(p=>!p.cancel && p.at >= now).sort((a,b)=>a.at.localeCompare(b.at));
+  // Habt ihr beide denselben Abend vorgeschlagen, ist er einfach abgemacht – eine Zeile statt zwei
+  const L = [...mine, ...theirs].filter(p=>!p.cancel && p.at >= now).sort((a,b)=>a.at.localeCompare(b.at) || (b.own - a.own));
+  return L.filter((p,i)=>{ const twin = L.find((q,j)=>j!==i && q.own!==p.own && q.at===p.at); if (!twin) return true; if (p.own){ p.both = true; p.game = p.game || twin.game; p.note = p.note || twin.note; return true; } return false; });
 }
 const planWhen = at => { const t = new Date(at); const d = Math.round((new Date(at.slice(0,10)) - new Date(new Date().toISOString().slice(0,10)))/864e5);
   return `${d === 0 ? "Heute" : d === 1 ? "Morgen" : DAYS[t.getDay()] + " " + t.toLocaleDateString("de-DE",{day:"numeric",month:"numeric"})}, ${at.slice(11,16)} Uhr`; };
@@ -2015,9 +2040,9 @@ function planCard(){
   const pa = S.data.partner; if (!pa) return "";
   const L = planAll(), me = S.data.me_name || "Ich";
   const RS = {yes:["👍","dabei"], maybe:["🤔","vielleicht"], no:["👎","kann nicht"]};
-  return `<section class="card x6 reveal"><h3>🎮 Zockabende</h3>${L.length ? `<div class="plans">${L.map(p=>`<div class="plan ${p.resp==="yes"?"ok":""}">
-      <div class="pwhen"><b>${esc(planWhen(p.at))}</b><small>${p.own ? "dein Vorschlag" : `von ${esc(pa.name)}`}${p.game ? " · " + esc(p.game) : ""}${p.note ? " · " + esc(p.note) : ""}</small></div>
-      ${p.own ? `<span class="pst">${p.resp ? RS[p.resp][0] + " " + esc(pa.name) + " " + RS[p.resp][1] : "⏳ wartet auf " + esc(pa.name)}</span><button class="chip" onclick="planCancel('${p.id}')">Absagen</button>`
+  return `<section class="card x6 reveal"><h3>🎮 Zockabende</h3>${L.length ? `<div class="plans">${L.map(p=>`<div class="plan ${p.resp==="yes"||p.both?"ok":""}">
+      <div class="pwhen"><b>${esc(planWhen(p.at))}</b><small>${p.both ? "ihr habt euch beide verabredet" : p.own ? "dein Vorschlag" : `von ${esc(pa.name)}`}${p.game ? " · " + esc(p.game) : ""}${p.note ? " · " + esc(p.note) : ""}</small></div>
+      ${p.own ? `<span class="pst">${p.both ? "✅ steht!" : p.resp ? RS[p.resp][0] + " " + esc(pa.name) + " " + RS[p.resp][1] : "⏳ wartet auf " + esc(pa.name)}</span><button class="chip" onclick="planCancel('${p.id}')">Absagen</button>`
         : `<div class="pbtns">${Object.entries(RS).map(([k,[e,l]])=>`<button class="chip ${p.resp===k?"on":""}" onclick="planAnswer('${p.id}','${k}')" title="${l}">${e}</button>`).join("")}</div>`}</div>`).join("")}</div>`
     : `<p class="help" style="margin-top:0">Noch nichts geplant. Schlag ${esc(pa.name)} einen Abend vor – ihr bekommt beide eine Erinnerung eine Stunde vorher.</p>`}
     <button class="btn ghost small" style="margin-top:10px" onclick="planNew()">＋ Zockabend vorschlagen</button></section>`;
@@ -2041,29 +2066,33 @@ window.planNew = () => {
     <button class="btn limeb" style="margin-top:16px" onclick="planSave()">Vorschlagen 💌</button>`;
   if (!$("#info").open) $("#info").showModal();
 };
-async function pushPartner(title, msg){
+// Am PC schickt der Server die Nachricht (zuverlässig). Am Handy sofort direkt – und dem PC sagen, dass sie raus ist.
+async function pushPartner(title, msg, key){
   const p = S.data.partner; if (!p || !p.topic) return false;
-  try { const r = await fetch("https://ntfy.sh/", {method:"POST", body: JSON.stringify({topic:p.topic, title, message:msg, tags:["gr-plan"],
-    click: S.data.partner_url ? S.data.partner_url.replace(/\/?$/, "/#/uebersicht") : undefined})}); return r.ok; } catch(e){ return false; }
+  if (LOCAL) return true;
+  try { const r = await fetch("https://ntfy.sh/", {method:"POST", body: JSON.stringify({topic:p.topic, title, message:msg, tags:["video_game","gr-plan"],
+    click: S.data.partner_url ? S.data.partner_url.replace(/\/?$/, "/#/uebersicht") : undefined})});
+    if (r.ok && key){ const pp = {...store.get("gr_plan_pushed", {}), [key]: Math.floor(Date.now()/1000)}; store.set("gr_plan_pushed", pp); saveKv("plan_pushed", pp); }
+    return r.ok; } catch(e){ return false; }
 }
 window.planSave = async () => {
   const at = $("#plAt").value; if (!at) return;
   const p = {id: Math.random().toString(36).slice(2,10), at: at.slice(0,16), game: $("#plGame").value.trim(), note: $("#plNote").value.trim(), created: Math.floor(Date.now()/1000)};
   await saveKv("plans", [...(S.data.plans||[]), p].slice(-40));
   $("#info").close(); quietRoute();
-  const ok = await pushPartner(`🎮 ${S.data.me_name || "Dein Player 2"} schlägt einen Zockabend vor`, planWhen(p.at) + (p.game ? " · " + p.game : "") + (p.note ? " – " + p.note : ""));
+  const ok = await pushPartner(`🎮 ${S.data.me_name || "Dein Player 2"} schlägt einen Zockabend vor`, planWhen(p.at) + (p.game ? " · " + p.game : "") + (p.note ? " – " + p.note : ""), "p:" + p.id);
   toast(ok ? `Vorschlag an ${S.data.partner.name} geschickt 💌` : "Vorschlag gespeichert");
 };
 window.planCancel = async id => {
   if (!confirm("Zockabend absagen?")) return;
   const p = (S.data.plans||[]).find(x=>x.id===id);
   await saveKv("plans", (S.data.plans||[]).map(x=>x.id===id ? {...x, cancel:true} : x)); quietRoute();
-  if (p) pushPartner(`😢 ${S.data.me_name || "Dein Player 2"} muss absagen`, planWhen(p.at) + " fällt leider aus.");
+  if (p) pushPartner(`😢 ${S.data.me_name || "Dein Player 2"} muss absagen`, planWhen(p.at) + " fällt leider aus.", "c:" + id);
 };
 window.planAnswer = async (id, r) => {
   await saveKv("plan_resp", {...(S.data.plan_resp||{}), [id]: r}); quietRoute();
   const p = ((S.data.partner||{}).plans||[]).find(x=>x.id===id), me = S.data.me_name || "Dein Player 2";
-  if (p) pushPartner({yes:`🎉 ${me} ist dabei!`, maybe:`🤔 ${me} weiß noch nicht`, no:`😢 ${me} kann leider nicht`}[r], planWhen(p.at) + (p.game ? " · " + p.game : ""));
+  if (p) pushPartner({yes:`🎉 ${me} ist dabei!`, maybe:`🤔 ${me} weiß noch nicht`, no:`😢 ${me} kann leider nicht`}[r], planWhen(p.at) + (p.game ? " · " + p.game : ""), `r:${id}:${r}`);
   toast(r === "yes" ? "Zugesagt 🎉" : "Gespeichert");
 };
 /* ---------- Fernbedienung ---------- */
@@ -2073,7 +2102,7 @@ function remoteCard(){
   const dls = pc.downloads || [];
   const tmr = t ? (t.mode === "after_session" ? "🌙 Fährt nach dieser Session herunter" : `🌙 Fährt um ${t.when.slice(11,16)} Uhr herunter`) : "";
   return `<section class="card x6 reveal"><h3>🖥️ Dein PC <span class="h3s">${online ? (CLOUD ? `Stand ${relTime(Date.parse(pc.at))}` : "läuft") : "wahrscheinlich aus"}</span></h3>
-    ${dls.length ? dls.map(d=>`<div class="dlr"><span>⬇️ ${esc(d.name)}</span><div class="qbar"><i style="width:${d.pct}%"></i></div><small>${d.pct} % von ${num(d.gb,1)} GB</small></div>`).join("") : `<p class="help" style="margin-top:0">${online ? "Keine Downloads." : "Wenn der PC an ist, siehst du hier Downloads und kannst ihn steuern."}</p>`}
+    ${dls.length ? dls.map(d=>`<div class="dlr"><span>⬇️ ${esc(d.name)}</span><div class="qbar"><i style="width:${d.pct}%"></i></div><small>${d.paused ? "pausiert · " : ""}${d.pct} % von ${num(d.gb,1)} GB</small></div>`).join("") : `<p class="help" style="margin-top:0">${online ? "Keine Downloads." : "Wenn der PC an ist, siehst du hier Downloads und kannst ihn steuern."}</p>`}
     ${tmr ? `<div class="tmr">${tmr}<button class="chip" onclick="remoteCmd('cancel')">Stoppen</button></div>` : ""}
     <div class="inl rbtns"><button class="chip" onclick="remoteCmd('after_session')">🌙 Nach dieser Session aus</button>
       <button class="chip" onclick="remoteAt()">⏰ Um … aus</button><button class="chip" onclick="if(confirm('PC jetzt in den Ruhezustand schicken?'))remoteCmd('sleep')">💤 Ruhezustand</button>
@@ -2105,9 +2134,8 @@ function renderOverviewInner(){
   const c = ovCtx();
   let h = todayHead() + playingBanner();
   if (!c.played.length){ setView(h + emptyState()); return; }
-  const tc = [feedCard(), planCard(), remoteCard(), countdownCard(), agoCard(), spaceCard(true)].filter(Boolean);
-  if (tc.length % 2) tc[tc.length-1] = tc[tc.length-1].replace('class="card x6', 'class="card x12');   // keine Lücke im Raster
-  if (tc.length) h += `<div class="bento">${tc.join("")}</div>`;
+  const tc = [planCard(), feedCard(), remoteCard(), countdownCard(), agoCard(), spaceCard(true)].filter(Boolean);
+  if (tc.length) h += `<div class="mcols">${tc.join("")}</div>`;   // zwei Spalten, jede Karte nur so hoch wie ihr Inhalt
   h += `<div class="secthead"><div class="h2">Deine Zahlen</div>${periodChips()}</div>` + periodNotice();
   h += seasonCard() + `<div class="bento">` + heroCard(c) + funSpot(c) + saleBanner()
     + recentRail() + topCard(c) + platCard(c) + backlogMini() + `</div>`;
@@ -3724,6 +3752,8 @@ function renderDuo(head){
         <div class="duoheart" aria-hidden="true">♥</div>
         <div class="duop">${crown===1?`<span class="crown" title="Monatskrone">👑</span>`:""}${duoAv(p.avatar, p.name, "pa")}${p.pet ? `<img class="duopet" src="${petSrc(p.pet.sp, p.pet.stage)}" alt="">` : ""}<b class="pa">${esc(p.name)}</b></div>
       </div>
+      <div class="duonum"><div class="eyebrow">${{week:"Diese Woche habt ihr", month:"Diesen Monat habt ihr", year:`${yrStr} habt ihr`, all:"Zusammen habt ihr"}[sc]}</div>
+        <b data-count="${Math.round(sum/60)}">0</b><span>Stunden gezockt.</span></div>
       <div class="seg duoseg">${scopes.map(([k,l])=>`<button class="${sc===k?"on":""}" onclick="S.duoScope='${k}';quietRoute()">${l}</button>`).join("")}</div>
       <div class="tug"><b class="me">${hrs(a)}</b>
         <div class="tugbar"><i class="me" style="width:${share}%"></i><i class="pa"></i><span class="tugmid" style="left:${share}%"></span></div>
@@ -3731,7 +3761,7 @@ function renderDuo(head){
       <p class="help duolead">${lead}${crown>=0?` · 👑 Monatskrone: ${esc(crown?p.name:meName)}`:""}</p>
       <button class="btn duostory" onclick="startDuoStory()">${season?"🎁":"✨"} Unser Jahr ${yrStr} ansehen</button>
     </section>
-    <section class="card s12 x4 reveal greets"><h3>💌 Grüße</h3><div id="greetBox"></div></section>` + duoMeet(p);
+    <section class="card s12 x4 reveal greets"><h3>💌 Grüße</h3><div id="greetBox"></div></section></div><div class="mcols">` + duoMeet(p);
   // Gemeinsame Abende
   const ev = duoEvenings(p);
   if (ev) h += `<section class="card s12 x5 reveal"><h3>🛋️ Gemeinsame Abende ${qi("evenings")}</h3>
@@ -3749,9 +3779,12 @@ function renderDuo(head){
   if (weeks.length){
     const last8 = weeks.slice(-8), mx = Math.max(1, ...last8.flatMap(w=>[w[1],w[2]]));
     const st = streak.who === null ? "" : `<b>${esc(streak.who ? p.name : meName)}</b> ${streak.n > 1 ? `gewinnt die Woche ${streak.n}× in Folge` : "hat letzte Woche gewonnen"}`;
-    h += `<section class="card s12 x7 reveal"><h3>⚔️ Wochen-Duell <span class="h3s">KW ${kw(new Date())}</span></h3>
-      <div class="wduel"><div><small>${esc(meName)}</small><b class="me">${hrs(tot.week[0])}</b></div><em>${tot.week[0]===tot.week[1]?"=":tot.week[0]>tot.week[1]?"›":"‹"}</em><div><small>${esc(p.name)}</small><b class="pa">${hrs(tot.week[1])}</b></div></div>
-      <p class="help" style="margin:2px 0 12px">${st}${st?" · ":""}Bilanz ${yrStr}: ${esc(meName)} ${streak.wins[0]} – ${streak.wins[1]} ${esc(p.name)}</p>
+    const [wa, wb] = tot.week, wlead = wa === wb ? -1 : wa > wb ? 0 : 1;
+    h += `<section class="card reveal wduelh"><div class="eyebrow">⚔️ Wochen-Duell · KW ${kw(new Date())}</div>
+      <div class="wdbig"><div class="me ${wlead===0?"lead":""}"><small>${esc(meName)}${wlead===0?" 👑":""}</small><b data-count="${wa >= 600 ? Math.round(wa/60) : Math.round(wa/6)/10}" data-dec="${wa >= 600 ? 0 : 1}">0</b><span>Std</span></div>
+        <em>VS</em><div class="pa ${wlead===1?"lead":""}"><small>${esc(p.name)}${wlead===1?" 👑":""}</small><b data-count="${wb >= 600 ? Math.round(wb/60) : Math.round(wb/6)/10}" data-dec="${wb >= 600 ? 0 : 1}">0</b><span>Std</span></div></div>
+      <div class="wdbar"><i class="me" style="width:${wa+wb ? wa/(wa+wb)*100 : 50}%"></i><i class="pa"></i></div>
+      <p class="wdst">${st}${st?" · ":""}Bilanz ${yrStr}: <b class="cme">${streak.wins[0]}</b> – <b class="cpa">${streak.wins[1]}</b></p>
       <div class="wchart">${last8.map((w,i)=>`<div class="wc${i===last8.length-1?" now":""}"><div class="wcb"><i class="me" style="height:0" data-h="${w[1]/mx*100}%" title="${esc(meName)}: ${hrs(w[1])}"></i><i class="pa" style="height:0" data-h="${w[2]/mx*100}%" title="${esc(p.name)}: ${hrs(w[2])}"></i></div><small>${i===last8.length-1?"jetzt":kw(new Date(w[0]+"T12:00:00"))}</small></div>`).join("")}</div>
       <p class="help" style="margin-bottom:0"><span class="lg me"></span>${esc(meName)} <span class="lg pa"></span>${esc(p.name)}</p></section>`;
   }
@@ -3762,6 +3795,7 @@ function renderDuo(head){
       <p class="help" style="text-align:center;margin:4px 0 0">${both.length} gemeinsam gespielte Spiele${both[0]?` · Liebling: <b>${esc(both[0][0].t)}</b>`:""}</p>
       ${match.gen.length && Object.keys(p.genres||{}).length ? (()=>{ const gm = Math.max(...match.gen.flatMap(g=>[g[1],g[2]]), .01);
         return `<div class="secttl" style="margin-top:16px">🧬 Eure Gamer-DNA</div>${match.gen.slice(0,6).map(([n,x,y])=>`<div class="gmir"><span class="l"><i class="me" style="width:0" data-w="${x/gm*100}%"></i></span><em>${esc(n)}</em><span class="r"><i class="pa" style="width:0" data-w="${y/gm*100}%"></i></span></div>`).join("")}`; })() : ""}</section>`;
+  h += `</div><div class="bento">`;
   // Tier-Listen
   const tm = me.tiers || {}, tp = p.tiers || {}, tk = Object.keys(tm).filter(k=>/^[SABCDF]$/.test(tm[k]) && /^[SABCDF]$/.test(tp[k]||""));
   if (tk.length){
@@ -3792,9 +3826,10 @@ function renderDuo(head){
     .map(x=>[x, theirs.get(x.k)]).sort((u,v)=>((v[0].g.critic||70) - (u[0].g.critic||70)) || ((u[0].m+u[1].m)-(v[0].m+v[1].m))).slice(0,8);
   const tips = [...theirs.values()].filter(x=>x.m>=600 && !(mine.get(x.k)||{}).m).sort((u,v)=>v.m-u.m).slice(0,8);
   const cov = c => c ? `<img loading="lazy" src="${esc(c)}" alt="" onerror="this.remove()">` : "";
-  if (coop.length) h += `<section class="card s12 x6 reveal fold ${duoShut("coop")?"shut":""}" data-f="coop">${foldH("coop", `🎮 Zusammen spielen? ${qi("coop")}`)}<div class="fbody"><p class="help" style="margin-top:0">Ihr habt beide – und es hat Mehrspieler oder Koop:</p>
+  const half = coop.length && tips.length ? "x6" : "x12";
+  if (coop.length) h += `<section class="card s12 ${half} reveal fold ${duoShut("coop")?"shut":""}" data-f="coop">${foldH("coop", `🎮 Zusammen spielen? ${qi("coop")}`)}<div class="fbody"><p class="help" style="margin-top:0">Ihr habt beide – und es hat Mehrspieler oder Koop:</p>
       ${coop.map(([x,y])=>gRow(x.g, x.g.critic?mcBadge(x.g.critic):"", `${esc(meName)} ${hrs(x.m)} · ${esc(p.name)} ${hrs(y.m)}`)).join("")}</div></section>`;
-  if (tips.length) h += `<section class="card s12 x6 reveal fold ${duoShut("tips")?"shut":""}" data-f="tips">${foldH("tips", `💡 Tipps von ${esc(p.name)}`)}<div class="fbody"><p class="help" style="margin-top:0">Spielt ${esc(p.name)} viel – du noch gar nicht:</p>
+  if (tips.length) h += `<section class="card s12 ${half} reveal fold ${duoShut("tips")?"shut":""}" data-f="tips">${foldH("tips", `💡 Tipps von ${esc(p.name)}`)}<div class="fbody"><p class="help" style="margin-top:0">Spielt ${esc(p.name)} viel – du noch gar nicht:</p>
       ${tips.map(x=>{ const own = (mine.get(x.k)||{}).own, g = (mine.get(x.k)||{}).g;
         return `<div class="xrow" ${g?`onclick="openGame('${esc(x.k)}')"`:`style="cursor:default"`}><div class="poster">${g?img(g.covers,x.t):x.c?cov(x.c)+ph(x.t):ph(x.t)}</div><div><b>${esc(x.t)}</b><span>${esc(p.name)}: ${hrs(x.m)}${own?" · hast du schon":""}</span></div>
           <em>${!own && x.a ? `<a class="chip" href="https://store.steampowered.com/app/${esc(x.a)}/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Steam ↗</a>` : ""}</em></div>`; }).join("")}</div></section>`;
@@ -5150,21 +5185,24 @@ load();
 if (CLOUD){
   let lastPoll = Date.now();
   const poll = async () => {
-    if (document.hidden || !pass() || !S.snap || cur()==="wrapped" || Date.now() - lastPoll < 45000) return;
+    if (document.hidden || !pass() || !S.snap || cur()==="wrapped" || Date.now() - lastPoll < 25000) return;
     lastPoll = Date.now();
     try {
+      const st = await fetch(`stamp.json?t=${Date.now()}`, {cache:"no-store"}).then(r=>r.ok ? r.json() : null).catch(()=>null);
+      if (st && st.pushed && st.pushed === S.snap.pushed) return;          // nichts Neues – nur ein paar Bytes geladen
       const r = await fetch(`data.enc?t=${Date.now()}`, {cache:"no-store"}); if (!r.ok) return;
       const text = await r.text(); if (!text || text === store.get("gr_blob", null)) return;
       if ($("dialog[open]")) { lastPoll = 0; return; }
       loadCloud(true);
     } catch(e){}
   };
-  document.addEventListener("visibilitychange", poll); setInterval(poll, 180000);
+  document.addEventListener("visibilitychange", poll); setInterval(poll, 30000);
 }
+const liveSig = d => JSON.stringify([d.playing, d.last_sync, (d.pc||{}).downloads, (d.pc||{}).timer, d.plans, d.plan_resp, d.partner && [d.partner.at, d.partner.plans, d.partner.plan_resp]]);
 if (LOCAL) setInterval(()=>{ if (!document.hidden && cur()!=="wrapped") fetch("/api/data?period="+S.period).then(r=>r.json()).then(d=>{
-  const changed = JSON.stringify(d.playing) !== JSON.stringify(S.data && S.data.playing) || d.last_sync !== (S.data && S.data.last_sync);
+  const changed = !S.data || liveSig(d) !== liveSig(S.data);
   if (changed && !$("#detail").open && !$("#picker").open && !$("#settings").open) load(true);
-}).catch(()=>{}); }, 60000);
+}).catch(()=>{}); }, 30000);
 </script>
 </body>
 </html>
