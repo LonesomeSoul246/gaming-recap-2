@@ -13,5 +13,7 @@
   "4661070": 15,
   "5064340": 20
  },
- "status": []
+ "status": [
+  "Steam: HTTP Error 429: Too Many Requests"
+ ]
 }
